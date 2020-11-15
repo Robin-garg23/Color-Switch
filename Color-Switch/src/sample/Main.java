@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.sql.SQLOutput;
+
 public class Main extends Application {
 
     @Override
@@ -20,6 +22,7 @@ public class Main extends Application {
     public static void main(String[] args) {
         System.out.println("jig");
 
+        System.out.println("checkcheck");
         launch(args);
     }
 }
