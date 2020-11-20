@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Arc?>
+
+<Pane fx:id="circlepane" onMouseClicked="#rotata" prefHeight="220.0" prefWidth="231.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Circles">
+   <children>
+      <Arc fill="#f5f7f8" layoutX="121.0" layoutY="106.0" length="90.0" radiusX="100.0" radiusY="100.0" stroke="#fa02e0" strokeWidth="10.0" />
+      <Arc fill="#f5f7f8" layoutX="111.0" layoutY="116.0" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="#02b7fa" strokeWidth="10.0" />
+      <Arc fill="#f5f7f8" layoutX="111.0" layoutY="106.0" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="#effc01" strokeWidth="10.0" />
+      <Arc fill="#f5f7f8" layoutX="121.0" layoutY="116.0" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="270.0" stroke="#b702fa" strokeWidth="10.0" />
+   </children>
+</Pane>
