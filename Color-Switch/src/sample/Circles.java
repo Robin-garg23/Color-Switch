@@ -7,6 +7,7 @@ import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
@@ -21,36 +22,30 @@ import java.sql.SQLOutput;
 
 
 public class Circles extends Application {
-    @FXML
-    Pane circlepane;
+
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{
 
 
         Parent root = FXMLLoader.load(getClass().getResource("Circle.fxml"));
-        primaryStage.setTitle("Color Switch");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
-    }
-//    @FXML
-//    public void rotata(MouseEvent event)
-//    {
-//
-//    }
-    public static void main(String[] args) {
-        System.out.println("jig");
+        RotateTransition rotateTransition=new RotateTransition(Duration.seconds(2),root);
 
-        System.out.println("checkcheck");
-        launch(args);
-    }
-    @FXML
-    public void rotata(MouseEvent mouseEvent) {
-        RotateTransition rotateTransition=new RotateTransition(Duration.seconds(5),circlepane);
-        rotateTransition.setFromAngle(0);
         rotateTransition.setByAngle(360);
+        rotateTransition.setAxis(Rotate.Z_AXIS);
         rotateTransition.setCycleCount(400);
         rotateTransition.play();
+        primaryStage.setTitle("Color Switch");
+        Group root1 = new Group();
+        root1.getChildren().add(root);
+        primaryStage.setScene(new Scene(root1, 300, 275,Color.BLACK));
+        primaryStage.show();
 
+
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
