@@ -1,9 +1,6 @@
 package sample;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.RotateTransition;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,10 +27,9 @@ public class Circles extends Application {
     public void start(Stage primaryStage) throws Exception{
 
 
-        Parent root = FXMLLoader.load(getClass().getResource("Cross.fxml"));
-        RotateTransition rotateTransition=new RotateTransition(Duration.seconds(4),root);
-
-        rotateTransition.setByAngle(360);
+        Parent root = FXMLLoader.load(getClass().getResource("Circle.fxml"));
+        RotateTransition rotateTransition=new RotateTransition(Duration.seconds(5),root);
+        rotateTransition.setByAngle(720);
         rotateTransition.setAxis(Rotate.Z_AXIS);
         rotateTransition.setCycleCount(400);
         rotateTransition.play();
@@ -49,9 +45,6 @@ public class Circles extends Application {
 //
 //    }
     public static void main(String[] args) {
-        System.out.println("jig");
-
-        System.out.println("checkcheck");
         launch(args);
     }
 //    @FXML
