@@ -5,6 +5,7 @@
 <?import javafx.scene.PerspectiveCamera?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Polyline?>
 <?import javafx.scene.text.Font?>
@@ -12,6 +13,13 @@
 
 <AnchorPane prefHeight="470.0" prefWidth="452.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPageController">
    <children>
+      <Pane layoutX="-1.0" layoutY="-2.0" prefHeight="474.0" prefWidth="458.0" style="-fx-background-color: #000000;">
+         <children>
+            <PerspectiveCamera />
+            <AmbientLight color="CHARTREUSE" lightOn="true" />
+            <ParallelCamera />
+         </children>
+      </Pane>
       <Circle fill="#ff1ff6" layoutX="235.0" layoutY="224.0" radius="89.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fill="#1fff82" layoutX="235.0" layoutY="224.0" radius="76.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fill="#ff371f" layoutX="235.0" layoutY="224.0" radius="61.0" stroke="BLACK" strokeType="INSIDE" />
@@ -26,13 +34,10 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Text id="3" accessibleRole="BUTTON" blendMode="DARKEN" fill="#ea0404" layoutX="178.0" layoutY="378.0" onMouseClicked="#exit" strokeType="OUTSIDE" strokeWidth="0.0" text="Exit Game">
+      <Text id="3" accessibleRole="BUTTON" fill="#ea0404" layoutX="178.0" layoutY="378.0" onMouseClicked="#exit" strokeType="OUTSIDE" strokeWidth="0.0" text="Exit Game">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <AmbientLight color="CHARTREUSE" layoutX="214.0" layoutY="215.0" lightOn="true" />
-      <ParallelCamera layoutX="146.0" layoutY="215.0" />
-      <PerspectiveCamera layoutX="58.0" layoutY="215.0" />
    </children>
 </AnchorPane>
