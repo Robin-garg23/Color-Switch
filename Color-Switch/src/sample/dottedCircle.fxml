@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+
+
+<Pane prefHeight="380.0" prefWidth="496.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Group layoutX="102.0" layoutY="58.0">
+         <children>
+            <Circle fill="#fa02e0" layoutX="128.0" radius="15.0" stroke="#fa02e0" strokeType="INSIDE" />
+            <Circle fill="#fa02e0" layoutX="59.0" layoutY="26.0" radius="15.0" stroke="#fa02e0" strokeType="INSIDE" />
+            <Circle fill="#fa02e0" layoutX="10.0" layoutY="85.0" radius="15.0" stroke="#fa02e0" strokeType="INSIDE" />
+            <Circle fill="#fa02e0" layoutY="122.0" radius="15.0" stroke="#fa02e0" strokeType="INSIDE" />
+            <Circle fill="#fa02e0" layoutX="29.0" layoutY="51.0" radius="15.0" stroke="#fa02e0" strokeType="INSIDE" />
+            <Circle fill="#fa02e0" layoutX="91.0" layoutY="8.0" radius="15.0" stroke="#fa02e0" strokeType="INSIDE" />
+         </children>
+      </Group>
+      <Group layoutX="263.0" layoutY="220.0" rotate="180.0">
+         <children>
+            <Circle fill="#effc01" layoutX="128.0" radius="15.0" stroke="#effc01" strokeType="INSIDE" />
+            <Circle fill="#effc01" layoutX="59.0" layoutY="26.0" radius="15.0" stroke="#effc01" strokeType="INSIDE" />
+            <Circle fill="#effc01" layoutX="10.0" layoutY="85.0" radius="15.0" stroke="#effc01" strokeType="INSIDE" />
+            <Circle fill="#effc01" layoutY="122.0" radius="15.0" stroke="#effc01" strokeType="INSIDE" />
+            <Circle fill="#effc01" layoutX="29.0" layoutY="51.0" radius="15.0" stroke="#effc01" strokeType="INSIDE" />
+            <Circle fill="#effc01" layoutX="91.0" layoutY="8.0" radius="15.0" stroke="#effc01" strokeType="INSIDE" />
+         </children>
+      </Group>
+      <Group layoutX="263.0" layoutY="58.0" rotate="90.0">
+         <children>
+            <Circle fill="#02b7fa" layoutX="128.0" radius="15.0" stroke="#02b7fa" strokeType="INSIDE" />
+            <Circle fill="#02b7fa" layoutX="59.0" layoutY="26.0" radius="15.0" stroke="#02b7fa" strokeType="INSIDE" />
+            <Circle fill="#02b7fa" layoutX="10.0" layoutY="85.0" radius="15.0" stroke="#02b7fa" strokeType="INSIDE" />
+            <Circle fill="#02b7fa" layoutY="122.0" radius="15.0" stroke="#02b7fa" strokeType="INSIDE" />
+            <Circle fill="#02b7fa" layoutX="29.0" layoutY="51.0" radius="15.0" stroke="#02b7fa" strokeType="INSIDE" />
+            <Circle fill="#02b7fa" layoutX="91.0" layoutY="8.0" radius="15.0" stroke="#02b7fa" strokeType="INSIDE" />
+         </children>
+      </Group>
+      <Group layoutX="99.0" layoutY="220.0" rotate="270.0">
+         <children>
+            <Circle fill="#b702fa" layoutX="128.0" radius="15.0" stroke="#b702fa" strokeType="INSIDE" />
+            <Circle fill="#b702fa" layoutX="59.0" layoutY="26.0" radius="15.0" stroke="#b702fa" strokeType="INSIDE" />
+            <Circle fill="#b702fa" layoutX="10.0" layoutY="85.0" radius="15.0" stroke="#b702fa" strokeType="INSIDE" />
+            <Circle fill="#b702fa" layoutY="122.0" radius="15.0" stroke="#b702fa" strokeType="INSIDE" />
+            <Circle fill="#b702fa" layoutX="29.0" layoutY="51.0" radius="15.0" stroke="#b702fa" strokeType="INSIDE" />
+            <Circle fill="#b702fa" layoutX="91.0" layoutY="8.0" radius="15.0" stroke="#b702fa" strokeType="INSIDE" />
+         </children>
+      </Group>
+   </children>
+</Pane>
