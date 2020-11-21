@@ -18,11 +18,16 @@ public class MainPageController {
     public void play(MouseEvent event) throws IOException {
         System.out.println("playing");
         ConCircle a = new ConCircle();
+        pauseSymbol c=new pauseSymbol();
 //        StackPane pane= FXMLLoader.load(getClass().getResource("/sample/concircle.fxml"));
         a.playCon();
         pane=new StackPane();
         balljump b=new balljump();
-        pane.getChildren().addAll(a.concircl,b.root);
+        c.root.setTranslateX(400);
+        c.root.setTranslateY(25);
+
+        pane.getChildren().addAll(a.concircl,b.root,c.root);
+
         b.jump(pane);
         Main.root1.getChildren().setAll(pane);
 

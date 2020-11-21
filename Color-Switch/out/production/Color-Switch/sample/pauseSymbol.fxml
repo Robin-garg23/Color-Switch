@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+
+<AnchorPane prefHeight="32.0" prefWidth="17.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pauseSymbolController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="14.0" layoutY="1.0" onMouseClicked="#pause" stroke="BLACK" strokeType="INSIDE" width="19.0" />
+      <SVGPath content="M10 24h-6v-24h6v24zm10 0h-6v-24h6v24zm-11-23h-4v22h4v-22zm10 0h-4v22h4v-22z" fill="WHITE" layoutX="46.0" layoutY="17.0" translateX="-49.0" translateY="-16.0" />
+   </children>
+</AnchorPane>

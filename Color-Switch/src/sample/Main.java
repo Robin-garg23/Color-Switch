@@ -21,6 +21,7 @@ import java.util.List;
 import sample.mainPage;
 public class Main extends Application {
     public static Group root1;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
 

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="294.0" prefWidth="274.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PauseMenuController">
    <children>
-      <SVGPath content="M18.121,9.88l-7.832-7.836c-0.155-0.158-0.428-0.155-0.584,0L1.842,9.913c-0.262,0.263-0.073,0.705,0.292,0.705h2.069v7.042c0,0.227,0.187,0.414,0.414,0.414h3.725c0.228,0,0.414-0.188,0.414-0.414v-3.313h2.483v3.313c0,0.227,0.187,0.414,0.413,0.414h3.726c0.229,0,0.414-0.188,0.414-0.414v-7.042h2.068h0.004C18.331,10.617,18.389,10.146,18.121,9.88 M14.963,17.245h-2.896v-3.313c0-0.229-0.186-0.415-0.414-0.415H8.342c-0.228,0-0.414,0.187-0.414,0.415v3.313H5.032v-6.628h9.931V17.245z M3.133,9.79l6.864-6.868l6.867,6.868H3.133z" fill="WHITE" layoutX="44.0" layoutY="46.0" onMouseClicked="#home" scaleX="2.0" scaleY="2.0" />
-      <SVGPath content="M11.611,10.049l-4.76-4.873c-0.303-0.31-0.297-0.804,0.012-1.105c0.309-0.304,0.803-0.293,1.105,0.012l5.306,5.433c0.304,0.31,0.296,0.805-0.012,1.105L7.83,15.928c-0.152,0.148-0.35,0.223-0.547,0.223c-0.203,0-0.406-0.08-0.559-0.236c-0.303-0.309-0.295-0.803,0.012-1.104L11.611,10.049z" fill="WHITE" layoutX="126.0" layoutY="133.0" onMouseClicked="#resume" scaleX="3.0" scaleY="3.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="37.0" layoutX="37.0" layoutY="39.0" onMouseClicked="#home" stroke="BLACK" strokeType="INSIDE" width="33.0" />
+      <SVGPath content="M18.121,9.88l-7.832-7.836c-0.155-0.158-0.428-0.155-0.584,0L1.842,9.913c-0.262,0.263-0.073,0.705,0.292,0.705h2.069v7.042c0,0.227,0.187,0.414,0.414,0.414h3.725c0.228,0,0.414-0.188,0.414-0.414v-3.313h2.483v3.313c0,0.227,0.187,0.414,0.413,0.414h3.726c0.229,0,0.414-0.188,0.414-0.414v-7.042h2.068h0.004C18.331,10.617,18.389,10.146,18.121,9.88 M14.963,17.245h-2.896v-3.313c0-0.229-0.186-0.415-0.414-0.415H8.342c-0.228,0-0.414,0.187-0.414,0.415v3.313H5.032v-6.628h9.931V17.245z M3.133,9.79l6.864-6.868l6.867,6.868H3.133z" fill="WHITE" layoutX="44.0" layoutY="46.0" scaleX="2.0" scaleY="2.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="37.0" layoutX="122.0" layoutY="124.0" onMouseClicked="#resume" stroke="BLACK" strokeType="INSIDE" width="27.0" />
+      <SVGPath content="M11.611,10.049l-4.76-4.873c-0.303-0.31-0.297-0.804,0.012-1.105c0.309-0.304,0.803-0.293,1.105,0.012l5.306,5.433c0.304,0.31,0.296,0.805-0.012,1.105L7.83,15.928c-0.152,0.148-0.35,0.223-0.547,0.223c-0.203,0-0.406-0.08-0.559-0.236c-0.303-0.309-0.295-0.803,0.012-1.104L11.611,10.049z" fill="WHITE" layoutX="126.0" layoutY="133.0" scaleX="3.0" scaleY="3.0" />
       <Text fill="WHITE" layoutX="102.0" layoutY="221.0" onMouseClicked="#saveGame" scaleX="1.5" scaleY="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Save Game" wrappingWidth="66.07354736328125" />
    </children>
 </AnchorPane>
