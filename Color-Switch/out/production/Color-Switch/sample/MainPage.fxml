@@ -29,12 +29,12 @@
             <Blend />
          </effect>
       </Polyline>
-      <Text id="2" accessibleRole="BUTTON" fill="#bb0303" layoutX="153.0" layoutY="90.0" onMouseClicked="#savedGames" strokeType="OUTSIDE" strokeWidth="0.0" text="Saved Games" textAlignment="CENTER" wrappingWidth="164.23175048828125">
+      <Text id="2" accessibleRole="BUTTON" fill="#bb0303" layoutX="153.0" layoutY="90.0"  strokeType="OUTSIDE" strokeWidth="0.0" text="Saved Games" textAlignment="CENTER" wrappingWidth="164.23175048828125">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Text id="3" accessibleRole="BUTTON" fill="#ea0404" layoutX="178.0" layoutY="378.0" onMouseClicked="#exit" strokeType="OUTSIDE" strokeWidth="0.0" text="Exit Game">
+      <Text id="3" accessibleRole="BUTTON" fill="#ea0404" layoutX="178.0" layoutY="378.0"  strokeType="OUTSIDE" strokeWidth="0.0" text="Exit Game">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
