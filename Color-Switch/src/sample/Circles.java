@@ -1,42 +1,49 @@
 package sample;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.RotateTransition;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.sql.SQLOutput;
+import java.util.List;
 
 
 public class Circles extends Application {
-//    @FXML
-//    VBox circlepane;
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{
 
 
-        Parent root = FXMLLoader.load(getClass().getResource("Cross.fxml"));
-        RotateTransition rotateTransition=new RotateTransition(Duration.seconds(4),root);
-
-        rotateTransition.setByAngle(360);
+        StackPane root = FXMLLoader.load(getClass().getResource("concircle.fxml"));
+        List<Node> parentChildren = root.getChildren();
+        RotateTransition rotateTransition=new RotateTransition(Duration.millis(4000),parentChildren.get(0));
+        rotateTransition.setFromAngle(0);
+        rotateTransition.setToAngle(360);
+        rotateTransition.setInterpolator(Interpolator.LINEAR);
         rotateTransition.setAxis(Rotate.Z_AXIS);
-        rotateTransition.setCycleCount(400);
+        rotateTransition.setCycleCount(Timeline.INDEFINITE);
+        rotateTransition.setAutoReverse(false);
         rotateTransition.play();
+        RotateTransition rotateTransition1=new RotateTransition(Duration.millis(4000),parentChildren.get(1));
+        rotateTransition1.setFromAngle(360);
+        rotateTransition1.setToAngle(0);
+        rotateTransition1.setInterpolator(Interpolator.LINEAR);
+        rotateTransition1.setAxis(Rotate.Z_AXIS);
+        rotateTransition1.setCycleCount(Timeline.INDEFINITE);
+        rotateTransition1.setAutoReverse(false);
+        rotateTransition1.play();
         primaryStage.setTitle("Color Switch");
         Group root1 = new Group();
         root1.getChildren().add(root);
