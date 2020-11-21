@@ -108,26 +108,9 @@ public class Circles extends Application {
                 primaryStage.setScene(maina);
         primaryStage.show();
     }
-//    @FXML
-//    public void rotata(MouseEvent event)
-//    {
-//
-//    }
-    public static void main(String[] args) {
-        System.out.println("jig");
 
-        System.out.println("checkcheck");
+    public static void main(String[] args) {
         launch(args);
     }
-//    @FXML
-//    public void rotata(MouseEvent mouseEvent) {
-//        circlepane.setMaxHeight(250);
-//        circlepane.setMaxWidth(250);
-//        RotateTransition rotateTransition=new RotateTransition(Duration.seconds(1),circlepane);
-//        rotateTransition.setFromAngle(0);
-//        rotateTransition.setByAngle(360);
-//        rotateTransition.setCycleCount(400);
-//        rotateTransition.play();
-//
-//    }
+
 }
