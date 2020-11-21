@@ -29,9 +29,6 @@ public class Circles extends Application {
 
         AnchorPane root = FXMLLoader.load(getClass().getResource("Circle.fxml"));
 
-
-
-
         RotateTransition rotateTransition=new RotateTransition(Duration.millis(4000),root);
         rotateTransition.setFromAngle(0);
         rotateTransition.setToAngle(360);
@@ -48,26 +45,12 @@ public class Circles extends Application {
         primaryStage.setScene(new Scene(root1, 500, 500,Color.BLACK));
         primaryStage.show();
     }
-//    @FXML
-//    public void rotata(MouseEvent event)
-//    {
-//
-//    }
+
     public static void main(String[] args) {
         System.out.println("jig");
 
         System.out.println("checkcheck");
         launch(args);
     }
-//    @FXML
-//    public void rotata(MouseEvent mouseEvent) {
-//        circlepane.setMaxHeight(250);
-//        circlepane.setMaxWidth(250);
-//        RotateTransition rotateTransition=new RotateTransition(Duration.seconds(1),circlepane);
-//        rotateTransition.setFromAngle(0);
-//        rotateTransition.setByAngle(360);
-//        rotateTransition.setCycleCount(400);
-//        rotateTransition.play();
-//
-//    }
+
 }
