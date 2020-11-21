@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Arc?>
 
-<GridPane fx:id="circlepane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="210.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Circles">
-   <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="117.0" minWidth="10.0" prefWidth="109.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="108.0" minWidth="10.0" prefWidth="101.0" />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints maxHeight="114.0" minHeight="10.0" prefHeight="104.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="106.0" minHeight="10.0" prefHeight="105.0" vgrow="SOMETIMES" />
-   </rowConstraints>
+
+<AnchorPane prefHeight="177.0" prefWidth="205.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Circles">
    <children>
-      <Arc length="90.0" radiusX="100.0" radiusY="100.0" stroke="#fa02e0" strokeType="INSIDE" strokeWidth="10.0" GridPane.columnIndex="1" />
-      <Arc length="90.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="#02b7fa" strokeType="INSIDE" strokeWidth="10.0" GridPane.rowIndex="1" />
-      <Arc length="90.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="#effc01" strokeType="INSIDE" strokeWidth="10.0" />
-      <Arc length="90.0" radiusX="100.0" radiusY="100.0" startAngle="270.0" stroke="#b702fa" strokeType="INSIDE" strokeWidth="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Group layoutX="100.0" layoutY="138.0">
+         <children>
+            <Arc layoutX="99.99999999999999" layoutY="101.00000000000003" length="90.0" radiusX="100.0" radiusY="100.0" scaleZ="0.0" startAngle="270.0" stroke="#b702fa" strokeType="INSIDE" strokeWidth="10.0" translateX="-97.0" translateY="-138.0" />
+            <Arc length="90.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="#effc01" strokeType="INSIDE" strokeWidth="10.0" translateY="-36.0" />
+            <Arc layoutY="99.99999999999999" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="#02b7fa" strokeType="INSIDE" strokeWidth="10.0" translateX="1.0" translateY="-138.0" />
+            <Arc layoutX="100.0" length="90.0" radiusX="100.0" radiusY="100.0" stroke="#fa02e0" strokeType="INSIDE" strokeWidth="10.0" translateX="-97.0" translateY="-36.0" />
+         </children>
+      </Group>
    </children>
-</GridPane>
+</AnchorPane>
