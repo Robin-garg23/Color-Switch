@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Rectangle?>
 
-
-<GridPane prefHeight="215.0" prefWidth="215.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane prefHeight="194.0" prefWidth="220.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <columnConstraints>
       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="0.0" prefWidth="107.5" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -16,9 +15,9 @@
       <RowConstraints maxHeight="107.5" minHeight="0.0" prefHeight="107.5" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#effc01" height="145.0" rotate="45.0" stroke="#effc01" strokeLineJoin="ROUND" strokeType="INSIDE" width="31.0" GridPane.rowIndex="1" />
-      <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#b702fa" height="145.0" rotate="-45.0" stroke="#b702fa" strokeLineJoin="ROUND" strokeType="INSIDE" translateX="3.0" width="31.0" />
-      <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#fa02e0" height="145.0" rotate="45.0" stroke="#fa02e0" strokeLineJoin="ROUND" strokeType="INSIDE" translateX="40.0" translateY="-2.0" width="31.0" GridPane.columnIndex="1" />
-      <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#02b7fa" height="145.0" rotate="-45.0" stroke="#02b7fa" strokeLineJoin="ROUND" strokeType="INSIDE" translateX="40.0" translateY="2.0" width="31.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#effc01" height="127.0" rotate="45.0" stroke="#effc01" strokeLineJoin="ROUND" strokeType="INSIDE" translateX="13.0" translateY="-9.0" width="33.0" GridPane.rowIndex="1" />
+      <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#b702fa" height="127.0" rotate="-45.0" stroke="#b702fa" strokeLineJoin="ROUND" strokeType="INSIDE" translateX="7.0" translateY="7.0" width="33.0" />
+      <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#fa02e0" height="127.0" rotate="45.0" stroke="#fa02e0" strokeLineJoin="ROUND" strokeType="INSIDE" translateX="31.0" translateY="4.0" width="33.0" GridPane.columnIndex="1" />
+      <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#02b7fa" height="127.0" rotate="-45.0" stroke="#02b7fa" strokeLineJoin="ROUND" strokeType="INSIDE" translateX="34.0" translateY="-7.0" width="33.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
    </children>
 </GridPane>
