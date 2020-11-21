@@ -29,27 +29,15 @@ public class Circles extends Application {
         StackPane rootr = FXMLLoader.load(getClass().getResource("ball.fxml"));
         TranslateTransition translateTransition = new TranslateTransition();
         List<Node> aa=rootr.getChildren();
-        //Setting the duration of the transition
         translateTransition.setDuration(Duration.millis(400000));
-
-        //Setting the node for the transition
         translateTransition.setNode(rootr);
         translateTransition.setRate(4);
-
-        //Setting the value of the transition along the x axis.
         translateTransition.setFromX(120);
         translateTransition.setFromY(300);
 //        translateTransition.setByY(100);
         translateTransition.setToY(10001);
         translateTransition.setInterpolator(Interpolator.LINEAR);
-
-        //Setting the cycle count for the transition
-//        translateTransition.setCycleCount(1);
-
-        //Setting auto reverse value to false
         translateTransition.setAutoReverse(false);
-
-        //Playing the animation
         translateTransition.play();
 
 
@@ -84,23 +72,11 @@ public class Circles extends Application {
                                     @Override
                                     public void handle(javafx.scene.input.MouseEvent event) {
                                         TranslateTransition translateTransition = new TranslateTransition();
-
-                                        //Setting the duration of the transition
                                         translateTransition.setDuration(Duration.millis(500));
-
-                                        //Setting the node for the transition
                                         translateTransition.setNode(aa.get(0));
-
-                                        //Setting the value of the transition along the x axis.
                                         translateTransition.setByY(-150);
-
-                                        //Setting the cycle count for the transition
                                         translateTransition.setCycleCount(1);
-
-                                        //Setting auto reverse value to false
                                         translateTransition.setAutoReverse(false);
-
-                                        //Playing the animation
                                         translateTransition.play();
                                         System.out.println("mouse click detected! ");
                                     }

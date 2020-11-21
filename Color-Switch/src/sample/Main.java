@@ -20,16 +20,16 @@ import java.sql.SQLOutput;
 import java.util.List;
 import sample.mainPage;
 public class Main extends Application {
-
+    public static Group root1;
     @Override
     public void start(Stage primaryStage) throws Exception{
 
         mainPage page=new mainPage();
         page.initiateTransitions();
         primaryStage.setTitle("Color Switch");
-        Group root1 = new Group();
+        root1 = new Group();
         root1.getChildren().add(page.root);
-        primaryStage.setScene(new Scene(root1, 500, 500,Color.BLACK));
+        primaryStage.setScene(new Scene(root1, 500, 700,Color.BLACK));
         primaryStage.show();
     }
 
