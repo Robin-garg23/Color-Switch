@@ -21,10 +21,9 @@ public class MainPageController {
 //        StackPane pane= FXMLLoader.load(getClass().getResource("/sample/concircle.fxml"));
         a.playCon();
         pane=new StackPane();
-//        pane=a.concircl;
         balljump b=new balljump();
-        b.jump();
         pane.getChildren().addAll(a.concircl,b.root);
+        b.jump(pane);
         Main.root1.getChildren().setAll(pane);
 
     }
