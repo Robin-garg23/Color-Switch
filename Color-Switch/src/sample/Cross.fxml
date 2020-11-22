@@ -15,9 +15,13 @@
       <RowConstraints maxHeight="107.5" minHeight="0.0" prefHeight="107.5" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#effc01" height="127.0" rotate="45.0" stroke="#effc01" strokeLineJoin="ROUND" strokeType="INSIDE" translateX="13.0" translateY="-9.0" width="33.0" GridPane.rowIndex="1" />
-      <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#b702fa" height="127.0" rotate="-45.0" stroke="#b702fa" strokeLineJoin="ROUND" strokeType="INSIDE" translateX="7.0" translateY="7.0" width="33.0" />
-      <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#fa02e0" height="127.0" rotate="45.0" stroke="#fa02e0" strokeLineJoin="ROUND" strokeType="INSIDE" translateX="31.0" translateY="4.0" width="33.0" GridPane.columnIndex="1" />
-      <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#02b7fa" height="127.0" rotate="-45.0" stroke="#02b7fa" strokeLineJoin="ROUND" strokeType="INSIDE" translateX="34.0" translateY="-7.0" width="33.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#fae100" height="127.0" rotate="45.0" stroke="#fae100"
+                 strokeLineJoin="ROUND" strokeType="INSIDE" translateX="13.0" translateY="-9.0" width="33.0" GridPane.rowIndex="1" />
+      <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#900dff" height="127.0" rotate="-45.0" stroke="#900dff"
+                 strokeLineJoin="ROUND" strokeType="INSIDE" translateX="7.0" translateY="7.0" width="33.0" />
+      <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#ff0181" height="127.0" rotate="45.0" stroke="#ff0181"
+                 strokeLineJoin="ROUND" strokeType="INSIDE" translateX="31.0" translateY="4.0" width="33.0" GridPane.columnIndex="1" />
+      <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#32dbf0" height="127.0" rotate="-45.0" stroke="#32dbf0"
+                 strokeLineJoin="ROUND" strokeType="INSIDE" translateX="34.0" translateY="-7.0" width="33.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
    </children>
 </GridPane>
