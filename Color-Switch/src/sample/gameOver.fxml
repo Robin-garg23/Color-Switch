@@ -1,35 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="361.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gameOverController">
    <children>
-      <Text layoutX="91.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Over">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#272727" height="41.0" layoutX="163.0" layoutY="283.0" onMouseClicked="#restart" stroke="#272727" strokeType="INSIDE" width="42.0" />
+      <SVGPath content="M12.083,1.887c-0.795-0.794-1.73-1.359-2.727-1.697v2.135c0.48,0.239,0.935,0.55,1.334,0.95c1.993,1.994,1.993,5.236,0,7.229c-1.993,1.99-5.233,1.99-7.229,0c-1.991-1.995-1.991-5.235,0-7.229C3.466,3.269,3.482,3.259,3.489,3.25h0.002l1.181,1.179L4.665,0.685L0.923,0.68l1.176,1.176C2.092,1.868,2.081,1.88,2.072,1.887c-2.763,2.762-2.763,7.243,0,10.005c2.767,2.765,7.245,2.765,10.011,0C14.844,9.13,14.847,4.649,12.083,1.887z" fill="WHITE" layoutX="147.0" layoutY="256.0" scaleX="3.0" scaleY="3.0" translateX="31.0" translateY="41.0" />
+      <Text fill="WHITE" layoutX="57.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10">
          <font>
-            <Font size="36.0" />
+            <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="132.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Awww">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f6366" height="35.0" layoutX="2.0" layoutY="91.0" stroke="BLACK" strokeType="INSIDE" width="370.0" />
+      <Text fill="WHITE" layoutX="151.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SCORE" translateY="11.0">
          <font>
-            <Font size="34.0" />
+            <Font size="24.0" />
          </font>
       </Text>
-      <Text accessibleRole="BUTTON" layoutX="82.0" layoutY="228.0" onMouseClicked="#restart" strokeType="OUTSIDE" strokeWidth="0.0" text="Restart">
+      <Text fill="WHITE" layoutX="168.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" translateY="-10.0">
          <font>
-            <Font size="26.0" />
+            <Font name="Corbel" size="46.0" />
          </font>
       </Text>
-      <Text accessibleRole="BUTTON" layoutX="192.0" layoutY="229.0" onMouseClicked="#home" strokeType="OUTSIDE" strokeWidth="0.0" text="Go to home">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb521" height="32.0" layoutY="184.0" stroke="BLACK" strokeType="INSIDE" width="370.0" />
+      <Text fill="WHITE" layoutX="168.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BEST SCORE" translateX="-36.0" translateY="1.0">
          <font>
-            <Font size="26.0" />
+            <Font size="21.0" />
          </font>
       </Text>
-      <Text accessibleRole="BUTTON" layoutX="58.0" layoutY="278.0" onMouseClicked="#Continue" strokeType="OUTSIDE" strokeWidth="0.0" text="Continue by using stars">
+      <Text fill="WHITE" layoutX="153.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20" translateY="-4.0">
          <font>
-            <Font size="26.0" />
+            <Font size="46.0" />
          </font>
       </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#272727" height="46.0" layoutX="9.0" layoutY="17.0" onMouseClicked="#home" stroke="#272727" strokeType="INSIDE" width="42.0" />
+      <SVGPath content="m498.699219 222.695312c-.015625-.011718-.027344-.027343-.039063-.039062l-208.855468-208.847656c-8.902344-8.90625-20.738282-13.808594-33.328126-13.808594-12.589843 0-24.425781 4.902344-33.332031 13.808594l-208.746093 208.742187c-.070313.070313-.144532.144531-.210938.214844-18.28125 18.386719-18.25 48.21875.089844 66.558594 8.378906 8.382812 19.441406 13.234375 31.273437 13.746093.484375.046876.96875.070313 1.457031.070313h8.320313v153.695313c0 30.417968 24.75 55.164062 55.167969 55.164062h81.710937c8.285157 0 15-6.71875 15-15v-120.5c0-13.878906 11.292969-25.167969 25.171875-25.167969h48.195313c13.878906 0 25.167969 11.289063 25.167969 25.167969v120.5c0 8.28125 6.714843 15 15 15h81.710937c30.421875 0 55.167969-24.746094 55.167969-55.164062v-153.695313h7.71875c12.585937 0 24.421875-4.902344 33.332031-13.8125 18.359375-18.367187 18.367187-48.253906.027344-66.632813zm-21.242188 45.421876c-3.238281 3.238281-7.542969 5.023437-12.117187 5.023437h-22.71875c-8.285156 0-15 6.714844-15 15v168.695313c0 13.875-11.289063 25.164062-25.167969 25.164062h-66.710937v-105.5c0-30.417969-24.746094-55.167969-55.167969-55.167969h-48.195313c-30.421875 0-55.171875 24.75-55.171875 55.167969v105.5h-66.710937c-13.875 0-25.167969-11.289062-25.167969-25.164062v-168.695313c0-8.285156-6.714844-15-15-15h-22.328125c-.234375-.015625-.464844-.027344-.703125-.03125-4.46875-.078125-8.660156-1.851563-11.800781-4.996094-6.679688-6.679687-6.679688-17.550781 0-24.234375.003906 0 .003906-.003906.007812-.007812l.011719-.011719 208.847656-208.839844c3.234375-3.238281 7.535157-5.019531 12.113281-5.019531 4.574219 0 8.875 1.78125 12.113282 5.019531l208.800781 208.796875c.03125.03125.066406.0625.097656.09375 6.644531 6.691406 6.632813 17.539063-.03125 24.207032zm0 0" fill="WHITE" layoutX="-206.0" layoutY="-216.0" scaleX="0.08" scaleY="0.08" translateX="-19.0" />
+      <ImageView fitHeight="92.0" fitWidth="199.0" layoutX="79.0" layoutY="-1.0">
+         <image>
+            <Image url="@ColorSwitch_Full-Color-Logo+(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="49.0" layoutY="263.0">
+         <image>
+            <Image url="@Star.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="94.0" layoutY="274.0" rotate="26.0" translateX="-7.0" translateY="-2.0">
+         <image>
+            <Image url="@Star.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="11.0" layoutY="274.0" rotate="-26.0">
+         <image>
+            <Image url="@Star.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
