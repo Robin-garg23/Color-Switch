@@ -25,6 +25,7 @@ public class mainPage {
 
     mainPage() throws IOException {
         root = FXMLLoader.load(getClass().getResource("NewMainPage.fxml"));
+        root.setTranslateX(-50);
     }
 
     public void initiateTransitions(){
@@ -69,8 +70,8 @@ public class mainPage {
         rotateTransition3.setAutoReverse(false);
         rotateTransition3.play();
         RotateTransition rotateTransition4=new RotateTransition(Duration.millis(4000),parentChildren.get(4));
-        rotateTransition4.setFromAngle(360);
-        rotateTransition4.setToAngle(0);
+        rotateTransition4.setFromAngle(0);
+        rotateTransition4.setToAngle(360);
         rotateTransition4.setInterpolator(Interpolator.LINEAR);
         rotateTransition4.setAxis(Rotate.Z_AXIS);
         rotateTransition4.setCycleCount(Timeline.INDEFINITE);
@@ -85,8 +86,8 @@ public class mainPage {
         rotateTransition5.setAutoReverse(false);
         rotateTransition5.play();
         RotateTransition rotateTransition6=new RotateTransition(Duration.millis(4000),parentChildren.get(13));
-        rotateTransition6.setFromAngle(0);
-        rotateTransition6.setToAngle(360);
+        rotateTransition6.setFromAngle(360);
+        rotateTransition6.setToAngle(0);
         rotateTransition6.setInterpolator(Interpolator.LINEAR);
         rotateTransition6.setAxis(Rotate.Z_AXIS);
         rotateTransition6.setCycleCount(Timeline.INDEFINITE);

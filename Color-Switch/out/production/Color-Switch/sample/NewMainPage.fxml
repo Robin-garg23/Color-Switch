@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainpage" prefHeight="568.0" prefWidth="516.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPageController">
+<AnchorPane fx:id="mainpage" prefHeight="568.0" prefWidth="516.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPageController">
    <children>
       <Polyline id="1" accessibleRole="BUTTON" accessibleText="play" fill="#68c60b" onMouseClicked="#play" points="1.52587890625E-5, 22.333343505859375, 1.52587890625E-5, -25.0, 38.666656494140625, 0.333343505859375, 1.52587890625E-5, 22.333343505859375" scaleX="0.8" scaleY="0.8" strokeType="INSIDE" translateX="270.0" translateY="319.0">
          <effect>
@@ -106,7 +106,7 @@
       <Label layoutX="268.0" layoutY="422.0" text="Label" />
       <ImageView fitHeight="44.0" fitWidth="200.0" layoutX="182.0" layoutY="427.0" onMouseClicked="#savedGames">
          <image>
-            <Image url="@/sample/loadGame.jpg" />
+            <Image url="@loadGame.jpg" />
          </image>
       </ImageView>
       <Group layoutX="267.0" layoutY="330.0" scaleX="2.25" scaleY="2.25" translateX="15.0" translateY="-10.0">

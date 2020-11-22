@@ -25,11 +25,14 @@ public class MainPageController {
         a.playCon();
         pane=new StackPane();
         balljump b=new balljump();
+        Star d=new Star();
+        Score e=new Score();
+        d.spawnstar();
         c.root.setTranslateX(400);
         c.root.setTranslateY(25);
         b.root.setTranslateX(50);
         b.root.setTranslateY(400);
-        pane.getChildren().addAll(a.concircl,b.root,c.root);
+        pane.getChildren().addAll(a.concircl,b.root,c.root,d.imageView,e.a);
         pane.setOnMouseClicked(event2 -> {
             collision(b);
                 });

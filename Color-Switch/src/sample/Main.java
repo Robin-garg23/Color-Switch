@@ -30,7 +30,7 @@ public class Main extends Application {
         primaryStage.setTitle("Color Switch");
         root1 = new Group();
         root1.getChildren().add(page.root);
-        primaryStage.setScene(new Scene(root1, 500, 700,Color.web("#272727")));
+        primaryStage.setScene(new Scene(root1, 450, 650,Color.web("#272727")));
         primaryStage.show();
     }
 
