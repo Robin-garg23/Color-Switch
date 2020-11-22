@@ -32,8 +32,9 @@ public class balljump {
 
     }
 
-    public void jump(StackPane pane) {
+    public void jump(StackPane pane) throws IOException {
 
+            gameOver bye=new gameOver();
             TranslateTransition translateTransition = new TranslateTransition();
             translateTransition.setDuration(Duration.millis(400000));
             translateTransition.setNode(root);
@@ -56,9 +57,11 @@ public class balljump {
             if(gg>600)
             {
                 StackPane pane1=new StackPane();
+
+                pane1.getChildren().add(bye.root);
                 Main.root1.getChildren().setAll(pane1);
             }
-//            System.out.println();
+            System.out.println();
 
                 translateTransition1.setByY(-150);
                 translateTransition1.setCycleCount(1);
@@ -66,6 +69,8 @@ public class balljump {
                 translateTransition1.play();
                 System.out.println("mouse click detected! " );
         });
+
+
 
     }
 

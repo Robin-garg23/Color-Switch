@@ -84,6 +84,14 @@ public class mainPage {
         rotateTransition5.setCycleCount(Timeline.INDEFINITE);
         rotateTransition5.setAutoReverse(false);
         rotateTransition5.play();
+        RotateTransition rotateTransition6=new RotateTransition(Duration.millis(4000),parentChildren.get(13));
+        rotateTransition6.setFromAngle(0);
+        rotateTransition6.setToAngle(360);
+        rotateTransition6.setInterpolator(Interpolator.LINEAR);
+        rotateTransition6.setAxis(Rotate.Z_AXIS);
+        rotateTransition6.setCycleCount(Timeline.INDEFINITE);
+        rotateTransition6.setAutoReverse(false);
+        rotateTransition6.play();
 
     }
 
