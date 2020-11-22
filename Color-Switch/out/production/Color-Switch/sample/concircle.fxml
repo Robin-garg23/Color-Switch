@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Arc?>
 
-<StackPane rotate="45.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" >
+<StackPane rotate="45.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane fx:id="bdacircle" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0">
          <columnConstraints>
@@ -18,10 +18,10 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Arc length="90.0" radiusX="130.0" radiusY="130.0" startAngle="180.0" stroke="#02b7fa" strokeType="INSIDE" strokeWidth="10.0" translateX="20.0" translateY="-10.0" GridPane.rowIndex="1" />
-            <Arc length="90.0" radiusX="130.0" radiusY="130.0" stroke="#fa02e0" strokeType="INSIDE" strokeWidth="10.0" translateY="10.0" GridPane.columnIndex="1" />
-            <Arc length="90.0" radiusX="130.0" radiusY="130.0" startAngle="90.0" stroke="#effc01" strokeType="INSIDE" strokeWidth="10.0" translateX="20.0" translateY="10.0" />
-            <Arc length="90.0" radiusX="130.0" radiusY="130.0" startAngle="270.0" stroke="#b702fa" strokeType="INSIDE" strokeWidth="10.0" translateY="-10.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Arc fill="#272727" length="90.0" radiusX="130.0" radiusY="130.0" startAngle="180.0" stroke="#02b7fa" strokeType="INSIDE" strokeWidth="10.0" translateX="20.0" translateY="-10.0" GridPane.rowIndex="1" />
+            <Arc fill="#272727" length="90.0" radiusX="130.0" radiusY="130.0" stroke="#fa02e0" strokeType="INSIDE" strokeWidth="10.0" translateY="10.0" GridPane.columnIndex="1" />
+            <Arc fill="#272727" length="90.0" radiusX="130.0" radiusY="130.0" startAngle="90.0" stroke="#effc01" strokeType="INSIDE" strokeWidth="10.0" translateX="20.0" translateY="10.0" />
+            <Arc fill="#272727" length="90.0" radiusX="130.0" radiusY="130.0" startAngle="270.0" stroke="#b702fa" strokeType="INSIDE" strokeWidth="10.0" translateY="-10.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <GridPane fx:id="chotacircle" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" style="-fx-background-color: transparent;">
@@ -34,10 +34,10 @@
             <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="150.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Arc length="90.0" radiusX="100.0" radiusY="100.0" stroke="#fa02e0" strokeType="INSIDE" strokeWidth="10.0" translateY="25.0" GridPane.columnIndex="1" />
-            <Arc length="90.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="#02b7fa" strokeType="INSIDE" strokeWidth="10.0" translateX="50.0" translateY="-25.0" GridPane.rowIndex="1" />
-            <Arc length="90.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="#effc01" strokeType="INSIDE" strokeWidth="10.0" translateX="50.0" translateY="25.0" />
-            <Arc length="90.0" radiusX="100.0" radiusY="100.0" startAngle="270.0" stroke="#b702fa" strokeType="INSIDE" strokeWidth="10.0" translateY="-25.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Arc fill="#272727" length="90.0" radiusX="100.0" radiusY="100.0" stroke="#fa02e0" strokeType="INSIDE" strokeWidth="10.0" translateY="25.0" GridPane.columnIndex="1" />
+            <Arc fill="#272727" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="#02b7fa" strokeType="INSIDE" strokeWidth="10.0" translateX="50.0" translateY="-25.0" GridPane.rowIndex="1" />
+            <Arc fill="#272727" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="#effc01" strokeType="INSIDE" strokeWidth="10.0" translateX="50.0" translateY="25.0" />
+            <Arc fill="#272727" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="270.0" stroke="#b702fa" strokeType="INSIDE" strokeWidth="10.0" translateY="-25.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </children>

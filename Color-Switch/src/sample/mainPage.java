@@ -32,11 +32,11 @@ public class mainPage {
         List<Node> parentChildren = root.getChildren();
 
 
-        StackPane first=(StackPane)parentChildren.get(5);
-        StackPane second=(StackPane)parentChildren.get(6);
+        StackPane first=(StackPane)parentChildren.get(2);
+        StackPane second=(StackPane)parentChildren.get(3);
         List<Node> firstone=first.getChildren();
         List<Node> secondone=second.getChildren();
-        RotateTransition rotateTransition=new RotateTransition(Duration.millis(4000),firstone.get(0));
+        RotateTransition rotateTransition=new RotateTransition(Duration.millis(4000),firstone.get(2));
         rotateTransition.setFromAngle(0);
         rotateTransition.setToAngle(360);
         rotateTransition.setInterpolator(Interpolator.LINEAR);
@@ -44,7 +44,7 @@ public class mainPage {
         rotateTransition.setCycleCount(Timeline.INDEFINITE);
         rotateTransition.setAutoReverse(false);
         rotateTransition.play();
-        RotateTransition rotateTransition1=new RotateTransition(Duration.millis(4000),firstone.get(1));
+        RotateTransition rotateTransition1=new RotateTransition(Duration.millis(4000),firstone.get(3));
         rotateTransition1.setFromAngle(360);
         rotateTransition1.setToAngle(0);
         rotateTransition1.setInterpolator(Interpolator.LINEAR);
@@ -52,7 +52,7 @@ public class mainPage {
         rotateTransition1.setCycleCount(Timeline.INDEFINITE);
         rotateTransition1.setAutoReverse(false);
         rotateTransition1.play();
-        RotateTransition rotateTransition2=new RotateTransition(Duration.millis(4000),secondone.get(0));
+        RotateTransition rotateTransition2=new RotateTransition(Duration.millis(4000),secondone.get(1));
         rotateTransition2.setFromAngle(0);
         rotateTransition2.setToAngle(360);
         rotateTransition2.setInterpolator(Interpolator.LINEAR);
@@ -60,7 +60,7 @@ public class mainPage {
         rotateTransition2.setCycleCount(Timeline.INDEFINITE);
         rotateTransition2.setAutoReverse(false);
         rotateTransition2.play();
-        RotateTransition rotateTransition3=new RotateTransition(Duration.millis(4000),secondone.get(1));
+        RotateTransition rotateTransition3=new RotateTransition(Duration.millis(4000),secondone.get(2));
         rotateTransition3.setFromAngle(360);
         rotateTransition3.setToAngle(0);
         rotateTransition3.setInterpolator(Interpolator.LINEAR);
@@ -68,7 +68,7 @@ public class mainPage {
         rotateTransition3.setCycleCount(Timeline.INDEFINITE);
         rotateTransition3.setAutoReverse(false);
         rotateTransition3.play();
-        RotateTransition rotateTransition4=new RotateTransition(Duration.millis(4000),parentChildren.get(7));
+        RotateTransition rotateTransition4=new RotateTransition(Duration.millis(4000),parentChildren.get(4));
         rotateTransition4.setFromAngle(360);
         rotateTransition4.setToAngle(0);
         rotateTransition4.setInterpolator(Interpolator.LINEAR);
@@ -76,7 +76,7 @@ public class mainPage {
         rotateTransition4.setCycleCount(Timeline.INDEFINITE);
         rotateTransition4.setAutoReverse(false);
         rotateTransition4.play();
-        RotateTransition rotateTransition5=new RotateTransition(Duration.millis(4000),parentChildren.get(8));
+        RotateTransition rotateTransition5=new RotateTransition(Duration.millis(4000),parentChildren.get(5));
         rotateTransition5.setFromAngle(0);
         rotateTransition5.setToAngle(360);
         rotateTransition5.setInterpolator(Interpolator.LINEAR);

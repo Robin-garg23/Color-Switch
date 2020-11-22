@@ -41,6 +41,12 @@ public class MainPageController {
     @FXML
     public void exit(MouseEvent event){
         System.out.println("exiting");
+        System.exit(0);
+    }
+    @FXML
+    public void help(MouseEvent event){
+        System.out.println("Made by Utkarsh");
+
     }
 
 }

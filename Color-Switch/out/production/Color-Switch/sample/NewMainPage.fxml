@@ -5,92 +5,100 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Polyline?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainpage" prefHeight="568.0" prefWidth="516.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPageController">
+<AnchorPane fx:id="mainpage" prefHeight="568.0" prefWidth="516.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPageController">
    <children>
-      <Polyline id="1" accessibleRole="BUTTON" accessibleText="play" fill="#68c60b" onMouseClicked="#play" points="1.52587890625E-5, 22.333343505859375, 1.52587890625E-5, -25.0, 38.666656494140625, 0.333343505859375, 1.52587890625E-5, 22.333343505859375" strokeType="INSIDE" translateX="246.0" translateY="319.0">
+      <Polyline id="1" accessibleRole="BUTTON" accessibleText="play" fill="#68c60b" onMouseClicked="#play" points="1.52587890625E-5, 22.333343505859375, 1.52587890625E-5, -25.0, 38.666656494140625, 0.333343505859375, 1.52587890625E-5, 22.333343505859375" scaleX="0.8" scaleY="0.8" strokeType="INSIDE" translateX="270.0" translateY="319.0">
          <effect>
             <Blend />
          </effect>
       </Polyline>
-      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="C" translateX="67.0" translateY="113.0">
+      <Text fill="WHITE" layoutX="64.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SWITCH" translateX="72.0" translateY="79.0" wrappingWidth="399.4492607116699">
          <font>
-            <Font size="96.0" />
+            <Font size="79.0" />
          </font>
       </Text>
-      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="L" translateX="236.0" translateY="113.0">
-         <font>
-            <Font size="96.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="R" translateX="387.0" translateY="113.0">
-         <font>
-            <Font size="96.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="97.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="S W I T C H" wrappingWidth="418.78257751464844">
-         <font>
-            <Font size="65.0" />
-         </font>
-      </Text>
-      <StackPane layoutX="135.0" layoutY="-136.0" minWidth="-Infinity" prefHeight="279.0" prefWidth="88.0" style="-fx-background-color: black;">
+      <StackPane layoutX="183.0" layoutY="-136.0" minWidth="-Infinity" prefHeight="270.0" prefWidth="88.0" style="-fx-background-color: #272727;">
          <children>
-            <Group translateY="74.0">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="C" translateX="-62.0" translateY="76.0">
+               <font>
+                  <Font size="79.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="L" translateX="51.0" translateY="76.0">
+               <font>
+                  <Font size="79.0" />
+               </font>
+            </Text>
+            <Group scaleX="0.8" scaleY="0.8" translateY="81.0">
                <children>
-                  <Arc length="90.0" radiusX="22.0" radiusY="22.0" startAngle="180.0" stroke="#02b7fa" strokeType="INSIDE" strokeWidth="4.0" />
-                  <Arc length="90.0" radiusX="22.0" radiusY="22.0" stroke="#fa02e0" strokeType="INSIDE" strokeWidth="4.0" />
-                  <Arc length="90.0" radiusX="22.0" radiusY="22.0" startAngle="90.0" stroke="#effc01" strokeType="INSIDE" strokeWidth="4.0" />
-                  <Arc length="90.0" radiusX="22.0" radiusY="22.0" startAngle="270.0" stroke="#b702fa" strokeType="INSIDE" strokeWidth="4.0" />
+                  <Arc fill="#272727" length="90.0" radiusX="22.0" radiusY="22.0" startAngle="180.0" stroke="#32dbf0" strokeType="INSIDE" strokeWidth="4.0" />
+                  <Arc fill="#272727" length="90.0" radiusX="22.0" radiusY="22.0" stroke="#ff0181" strokeType="INSIDE" strokeWidth="4.0" />
+                  <Arc fill="#272727" length="90.0" radiusX="22.0" radiusY="22.0" startAngle="90.0" stroke="#fae100" strokeType="INSIDE" strokeWidth="4.0" />
+                  <Arc fill="#272727" length="90.0" radiusX="22.0" radiusY="22.0" startAngle="270.0" stroke="#900dff" strokeType="INSIDE" strokeWidth="4.0" />
                </children>
             </Group>
-            <Group translateY="73.0">
+            <Group scaleX="0.8" scaleY="0.8" translateY="81.0">
                <children>
-                  <Arc length="90.0" radiusX="40.0" radiusY="40.0" stroke="#fa02e0" strokeType="INSIDE" strokeWidth="7.0" />
-                  <Arc length="90.0" radiusX="40.0" radiusY="40.0" startAngle="180.0" stroke="#02b7fa" strokeType="INSIDE" strokeWidth="7.0" />
-                  <Arc length="90.0" radiusX="40.0" radiusY="40.0" startAngle="90.0" stroke="#effc01" strokeType="INSIDE" strokeWidth="7.0" />
-                  <Arc length="90.0" radiusX="40.0" radiusY="40.0" startAngle="270.0" stroke="#b702fa" strokeType="INSIDE" strokeWidth="7.0" />
+                  <Arc fill="#272727" length="90.0" radiusX="40.0" radiusY="40.0" stroke="#ff0181" strokeType="INSIDE" strokeWidth="7.0" />
+                  <Arc fill="#272727" length="90.0" radiusX="40.0" radiusY="40.0" startAngle="180.0" stroke="#32dbf0" strokeType="INSIDE" strokeWidth="7.0" />
+                  <Arc fill="#272727" length="90.0" radiusX="40.0" radiusY="40.0" startAngle="90.0" stroke="#fae100" strokeType="INSIDE" strokeWidth="7.0" />
+                  <Arc fill="#272727" length="90.0" radiusX="40.0" radiusY="40.0" startAngle="270.0" stroke="#900dff" strokeType="INSIDE" strokeWidth="7.0" />
                </children>
             </Group>
          </children>
       </StackPane>
-      <StackPane layoutX="301.0" layoutY="-136.0" minWidth="-Infinity" prefHeight="279.0" prefWidth="88.0" style="-fx-background-color: black;">
+      <StackPane layoutX="296.0" layoutY="-136.0" minWidth="-Infinity" prefHeight="270.0" prefWidth="77.0" style="-fx-background-color: #272727;" translateX="-2.0">
          <children>
-            <Group translateX="-1.0" translateY="74.0">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="R" translateX="50.0" translateY="76.0">
+               <font>
+                  <Font size="79.0" />
+               </font>
+            </Text>
+            <Group scaleX="0.8" scaleY="0.8" translateX="-3.0" translateY="81.0">
                <children>
-                  <Arc length="90.0" radiusX="22.0" radiusY="22.0" startAngle="180.0" stroke="#02b7fa" strokeType="INSIDE" strokeWidth="4.0" />
-                  <Arc length="90.0" radiusX="22.0" radiusY="22.0" stroke="#fa02e0" strokeType="INSIDE" strokeWidth="4.0" />
-                  <Arc length="90.0" radiusX="22.0" radiusY="22.0" startAngle="90.0" stroke="#effc01" strokeType="INSIDE" strokeWidth="4.0" />
-                  <Arc length="90.0" radiusX="22.0" radiusY="22.0" startAngle="270.0" stroke="#b702fa" strokeType="INSIDE" strokeWidth="4.0" />
+                  <Arc fill="#272727" length="90.0" radiusX="22.0" radiusY="22.0" startAngle="180.0" stroke="#32dbf0" strokeType="INSIDE" strokeWidth="4.0" />
+                  <Arc fill="#272727" length="90.0" radiusX="22.0" radiusY="22.0" stroke="#ff0181" strokeType="INSIDE" strokeWidth="4.0" />
+                  <Arc fill="#272727" length="90.0" radiusX="22.0" radiusY="22.0" startAngle="90.0" stroke="#fae100" strokeType="INSIDE" strokeWidth="4.0" />
+                  <Arc fill="#272727" length="90.0" radiusX="22.0" radiusY="22.0" startAngle="270.0" stroke="#900dff" strokeType="INSIDE" strokeWidth="4.0" />
                </children>
             </Group>
-            <Group translateX="-1.0" translateY="74.0">
+            <Group scaleX="0.8" scaleY="0.8" translateX="-3.0" translateY="81.0">
                <children>
-                  <Arc length="90.0" radiusX="40.0" radiusY="40.0" stroke="#fa02e0" strokeType="INSIDE" strokeWidth="7.0" />
-                  <Arc length="90.0" radiusX="40.0" radiusY="40.0" startAngle="180.0" stroke="#02b7fa" strokeType="INSIDE" strokeWidth="7.0" />
-                  <Arc length="90.0" radiusX="40.0" radiusY="40.0" startAngle="90.0" stroke="#effc01" strokeType="INSIDE" strokeWidth="7.0" />
-                  <Arc length="90.0" radiusX="40.0" radiusY="40.0" startAngle="270.0" stroke="#b702fa" strokeType="INSIDE" strokeWidth="7.0" />
+                  <Arc fill="#272727" length="90.0" radiusX="40.0" radiusY="40.0" stroke="#ff0181" strokeType="INSIDE" strokeWidth="7.0" />
+                  <Arc fill="#272727" length="90.0" radiusX="40.0" radiusY="40.0" startAngle="180.0" stroke="#32dbf0" strokeType="INSIDE" strokeWidth="7.0" />
+                  <Arc fill="#272727" length="90.0" radiusX="40.0" radiusY="40.0" startAngle="90.0" stroke="#fae100" strokeType="INSIDE" strokeWidth="7.0" />
+                  <Arc fill="#272727" length="90.0" radiusX="40.0" radiusY="40.0" startAngle="270.0" stroke="#900dff" strokeType="INSIDE" strokeWidth="7.0" />
                </children>
             </Group>
          </children>
       </StackPane>
-      <Group layoutX="257.0" layoutY="320.0" scaleX="2.0" scaleY="2.0">
+      <Group layoutX="257.0" layoutY="320.0" scaleX="1.5" scaleY="1.5" translateX="25.0">
          <children>
-            <Arc length="90.0" radiusX="22.0" radiusY="22.0" startAngle="180.0" stroke="#02b7fa" strokeType="INSIDE" strokeWidth="4.0" />
-            <Arc length="90.0" radiusX="22.0" radiusY="22.0" stroke="#fa02e0" strokeType="INSIDE" strokeWidth="4.0" />
-            <Arc length="90.0" radiusX="22.0" radiusY="22.0" startAngle="90.0" stroke="#effc01" strokeType="INSIDE" strokeWidth="4.0" />
-            <Arc length="90.0" radiusX="22.0" radiusY="22.0" startAngle="270.0" stroke="#b702fa" strokeType="INSIDE" strokeWidth="4.0" />
+            <Arc fill="#272727" length="90.0" radiusX="22.0" radiusY="22.0" startAngle="180.0" stroke="#32dbf0" strokeType="INSIDE" strokeWidth="4.0" />
+            <Arc fill="#272727" length="90.0" radiusX="22.0" radiusY="22.0" stroke="#ff0181" strokeType="INSIDE" strokeWidth="4.0" />
+            <Arc fill="#272727" length="90.0" radiusX="22.0" radiusY="22.0" startAngle="90.0" stroke="#fae100" strokeType="INSIDE" strokeWidth="4.0" />
+            <Arc fill="#272727" length="90.0" radiusX="22.0" radiusY="22.0" startAngle="270.0" stroke="#900dff" strokeType="INSIDE" strokeWidth="4.0" />
          </children>
       </Group>
-      <Group layoutX="257.0" layoutY="320.0" scaleX="3.5" scaleY="3.5">
+      <Group layoutX="257.0" layoutY="320.0" scaleX="3.0" scaleY="3.0" translateX="25.0">
          <children>
-            <Arc length="90.0" radiusX="22.0" radiusY="22.0" startAngle="180.0" stroke="#02b7fa" strokeType="INSIDE" strokeWidth="4.0" />
-            <Arc length="90.0" radiusX="22.0" radiusY="22.0" stroke="#fa02e0" strokeType="INSIDE" strokeWidth="4.0" />
-            <Arc length="90.0" radiusX="22.0" radiusY="22.0" startAngle="90.0" stroke="#effc01" strokeType="INSIDE" strokeWidth="4.0" />
-            <Arc length="90.0" radiusX="22.0" radiusY="22.0" startAngle="270.0" stroke="#b702fa" strokeType="INSIDE" strokeWidth="4.0" />
+            <Arc fill="#272727" length="90.0" radiusX="22.0" radiusY="22.0" startAngle="180.0" stroke="#32dbf0" strokeType="INSIDE" strokeWidth="4.0" />
+            <Arc fill="#272727" length="90.0" radiusX="22.0" radiusY="22.0" stroke="#ff0181" strokeType="INSIDE" strokeWidth="4.0" />
+            <Arc fill="#272727" length="90.0" radiusX="22.0" radiusY="22.0" startAngle="90.0" stroke="#fae100" strokeType="INSIDE" strokeWidth="4.0" />
+            <Arc fill="#272727" length="90.0" radiusX="22.0" radiusY="22.0" startAngle="270.0" stroke="#900dff" strokeType="INSIDE" strokeWidth="4.0" />
          </children>
       </Group>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#272727" height="66.0" layoutX="368.0" layoutY="287.0" onMouseClicked="#exit" stroke="#272727" strokeType="INSIDE" width="52.0" />
+      <SVGPath content="M55.931,47.463L94.306,9.09c0.826-0.827,0.826-2.167,0-2.994L88.833,0.62C88.436,0.224,87.896,0,87.335,0c-0.562,0-1.101,0.224-1.498,0.62L47.463,38.994L9.089,0.62c-0.795-0.795-2.202-0.794-2.995,0L0.622,6.096c-0.827,0.827-0.827,2.167,0,2.994l38.374,38.373L0.622,85.836c-0.827,0.827-0.827,2.167,0,2.994l5.473,5.476c0.397,0.396,0.936,0.62,1.498,0.62s1.1-0.224,1.497-0.62l38.374-38.374l38.374,38.374c0.397,0.396,0.937,0.62,1.498,0.62s1.101-0.224,1.498-0.62l5.473-5.476c0.826-0.827,0.826-2.167,0-2.994L55.931,47.463z" fill="WHITE" layoutX="359.0" layoutY="272.0" scaleX="0.55" scaleY="0.6" scaleZ="0.0" translateX="-13.0" translateY="-1.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#272727" height="77.0" layoutX="119.0" layoutY="282.0" onMouseClicked="#help" stroke="#272727" strokeType="INSIDE" width="77.0" />
+      <SVGPath content="M256,0C114.516,0,0,114.497,0,256c0,141.484,114.497,256,256,256c141.484,0,256-114.497,256-256C512,114.516,397.503,0,256,0z M256,472c-119.377,0-216-96.607-216-216c0-119.377,96.607-216,216-216c119.377,0,216,96.607,216,216C472,375.377,375.393,472,256,472z M256,128.5c-44.112,0-80,35.888-80,80c0,11.046,8.954,20,20,20s20-8.954,20-20c0-22.056,17.944-40,40-40c22.056,0,40,17.944,40,40c0,22.056-17.944,40-40,40c-11.046,0-20,8.954-20,20v50c0,11.046,8.954,20,20,20c11.046,0,20-8.954,20-20v-32.531c34.466-8.903,60-40.26,60-77.469C336,164.388,300.112,128.5,256,128.5z" fill="WHITE" layoutX="129.0" layoutY="272.0" scaleX="0.15" scaleY="0.15" translateX="-224.0" translateY="-207.0" />
+      <Circle fill="WHITE" layoutX="157.0" layoutY="343.0" radius="5.0" stroke="#272727" strokeType="INSIDE" translateX="4.0" />
    </children>
 </AnchorPane>
