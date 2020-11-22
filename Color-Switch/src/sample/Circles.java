@@ -67,7 +67,6 @@ public class Circles extends Application {
         root1.getChildren().add(root);
         root1.getChildren().add(rootr);
         Scene maina=new Scene(root1, 500, 575,Color.BLACK);
-
         maina.setOnMousePressed(new EventHandler<>() {
                                     @Override
                                     public void handle(javafx.scene.input.MouseEvent event) {

@@ -4,15 +4,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Arc?>
 
-
-<AnchorPane prefHeight="177.0" prefWidth="205.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Circles">
+<AnchorPane prefHeight="177.0" prefWidth="205.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Circles">
    <children>
       <Group layoutX="100.0" layoutY="138.0">
          <children>
-            <Arc layoutX="99.99999999999999" layoutY="101.00000000000003" length="90.0" radiusX="100.0" radiusY="100.0" scaleZ="0.0" startAngle="270.0" stroke="#b702fa" strokeType="INSIDE" strokeWidth="10.0" translateX="-97.0" translateY="-138.0" />
-            <Arc length="90.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="#effc01" strokeType="INSIDE" strokeWidth="10.0" translateY="-36.0" />
-            <Arc layoutY="99.99999999999999" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="#02b7fa" strokeType="INSIDE" strokeWidth="10.0" translateX="1.0" translateY="-138.0" />
-            <Arc layoutX="100.0" length="90.0" radiusX="100.0" radiusY="100.0" stroke="#fa02e0" strokeType="INSIDE" strokeWidth="10.0" translateX="-97.0" translateY="-36.0" />
+            <Arc fill="#272727" layoutX="99.99999999999999" layoutY="101.00000000000003" length="90.0" radiusX="100.0" radiusY="100.0" scaleZ="0.0" startAngle="270.0" stroke="#900dff" strokeType="INSIDE" strokeWidth="10.0" translateX="-97.0" translateY="-138.0" />
+            <Arc fill="#272727" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="#fae100" strokeType="INSIDE" strokeWidth="10.0" translateY="-36.0" />
+            <Arc fill="#272727" layoutY="99.99999999999999" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="#32dbf0" strokeType="INSIDE" strokeWidth="10.0" translateX="1.0" translateY="-138.0" />
+            <Arc fill="#272727" layoutX="100.0" length="90.0" radiusX="100.0" radiusY="100.0" stroke="#ff0181" strokeType="INSIDE" strokeWidth="10.0" translateX="-97.0" translateY="-36.0" />
          </children>
       </Group>
    </children>

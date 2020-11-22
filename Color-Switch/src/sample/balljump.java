@@ -24,95 +24,47 @@ import java.util.List;
 public class balljump {
 
     StackPane root;
+    double gg=0;
 
     public balljump() throws IOException {
         root = FXMLLoader.load(getClass().getResource("ball.fxml"));
 
 
     }
-//        primaryStage.setTitle("Color Switch");
-//        Group root1 = new Group();
-//        root1.getChildren().add(root);
-//        Scene maina=new Scene(root1, 470, 452, Color.BLACK);
-//        maina.setOnMousePressed(new EventHandler<>() {
-//            @Override
-//            public void handle(javafx.scene.input.MouseEvent event) {
-//                TranslateTransition translateTransition = new TranslateTransition();
-//
-//                //Setting the duration of the transition
-//                translateTransition.setDuration(Duration.millis(500));
-//
-//                //Setting the node for the transition
-//                translateTransition.setNode(aa.get(0));
-//
-//                //Setting the value of the transition along the x axis.
-//                translateTransition.setByY(-100);
-//
-//                //Setting the cycle count for the transition
-//                translateTransition.setCycleCount(1);
-//
-//                //Setting auto reverse value to false
-//                translateTransition.setAutoReverse(false);
-//
-//                //Playing the animation
-//                translateTransition.play();
-//                System.out.println("mouse click detected! " );
-//            }
-//        });
-//        primaryStage.setScene(maina);
-//        primaryStage.show();
-//    }
 
     public void jump(StackPane pane) {
-        pane.setOnMouseClicked(event -> {
-
-            //Safe-keeping the code (kyuki maine nhi likha ye)
-//            TranslateTransition translateTransition = new TranslateTransition();
-////
-//                //Setting the duration of the transition
-//                translateTransition.setDuration(Duration.millis(500));
-//
-//                //Setting the node for the transition
-//                translateTransition.setNode(pane.getChildren().get(1));
-//
-//                //Setting the value of the transition along the x axis.
-//                translateTransition.setByY(-100);
-//
-//                //Setting the cycle count for the transition
-//                translateTransition.setCycleCount(1);
-//
-//                //Setting auto reverse value to false
-//                translateTransition.setAutoReverse(false);
-//
-//                //Playing the animation
-//                translateTransition.play();
-//                System.out.println("mouse click detected! " );
-
-
-
-
 
             TranslateTransition translateTransition = new TranslateTransition();
             translateTransition.setDuration(Duration.millis(400000));
-//
-            //Setting the node for the transition
-            translateTransition.setNode(pane.getChildren().get(1));
-            translateTransition.setRate(4);
+            translateTransition.setNode(root);
+            translateTransition.setRate(6);
 
-            //Setting the value of the transition along the x axis.
             translateTransition.setFromX(50);
-            translateTransition.setFromY(100);
-            //        translateTransition.setByY(100);
+            translateTransition.setFromY(400);
             translateTransition.setToY(10001);
             translateTransition.setInterpolator(Interpolator.LINEAR);
-
-            //Setting auto reverse value to false
             translateTransition.setAutoReverse(false);
-
-            //Playing the animation
+            List<Node> aa=root.getChildren();
+        pane.setOnMouseClicked(event -> {
             translateTransition.play();
-            System.out.println("mouse click detected! ");
+            TranslateTransition translateTransition1 = new TranslateTransition();
+                translateTransition1.setDuration(Duration.millis(300));
+                translateTransition1.setNode(aa.get(0));
+//                translateTransition.setRate(translateTransition.getRate()+0.5);
+            System.out.println(root.getTranslateY()+aa.get(0).getTranslateY());
+            gg=root.getTranslateY()+aa.get(0).getTranslateY();
+            if(gg>600)
+            {
+                StackPane pane1=new StackPane();
+                Main.root1.getChildren().setAll(pane1);
+            }
+//            System.out.println();
 
+                translateTransition1.setByY(-150);
+                translateTransition1.setCycleCount(1);
+                translateTransition1.setAutoReverse(false);
+                translateTransition1.play();
+                System.out.println("mouse click detected! " );
         });
 
     }
