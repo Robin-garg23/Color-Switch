@@ -31,13 +31,13 @@ public class MainPageController {
         System.out.println("playing");
 
 //        ConCircle a = new ConCircle();
-        circle a=new circle();
-        pauseSymbol c=new pauseSymbol();
-//        StackPane pane= FXMLLoader.load(getClass().getResource("/sample/concircle.fxml"));
-        a.initiateTransition();
-        pane=new StackPane();
-        balljump b=new balljump();
-        Star d=new Star();
+//        circle a=new circle();
+//        pauseSymbol c=new pauseSymbol();
+////        StackPane pane= FXMLLoader.load(getClass().getResource("/sample/concircle.fxml"));
+//        a.initiateTransition();
+//        pane=new StackPane();
+//        balljump b=new balljump();
+//        Star d=new Star();
 
         ConCircle a = new ConCircle();
         circle op=new circle();
@@ -108,13 +108,13 @@ public class MainPageController {
 
 
 
-        pane.getChildren().addAll(a.root,b.root,c.root,d.imageView,e.a);
+//        pane.getChildren().addAll(a.concircl,b.root,c.root,d.imageView,e.a);
 //        pane.setOnMouseClicked(event2 -> {
 //            System.out.println("Something happened");
 //            a.things();
 //                });
 
-        b.jump(pane,a);
+        b.jump(pane);
         Main.root1.getChildren().setAll(pane);
 
     }
