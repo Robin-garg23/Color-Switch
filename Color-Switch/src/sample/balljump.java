@@ -24,6 +24,7 @@ import java.util.List;
 public class balljump {
 
     StackPane root;
+    double ballPos=500;
     double gg=0;
 
     public balljump() throws IOException {
@@ -52,6 +53,7 @@ public class balljump {
                 translateTransition1.setDuration(Duration.millis(300));
                 translateTransition1.setNode(aa.get(0));
 //                translateTransition.setRate(translateTransition.getRate()+0.5);
+            ballPos=root.getTranslateY()+aa.get(0).getTranslateY();
             System.out.println(root.getTranslateY()+aa.get(0).getTranslateY());
             gg=root.getTranslateY()+aa.get(0).getTranslateY();
             if(gg>600)
@@ -72,6 +74,10 @@ public class balljump {
 
 
 
+    }
+    double getBallPos()
+    {
+        return ballPos;
     }
 
 }

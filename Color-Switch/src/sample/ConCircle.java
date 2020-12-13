@@ -22,6 +22,7 @@ import java.util.List;
 public class ConCircle {
 
     public StackPane concircl;
+
 //    StackPane root;
     ConCircle() throws IOException {
         concircl = FXMLLoader.load(getClass().getResource("/sample/concircle.fxml"));
@@ -45,5 +46,9 @@ public class ConCircle {
         rotateTransition1.setCycleCount(Timeline.INDEFINITE);
         rotateTransition1.setAutoReverse(false);
         rotateTransition1.play();
+    }
+    StackPane circu()
+    {
+        return concircl;
     }
 }
