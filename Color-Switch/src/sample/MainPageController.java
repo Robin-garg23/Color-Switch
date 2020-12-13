@@ -4,28 +4,19 @@ import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Bounds;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Shape;
 
 import java.io.IOException;
-
-import java.sql.SQLOutput;
-import java.util.List;
-import java.util.Random;
-
 import java.util.*;
-
 
 public class MainPageController {
     ArrayList<Pane> obstacles=new ArrayList<>();
+    ArrayList<Pane> switchers=new ArrayList<>();
     Queue<Integer> pQueue
             = new PriorityQueue<Integer>();
     StackPane pane;
@@ -33,31 +24,19 @@ public class MainPageController {
     public void play(MouseEvent event) throws IOException {
         pane=new StackPane();
         System.out.println("playing");
-
-//        ConCircle a = new ConCircle();
-//        circle a=new circle();
-//        pauseSymbol c=new pauseSymbol();
-////        StackPane pane= FXMLLoader.load(getClass().getResource("/sample/concircle.fxml"));
-//        a.initiateTransition();
-//        pane=new StackPane();
-//        balljump b=new balljump();
-//        Star d=new Star();
-
         ConCircle a = new ConCircle();
         circle op=new circle();
+        ColorSwitcher j=new ColorSwitcher();
+        j.switchu().setTranslateY(200);
+        switchers.add(j.root);
         balljump b=new balljump();
-        Star d=new Star();
-        d.spawnstar();
+//        Star d=new Star();
+//        d.spawnstar();
         obstacles.add(a.circu());
 //        obstacles.add(new Pane(d.circu()));
         new AnimationTimer() {
             @Override
             public void handle(long now) {
-
-                for(Pane obs:obstacles){
-                    checkCollision(obs,b);
-
-                }
                     b.root.toFront();
 //               System.out.println(obstacles.get(0).getTranslateY());
 //                System.out.println(obstacles.size());
@@ -66,15 +45,18 @@ public class MainPageController {
                {
                    try {
                        ConCircle gg=new ConCircle();
+                       ColorSwitcher jj=new ColorSwitcher();
                        double hola=obstacles.get(obstacles.size()-1).getTranslateY()-400;
                        System.out.println(hola);
                        gg.circu().setTranslateY(hola);
+                       jj.switchu().setTranslateY(switchers.get(switchers.size()-1).getTranslateY()-400);
                        gg.playCon();
 //                       gg.circu().toBack();
                        obstacles.add(gg.circu());
+                       switchers.add(jj.switchu());
 //                       obstacles.get(obstacles.size()-1)
 //                       System.out.println("dfgfhggfd");
-                       pane.getChildren().add(gg.circu());
+                       pane.getChildren().addAll(gg.circu(),jj.switchu());
                    } catch (IOException e) {
 //                       e.printStackTrace();
                    }
@@ -84,6 +66,11 @@ public class MainPageController {
                    for(Pane fo:obstacles)
                    {
                        fo.toBack();
+                       fo.setTranslateY(fo.getTranslateY() + 1);
+                   }
+                   for(Pane fo:switchers)
+                   {
+
                        fo.setTranslateY(fo.getTranslateY() + 1);
                    }
 //                   obstacles.get(0).setTranslateY(obstacles.get(0).getTranslateY() + 1);
@@ -112,28 +99,14 @@ public class MainPageController {
         b.root.setTranslateX(50);
         b.root.setTranslateY(400);
 
+        pane.getChildren().addAll(a.concircl,b.root,c.root,e.a,j.root);
 
-        pane.getChildren().addAll(a.concircl,b.root,c.root,d.imageView,e.a);
-
-
-
-//        pane.getChildren().addAll(a.concircl,b.root,c.root,d.imageView,e.a);
-//        pane.setOnMouseClicked(event2 -> {
-//            System.out.println("Something happened");
-//            a.things();
-//                });
 
         b.jump(pane);
-
         Main.root1.getChildren().setAll(pane);
 
     }
 
-//    public void collision(balljump b)
-//    {
-//        List<Node> aa=b.root.getChildren();
-//        System.out.println(aa.get(0).getTranslateY());
-//    }
 
     @FXML
     public void savedGames(MouseEvent event){
@@ -150,62 +123,5 @@ public class MainPageController {
         System.out.println("Made by Utkarsh");
 
     }
-
-    public void checkCollision(Pane obstacle,balljump ball ){
-        Pane obstacleRoot= obstacle;
-        StackPane ballRoot= ball.root;
-        List<Node> groups=obstacleRoot.getChildren();
-        Group outerCircle=(Group)groups.get(0);
-        Group innerCircle=(Group)groups.get(1);
-        Bounds outerbound=outerCircle.localToScene(outerCircle.getBoundsInLocal());
-        Bounds ballbound = ballRoot.localToScene(ballRoot.getBoundsInLocal());
-//        System.out.println( ballbound.getCenterY());
-        Circle a=new Circle();
-//        Shape.intersect(ballRoot,outerCircle);
-        if(obstacle.intersects(ballbound)){
-            System.out.println("ye kya hai");
-        }
-        if(ballRoot.intersects(outerCircle.getBoundsInLocal())){
-            System.out.println("outerhit");
-        }
-        if(innerCircle.intersects(ballbound)){
-            System.out.println("innerhit");
-        }
-        double ballx=ballRoot.getTranslateX();
-        double bally= ball.getBallPos();
-
-        double obstaclex=obstacleRoot.getTranslateX();
-        double obstacley=obstacleRoot.getTranslateY();
-
-        double distx=obstaclex-ballx;
-        double disty=obstacley-bally;
-
-        double dist=Math.sqrt(distx*distx+disty*disty);
-
-        double ballradii=15;
-        double outcircleradii=130;
-        double innercircleradii=100;
-
-//        if(dist<Math.abs(ballradii-outcircleradii)){
-//            System.out.println("ball in inside bruh");
-//        }
-//        else if(dist<=ballradii+outcircleradii ){
-//            System.out.println("Outer circle hit");
-//
-//        }
-//        if(dist<Math.abs(ballradii-innercircleradii)){
-//            System.out.println("ball in inside bruh");
-//        }
-//        else if(dist<=ballradii+innercircleradii){
-//            System.out.println("inner circle hit");
-//
-//        }
-
-
-
-    }
-
-
-
 
 }
