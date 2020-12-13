@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Group?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Arc?>
 
@@ -12,6 +14,11 @@
             <Arc fill="#272727" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="#fae100" strokeType="INSIDE" strokeWidth="10.0" translateY="-36.0" />
             <Arc fill="#272727" layoutY="99.99999999999999" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="#32dbf0" strokeType="INSIDE" strokeWidth="10.0" translateX="1.0" translateY="-138.0" />
             <Arc fill="#272727" layoutX="100.0" length="90.0" radiusX="100.0" radiusY="100.0" stroke="#ff0181" strokeType="INSIDE" strokeWidth="10.0" translateX="-97.0" translateY="-36.0" />
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="-22.0" layoutY="-61.0">
+               <image>
+                  <Image url="@Star.png" />
+               </image>
+            </ImageView>
          </children>
       </Group>
    </children>

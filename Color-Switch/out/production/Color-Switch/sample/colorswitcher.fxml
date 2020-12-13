@@ -3,13 +3,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Arc?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Arc fill="#900DFF" layoutX="15.0" layoutY="16.0" length="90.0" radiusX="15.0" radiusY="15.0" startAngle="180.0" stroke="#900DFF" strokeType="INSIDE" type="ROUND" />
       <Arc fill="#ff0181" layoutX="15.0" layoutY="16.0" length="90.0" radiusX="15.0" radiusY="15.0" startAngle="270.0" stroke="#ff0181" strokeType="INSIDE" type="ROUND" />
       <Arc fill="#fae100" layoutX="15.0" layoutY="16.0" length="90.0" radiusX="15.0" radiusY="15.0" startAngle="90.0" stroke="#fae100" strokeType="INSIDE" type="ROUND" />
-      <Arc fill="#32dbf0" layoutX="15.0" layoutY="16.0" length="90.0" radiusX="15.0" radiusY="15.0" stroke="#32dbf0"
-           strokeType="INSIDE" type="ROUND" />
+      <Arc fill="#32dbf0" layoutX="15.0" layoutY="16.0" length="90.0" radiusX="15.0" radiusY="15.0" stroke="#32dbf0" strokeType="INSIDE" type="ROUND" />
    </children>
 </AnchorPane>

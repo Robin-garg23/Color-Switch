@@ -16,6 +16,7 @@ import java.util.*;
 
 public class MainPageController {
     ArrayList<Pane> obstacles=new ArrayList<>();
+    ArrayList<Pane> switchers=new ArrayList<>();
     Queue<Integer> pQueue
             = new PriorityQueue<Integer>();
     StackPane pane;
@@ -25,9 +26,12 @@ public class MainPageController {
         System.out.println("playing");
         ConCircle a = new ConCircle();
         circle op=new circle();
+        ColorSwitcher j=new ColorSwitcher();
+        j.switchu().setTranslateY(200);
+        switchers.add(j.root);
         balljump b=new balljump();
-        Star d=new Star();
-        d.spawnstar();
+//        Star d=new Star();
+//        d.spawnstar();
         obstacles.add(a.circu());
 //        obstacles.add(new Pane(d.circu()));
         new AnimationTimer() {
@@ -41,15 +45,18 @@ public class MainPageController {
                {
                    try {
                        ConCircle gg=new ConCircle();
+                       ColorSwitcher jj=new ColorSwitcher();
                        double hola=obstacles.get(obstacles.size()-1).getTranslateY()-400;
                        System.out.println(hola);
                        gg.circu().setTranslateY(hola);
+                       jj.switchu().setTranslateY(switchers.get(switchers.size()-1).getTranslateY()-400);
                        gg.playCon();
 //                       gg.circu().toBack();
                        obstacles.add(gg.circu());
+                       switchers.add(jj.switchu());
 //                       obstacles.get(obstacles.size()-1)
 //                       System.out.println("dfgfhggfd");
-                       pane.getChildren().add(gg.circu());
+                       pane.getChildren().addAll(gg.circu(),jj.switchu());
                    } catch (IOException e) {
 //                       e.printStackTrace();
                    }
@@ -59,6 +66,11 @@ public class MainPageController {
                    for(Pane fo:obstacles)
                    {
                        fo.toBack();
+                       fo.setTranslateY(fo.getTranslateY() + 1);
+                   }
+                   for(Pane fo:switchers)
+                   {
+
                        fo.setTranslateY(fo.getTranslateY() + 1);
                    }
 //                   obstacles.get(0).setTranslateY(obstacles.get(0).getTranslateY() + 1);
@@ -87,7 +99,7 @@ public class MainPageController {
         b.root.setTranslateX(50);
         b.root.setTranslateY(400);
 
-        pane.getChildren().addAll(a.concircl,b.root,c.root,d.imageView,e.a);
+        pane.getChildren().addAll(a.concircl,b.root,c.root,e.a,j.root);
 
 
         b.jump(pane);

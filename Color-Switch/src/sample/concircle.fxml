@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -40,5 +42,10 @@
             <Arc fill="#272727" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="270.0" stroke="#900dff" strokeType="INSIDE" strokeWidth="10.0" translateY="-25.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
+      <ImageView fitHeight="50.0" fitWidth="50.0" rotate="25.0">
+         <image>
+            <Image url="@Star.png" />
+         </image>
+      </ImageView>
    </children>
 </StackPane>
