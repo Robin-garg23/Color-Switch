@@ -4,12 +4,16 @@ import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Bounds;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Shape;
 
 import java.io.IOException;
 
@@ -49,6 +53,11 @@ public class MainPageController {
         new AnimationTimer() {
             @Override
             public void handle(long now) {
+
+                for(Pane obs:obstacles){
+                    checkCollision(obs,b);
+
+                }
                     b.root.toFront();
 //               System.out.println(obstacles.get(0).getTranslateY());
 //                System.out.println(obstacles.size());
@@ -115,6 +124,7 @@ public class MainPageController {
 //                });
 
         b.jump(pane);
+
         Main.root1.getChildren().setAll(pane);
 
     }
@@ -140,5 +150,62 @@ public class MainPageController {
         System.out.println("Made by Utkarsh");
 
     }
+
+    public void checkCollision(Pane obstacle,balljump ball ){
+        Pane obstacleRoot= obstacle;
+        StackPane ballRoot= ball.root;
+        List<Node> groups=obstacleRoot.getChildren();
+        Group outerCircle=(Group)groups.get(0);
+        Group innerCircle=(Group)groups.get(1);
+        Bounds outerbound=outerCircle.localToScene(outerCircle.getBoundsInLocal());
+        Bounds ballbound = ballRoot.localToScene(ballRoot.getBoundsInLocal());
+//        System.out.println( ballbound.getCenterY());
+        Circle a=new Circle();
+//        Shape.intersect(ballRoot,outerCircle);
+        if(obstacle.intersects(ballbound)){
+            System.out.println("ye kya hai");
+        }
+        if(ballRoot.intersects(outerCircle.getBoundsInLocal())){
+            System.out.println("outerhit");
+        }
+        if(innerCircle.intersects(ballbound)){
+            System.out.println("innerhit");
+        }
+        double ballx=ballRoot.getTranslateX();
+        double bally= ball.getBallPos();
+
+        double obstaclex=obstacleRoot.getTranslateX();
+        double obstacley=obstacleRoot.getTranslateY();
+
+        double distx=obstaclex-ballx;
+        double disty=obstacley-bally;
+
+        double dist=Math.sqrt(distx*distx+disty*disty);
+
+        double ballradii=15;
+        double outcircleradii=130;
+        double innercircleradii=100;
+
+//        if(dist<Math.abs(ballradii-outcircleradii)){
+//            System.out.println("ball in inside bruh");
+//        }
+//        else if(dist<=ballradii+outcircleradii ){
+//            System.out.println("Outer circle hit");
+//
+//        }
+//        if(dist<Math.abs(ballradii-innercircleradii)){
+//            System.out.println("ball in inside bruh");
+//        }
+//        else if(dist<=ballradii+innercircleradii){
+//            System.out.println("inner circle hit");
+//
+//        }
+
+
+
+    }
+
+
+
 
 }
