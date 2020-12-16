@@ -46,9 +46,13 @@ public class MainPageController {
             @Override
             public void handle(long now) {
                 for(Pane i:obstacles){
-                    newCollide(i,ball);
+                    try {
+                        newCollide(i,ball);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
-                    b.root.toFront();
+                b.root.toFront();
 //               System.out.println(obstacles.get(0).getTranslateY());
 //                System.out.println(obstacles.size());
 //                System.out.println(obstacles.get(obstacles.size()-1).getTranslateY());
@@ -190,7 +194,7 @@ public class MainPageController {
 
     }
 
-    public void newCollide(Pane root, Shape ball){
+    public void newCollide(Pane root, Shape ball) throws IOException {
 
 
         List<Node> firstChildren=root.getChildren();
@@ -198,14 +202,18 @@ public class MainPageController {
             for(Node i:firstChildren){
                 if(i instanceof Pane) {
                     for (Node j : ((Pane) i).getChildren()) {
-                        Shape checkShape = (Shape) j;
-                        if (!Shape.intersect(checkShape, ball).getBoundsInLocal().isEmpty()) {
-                            Paint color = checkShape.getStroke();
+                        if( j instanceof Shape) {
+                            Shape checkShape = (Shape) j;
+                            if (!Shape.intersect(checkShape, ball).getBoundsInLocal().isEmpty()) {
+                                Paint color = checkShape.getStroke();
 
-                            if (!color.toString().equals(ball.getFill().toString())) {
-                                System.out.println("diff colour");
-                                System.exit(0);
+                                if (!color.toString().equals(ball.getFill().toString())) {
+                                    System.out.println("diff colour");
+                                    gameOver bye=new gameOver();
+                                    Main.root1.getChildren().setAll(bye.root);
+//                                    System.exit(0);
 
+                                }
                             }
                         }
 
@@ -217,17 +225,21 @@ public class MainPageController {
         }
         else{
             for(Node j:((Pane) firstChildren).getChildren()){
-                Shape checkShape=(Shape)j;
-                if(!Shape.intersect(checkShape, ball).getBoundsInLocal().isEmpty()){
-                    Paint color=checkShape.getStroke();
+                if(j instanceof Shape) {
+                    Shape checkShape = (Shape) j;
+                    if (!Shape.intersect(checkShape, ball).getBoundsInLocal().isEmpty()) {
+                        Paint color = checkShape.getStroke();
 
-                    if(!color.toString().equals(ball.getFill().toString())){
-                        System.out.println("diff colour");
-                        System.exit(0);
+                        if (!color.toString().equals(ball.getFill().toString())) {
+                            System.out.println("diff colour");
+                            System.out.println("diff colour");
+                            gameOver bye=new gameOver();
+                            Main.root1.getChildren().setAll(bye.root);
+//                            System.exit(0);
 
+                        }
                     }
                 }
-
 
             }
 
