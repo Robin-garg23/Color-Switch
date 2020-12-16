@@ -4,20 +4,24 @@ import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.animation.Timeline;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.util.List;
 
 public class dottedCircle {
-    GridPane root;
+    Pane root;
     dottedCircle() throws IOException {
         root = FXMLLoader.load(getClass().getResource("/sample/dottedCircle.fxml"));
+        root.setTranslateX(60);
     }
     protected void playdotted() {
-
-        RotateTransition rotateTransition=new RotateTransition(Duration.millis(4000),root);
+        List<Node> parentChildren =root.getChildren();
+        RotateTransition rotateTransition=new RotateTransition(Duration.millis(4000),parentChildren.get(0));
         rotateTransition.setFromAngle(0);
         rotateTransition.setToAngle(360);
         rotateTransition.setInterpolator(Interpolator.LINEAR);

@@ -24,7 +24,9 @@ public class pauseMenu {
     public AnchorPane root;
 
     pauseMenu() throws IOException {
+
         root=FXMLLoader.load(getClass().getResource("PauseMenu.fxml"));
+
     }
 
 

@@ -17,20 +17,22 @@ import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.List;
 
-public class ConCircle {
+public class ConCircle implements Serializable {
 
     public StackPane concircl;
 
 //    StackPane root;
     ConCircle() throws IOException {
         concircl = FXMLLoader.load(getClass().getResource("/sample/concircle.fxml"));
+        concircl.setTranslateX(50);
     }
      protected void playCon() {
-        concircl.setTranslateX(50);
+
         List<Node> parentChildren = concircl.getChildren();
-        RotateTransition rotateTransition=new RotateTransition(Duration.millis(4000),parentChildren.get(0));
+        RotateTransition rotateTransition=new RotateTransition(Duration.millis(8000),parentChildren.get(0));
         rotateTransition.setFromAngle(0);
         rotateTransition.setToAngle(360);
         rotateTransition.setInterpolator(Interpolator.LINEAR);
@@ -38,7 +40,7 @@ public class ConCircle {
         rotateTransition.setCycleCount(Timeline.INDEFINITE);
         rotateTransition.setAutoReverse(false);
         rotateTransition.play();
-        RotateTransition rotateTransition1=new RotateTransition(Duration.millis(4000),parentChildren.get(1));
+        RotateTransition rotateTransition1=new RotateTransition(Duration.millis(8000),parentChildren.get(1));
         rotateTransition1.setFromAngle(360);
         rotateTransition1.setToAngle(0);
         rotateTransition1.setInterpolator(Interpolator.LINEAR);

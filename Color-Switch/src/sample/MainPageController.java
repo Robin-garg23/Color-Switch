@@ -1,7 +1,9 @@
 package sample;
 
+import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
@@ -13,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
@@ -22,29 +25,91 @@ import java.io.IOException;
 import java.util.*;
 
 public class MainPageController {
-    ArrayList<Pane> obstacles=new ArrayList<>();
-    ArrayList<Pane> switchers=new ArrayList<>();
+    ArrayList<GameData> games=new ArrayList<>();
+    GameData currentGame;
+    ArrayList<Pane> obstacles;
+    ArrayList<Pane> switchers;
+//    ConCircle a;
+    Pane firstObs;
+    ColorSwitcher j;
+    balljump b;
+    AnimationTimer ddd;
+    pauseSymbol c;
+    Score e;
+    boolean resumeGame=false;
+
     Queue<Integer> pQueue
             = new PriorityQueue<Integer>();
     StackPane pane;
     @FXML
     public void play(MouseEvent event) throws IOException {
-        pane=new StackPane();
-        System.out.println("playing");
-        ConCircle a = new ConCircle();
-        circle op=new circle();
-        ColorSwitcher j=new ColorSwitcher();
-        j.switchu().setTranslateY(200);
-        switchers.add(j.root);
-        balljump b=new balljump();
+        pane = new StackPane();
+        if(resumeGame)
+        {
+            switchers=new ArrayList<>();//currentGame.switchers;
+            obstacles=new ArrayList<>();//currentGame.obstacles;
+//          switchers = new ArrayList<>();
+//            obstacles = new ArrayList<>();
+            for(int i=0;i<currentGame.obstaclesType.size();i++)
+            {
+
+                ConCircle a=new ConCircle();
+                a.circu().setTranslateY(currentGame.obstaclesY.get(i));
+                obstacles.add(a.circu());
+
+            }
+            for(Integer g:currentGame.switchers)
+            {
+                ColorSwitcher jj=new ColorSwitcher();
+                jj.switchu().setTranslateY(g);
+                switchers.add(jj.switchu());
+            }
+
+            System.out.println("playing");
+//            a = new ConCircle();
+//        circle op=new circle();
+//            j = new ColorSwitcher();
+//            j.switchu().setTranslateY(200);
+//            switchers.add(j.root);
+            b = new balljump();
+            b.root.setTranslateY(currentGame.ballY);
+
+            e = new Score();
+            e.setScore(currentGame.score);
+//            obstacles.add(a.circu());
+        }
+        if(!resumeGame) {
+            switchers = new ArrayList<>();
+            obstacles = new ArrayList<>();
+
+
+            System.out.println("playing");
+            ConCircle a = new ConCircle();
+            firstObs=a.circu();
+            a.playCon();
+
+//        circle op=new circle();
+            j = new ColorSwitcher();
+            j.switchu().setTranslateY(200);
+            switchers.add(j.root);
+            b = new balljump();
+            e = new Score();
+            obstacles.add(firstObs);
+//            a.playCon();
+            b.root.setTranslateY(400);
+        }
+        c = new pauseSymbol();
 //        Star d=new Star();
 //        d.spawnstar();
-        obstacles.add(a.circu());
+
         Shape ball=(Circle)b.root.getChildren().get(0);
 //        obstacles.add(new Pane(d.circu()));
-        new AnimationTimer() {
+
+        ddd=new AnimationTimer() {
             @Override
             public void handle(long now) {
+
+
                 for(Pane i:obstacles){
                     try {
                         newCollide(i,ball);
@@ -59,19 +124,20 @@ public class MainPageController {
                if(obstacles.get(obstacles.size()-1).getTranslateY()>100)
                {
                    try {
-                       ConCircle gg=new ConCircle();
+//                       ConCircle gg=new ConCircle();
+                       Pane gg=randObstacle();
                        ColorSwitcher jj=new ColorSwitcher();
                        double hola=obstacles.get(obstacles.size()-1).getTranslateY()-400;
                        System.out.println(hola);
-                       gg.circu().setTranslateY(hola);
+                       gg.setTranslateY(hola);
                        jj.switchu().setTranslateY(switchers.get(switchers.size()-1).getTranslateY()-400);
-                       gg.playCon();
+//                       gg.playCon();
 //                       gg.circu().toBack();
-                       obstacles.add(gg.circu());
+                       obstacles.add(gg);
                        switchers.add(jj.switchu());
 //                       obstacles.get(obstacles.size()-1)
 //                       System.out.println("dfgfhggfd");
-                       pane.getChildren().addAll(gg.circu(),jj.switchu());
+                       pane.getChildren().addAll(gg,jj.switchu());
                    } catch (IOException e) {
 //                       e.printStackTrace();
                    }
@@ -99,22 +165,63 @@ public class MainPageController {
 
             }
 
-        }.start();
+        };
+        ddd.start();
 
-        pauseSymbol c=new pauseSymbol();
+
 //        StackPane pane= FXMLLoader.load(getClass().getResource("/sample/concircle.fxml"));
-        a.playCon();
+
+        EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent ee) {
+//                System.out.println("Hello World\nfgfdg\ngdfgfdg");
+                try {
+                    ddd.stop();
+//                    ArrayList<Pane> obstacles,ArrayList<Pane> switchers,ConCircle a,ColorSwitcher j,balljump b,Score e
+                    ArrayList<Integer> obsy=new ArrayList<>();
+                    ArrayList<Integer> swi=new ArrayList<>();
+                    for(Pane i:obstacles){
+                        obsy.add((int) i.getTranslateY());
+                    }
+                    for(Pane i:switchers){
+                        swi.add((int) i.getTranslateY());
+                    }
+                    currentGame=new GameData(obsy,obsy,swi, (int) b.getBallPos(),e.getScore());
+                    GameSaver dodo=new GameSaver(games);
+                    dodo.deserializeArrayList();
+                    dodo.namesList.add(currentGame);
+                    dodo.serializeArrayList();
+
+                    resumeGame=true;
+                    c.pause();
+                    System.out.println("sfghggfdsgdhgfdhgfdhddfg");
 
 
 
-        Score e=new Score();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+//                circle.setFill(Color.DARKSLATEBLUE);
+            }
+        };
 
+
+
+        c.root.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
         c.root.setTranslateX(400);
         c.root.setTranslateY(25);
         b.root.setTranslateX(50);
-        b.root.setTranslateY(400);
 
-        pane.getChildren().addAll(a.concircl,b.root,c.root,e.a,j.root);
+//        c.pause();
+        for(Pane i:obstacles)
+        {
+            pane.getChildren().add(i);
+        }
+        for(Pane i:switchers)
+        {
+            pane.getChildren().add(i);
+        }
+        pane.getChildren().addAll(b.root,c.root,e.a);
 
 
         b.jump(pane);
@@ -194,6 +301,7 @@ public class MainPageController {
 
     }
 
+
     public void newCollide(Pane root, Shape ball) throws IOException {
 
 
@@ -259,6 +367,43 @@ public class MainPageController {
 
 //
 //
+
+    Pane randObstacle() throws IOException {
+        Random rand = new Random();
+        Pane randObsPane;
+        int obstacleNum=rand.nextInt(4);
+//        obstacleNum=0;
+        switch(obstacleNum)
+        {
+            case 0:
+                ConCircle a=new ConCircle();
+                randObsPane=a.circu();
+                a.playCon();
+                break;
+            case 1:
+                Cross aa=new Cross();
+                randObsPane=aa.root;
+                aa.playCross();
+                break;
+            case 2:
+                circle ab=new circle();
+                randObsPane=ab.root;
+                ab.initiateTransition();
+                break;
+            case 3:
+                dottedCircle abc=new dottedCircle();
+                randObsPane=abc.root;
+                abc.playdotted();
+                break;
+
+            default:
+                throw new IllegalStateException("Unexpected value: " + obstacleNum);
+        }
+
+        return randObsPane;
+    }
+    public void newCollide(Pane root, Shape ball){
+
 //        List<Node> children = root.getChildren();
 //        GridPane inbetween = (GridPane) children.get(0);
 //        List<Node> allacrs = inbetween.getChildren();
@@ -266,7 +411,7 @@ public class MainPageController {
 //        Arc arc2 = (Arc) allacrs.get(1);
 //        Arc arc3 = (Arc) allacrs.get(2);
 //        Arc arc4 = (Arc) allacrs.get(3);
-//
+
 //        if(!Shape.intersect(arc1, ball).getBoundsInLocal().isEmpty()){
 //            Paint color=arc1.getStroke();
 //
