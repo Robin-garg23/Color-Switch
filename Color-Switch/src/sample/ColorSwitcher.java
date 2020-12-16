@@ -5,8 +5,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
+import java.io.Serializable;
 
-public class ColorSwitcher {
+public class ColorSwitcher implements Serializable {
     AnchorPane root;
     ColorSwitcher() throws IOException {
 

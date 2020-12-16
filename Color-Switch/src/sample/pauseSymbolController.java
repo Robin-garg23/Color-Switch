@@ -17,9 +17,9 @@ public class pauseSymbolController {
 
 
     public void pause(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
-        pauseMenu pause=new pauseMenu();
-        StackPane pane=new StackPane();
-        pane.getChildren().add(pause.root);
-        Main.root1.getChildren().setAll(pane);
+//        pauseMenu pause=new pauseMenu();
+//        StackPane pane=new StackPane();
+//        pane.getChildren().add(pause.root);
+//        Main.root1.getChildren().setAll(pane);
     }
 }

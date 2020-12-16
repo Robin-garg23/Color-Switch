@@ -26,7 +26,19 @@ public class pauseSymbol {
     pauseSymbol() throws IOException {
         root=FXMLLoader.load(getClass().getResource("pauseSymbol.fxml"));
     }
-
+    public void pause() throws IOException {
+//        root.setOnMouseClicked(event -> {
+            pauseMenu pause = null;
+            try {
+                pause = new pauseMenu();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            StackPane pane = new StackPane();
+            pane.getChildren().add(pause.root);
+            Main.root1.getChildren().setAll(pane);
+//        });
+    }
 
 
 

@@ -28,12 +28,14 @@ public class circle {
 
     circle() throws IOException {
         root = FXMLLoader.load(getClass().getResource("Circle.fxml"));
+        root.setTranslateX(100);
     }
     public double x1,x2,x3,x4,y1,y2,y3,y4;
     Paint color1,color2,color3,color4;
     public void initiateTransition(){
-        root.setTranslateX(50);
-        RotateTransition rotateTransition=new RotateTransition(Duration.millis(4000),root);
+
+        List<Node> parentChildren =root.getChildren();
+        RotateTransition rotateTransition=new RotateTransition(Duration.millis(4000),parentChildren.get(0));
         rotateTransition.setFromAngle(0);
         rotateTransition.setToAngle(360);
         rotateTransition.setInterpolator(Interpolator.LINEAR);
@@ -67,5 +69,6 @@ public class circle {
         color4=arc4.getStroke();
         System.out.println(x1+" "+x2+" "+x3+" "+x4+" "+y1+" "+y2+" "+y3+" "+y4);
     }
+//    AnchorPane circhu{return root;}
 
 }
