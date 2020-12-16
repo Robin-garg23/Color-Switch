@@ -191,50 +191,106 @@ public class MainPageController {
     }
 
     public void newCollide(Pane root, Shape ball){
-        List<Node> children = root.getChildren();
-        GridPane inbetween = (GridPane) children.get(0);
-        List<Node> allacrs = inbetween.getChildren();
-        Arc arc1 = (Arc) allacrs.get(0);
-        Arc arc2 = (Arc) allacrs.get(1);
-        Arc arc3 = (Arc) allacrs.get(2);
-        Arc arc4 = (Arc) allacrs.get(3);
 
-        if(!Shape.intersect(arc1, ball).getBoundsInLocal().isEmpty()){
-            Paint color=arc1.getStroke();
 
-            if(!color.toString().equals(ball.getFill().toString())){
-                System.out.println("diff colour");
-                System.exit(0);
+        List<Node> firstChildren=root.getChildren();
+        if(firstChildren.get(0) instanceof Pane){
+            for(Node i:firstChildren){
+                if(i instanceof Pane) {
+                    for (Node j : ((Pane) i).getChildren()) {
+                        Shape checkShape = (Shape) j;
+                        if (!Shape.intersect(checkShape, ball).getBoundsInLocal().isEmpty()) {
+                            Paint color = checkShape.getStroke();
 
-            }
-        }
-        if(!Shape.intersect(arc2, ball).getBoundsInLocal().isEmpty()){
-            Paint color=arc2.getStroke();
+                            if (!color.toString().equals(ball.getFill().toString())) {
+                                System.out.println("diff colour");
+                                System.exit(0);
 
-            if(!color.toString().equals(ball.getFill().toString())){
-                System.out.println("diff colour");
-                System.exit(0);
+                            }
+                        }
+
+
+                    }
+                }
 
             }
         }
-        if(!Shape.intersect(arc3, ball).getBoundsInLocal().isEmpty()){
-            Paint color=arc3.getStroke();
+        else{
+            for(Node j:((Pane) firstChildren).getChildren()){
+                Shape checkShape=(Shape)j;
+                if(!Shape.intersect(checkShape, ball).getBoundsInLocal().isEmpty()){
+                    Paint color=checkShape.getStroke();
 
-            if(!color.toString().equals(ball.getFill().toString())){
-                System.out.println("diff colour");
-                System.exit(0);
+                    if(!color.toString().equals(ball.getFill().toString())){
+                        System.out.println("diff colour");
+                        System.exit(0);
 
-            }
-        }
-        if(!Shape.intersect(arc4, ball).getBoundsInLocal().isEmpty()){
-            Paint color=arc4.getStroke();
+                    }
+                }
 
-            if(!color.toString().equals(ball.getFill().toString())){
-                System.out.println("diff colour");
-                System.exit(0);
 
             }
+
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+//        List<Node> children = root.getChildren();
+//        GridPane inbetween = (GridPane) children.get(0);
+//        List<Node> allacrs = inbetween.getChildren();
+//        Arc arc1 = (Arc) allacrs.get(0);
+//        Arc arc2 = (Arc) allacrs.get(1);
+//        Arc arc3 = (Arc) allacrs.get(2);
+//        Arc arc4 = (Arc) allacrs.get(3);
+//
+//        if(!Shape.intersect(arc1, ball).getBoundsInLocal().isEmpty()){
+//            Paint color=arc1.getStroke();
+//
+//            if(!color.toString().equals(ball.getFill().toString())){
+//                System.out.println("diff colour");
+//                System.exit(0);
+//
+//            }
+//        }
+//        if(!Shape.intersect(arc2, ball).getBoundsInLocal().isEmpty()){
+//            Paint color=arc2.getStroke();
+//
+//            if(!color.toString().equals(ball.getFill().toString())){
+//                System.out.println("diff colour");
+//                System.exit(0);
+//
+//            }
+//        }
+//        if(!Shape.intersect(arc3, ball).getBoundsInLocal().isEmpty()){
+//            Paint color=arc3.getStroke();
+//
+//            if(!color.toString().equals(ball.getFill().toString())){
+//                System.out.println("diff colour");
+//                System.exit(0);
+//
+//            }
+//        }
+//        if(!Shape.intersect(arc4, ball).getBoundsInLocal().isEmpty()){
+//            Paint color=arc4.getStroke();
+//
+//            if(!color.toString().equals(ball.getFill().toString())){
+//                System.out.println("diff colour");
+//                System.exit(0);
+//
+//            }
+//        }
 //        System.out.println(Shape.intersect(arc1,ball).getBoundsInLocal().isEmpty()+" "+Shape.intersect(arc2,ball).getBoundsInLocal().isEmpty()+" "+Shape.intersect(arc3,ball).getBoundsInLocal().isEmpty()+" "+Shape.intersect(arc4,ball).getBoundsInLocal().isEmpty());
 
 
