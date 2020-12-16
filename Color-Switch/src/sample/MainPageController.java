@@ -278,7 +278,13 @@ public class MainPageController {
                         if (j instanceof Shape) {
                             Shape checkShape = (Shape) j;
                             if (!Shape.intersect(checkShape, ball).getBoundsInLocal().isEmpty()) {
-                                Paint color = checkShape.getStroke();
+                                Paint color;
+                                if(checkShape instanceof SVGPath) {
+                                    color = checkShape.getFill();
+                                }
+                                else{
+                                    color = checkShape.getStroke();
+                                }
 
                                 if (!color.toString().equals(ball.getFill().toString())) {
 //                                    System.out.println("diff colour");
@@ -385,7 +391,7 @@ public class MainPageController {
         Pane randObstacle() throws IOException {
             Random rand = new Random();
             Pane randObsPane;
-            int obstacleNum=rand.nextInt(4);
+            int obstacleNum=rand.nextInt(5);
 //        obstacleNum=0;
             switch(obstacleNum)
             {
@@ -409,7 +415,11 @@ public class MainPageController {
                     randObsPane=abc.root;
                     abc.playdotted();
                     break;
-
+                case 4:
+                    ninjaStar abcd=new ninjaStar();
+                    randObsPane=abcd.root;
+                    abcd.initiateTransition();
+                    break;
                 default:
                     throw new IllegalStateException("Unexpected value: " + obstacleNum);
             }
