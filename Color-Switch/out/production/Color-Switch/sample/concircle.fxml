@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.SVGPath?>
 
-<StackPane rotate="45.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane rotate="45.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane fx:id="bdacircle" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" style="-fx-background-color: #272727;">
          <columnConstraints>
@@ -37,15 +36,11 @@
          </rowConstraints>
          <children>
             <Arc fill="#272727" length="90.0" radiusX="100.0" radiusY="100.0" stroke="#ff0181" strokeType="INSIDE" strokeWidth="10.0" translateY="25.0" GridPane.columnIndex="1" />
-            <Arc fill="#272727" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="#02f6fa" strokeType="INSIDE" strokeWidth="10.0" translateX="50.0" translateY="-25.0" GridPane.rowIndex="1" />
+            <Arc fill="#272727" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="#32dbf0" strokeType="INSIDE" strokeWidth="10.0" translateX="50.0" translateY="-25.0" GridPane.rowIndex="1" />
             <Arc fill="#272727" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="#fae100" strokeType="INSIDE" strokeWidth="10.0" translateX="50.0" translateY="25.0" />
             <Arc fill="#272727" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="270.0" stroke="#900dff" strokeType="INSIDE" strokeWidth="10.0" translateY="-25.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <ImageView fitHeight="50.0" fitWidth="50.0" rotate="25.0">
-         <image>
-            <Image url="@Star.png" />
-         </image>
-      </ImageView>
+      <SVGPath content="M 192.000 212.000L 212.000 226.641L 209.321 202.000L 232.000 192.000L 209.321 182.000L 212.000 157.359L 192.000 172.000L 172.000 157.359L 174.679 182.000L 152.000 192.000L 174.679 202.000L 172.000 226.641z" fill="WHITE" rotate="12.0" scaleX="0.8" scaleY="0.8" translateX="-6.0" />
    </children>
 </StackPane>

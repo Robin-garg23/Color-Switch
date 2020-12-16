@@ -10,7 +10,7 @@ import static javafx.application.Application.STYLESHEET_MODENA;
 
 public class Score {
     Text a;
-    int score=5;
+    int score=0;
     public Score()
     {
         a= new Text(""+score);
@@ -26,5 +26,8 @@ public class Score {
     void setScore(int score)
     {
         this.score=score;
+    }
+    void updateScore(){
+        a.setText(""+score);
     }
 }

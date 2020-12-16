@@ -9,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -19,6 +21,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.SVGPath;
 import javafx.scene.shape.Shape;
 
 import java.io.IOException;
@@ -29,6 +32,7 @@ public class MainPageController {
     GameData currentGame;
     ArrayList<Pane> obstacles;
     ArrayList<Pane> switchers;
+    ArrayList<ColorSwitcher> switches;
 //    ConCircle a;
     Pane firstObs;
     ColorSwitcher j;
@@ -48,6 +52,8 @@ public class MainPageController {
         {
             switchers=new ArrayList<>();//currentGame.switchers;
             obstacles=new ArrayList<>();//currentGame.obstacles;
+            switches=new ArrayList<>();//currentGame.switchers;
+
 //          switchers = new ArrayList<>();
 //            obstacles = new ArrayList<>();
             for(int i=0;i<currentGame.obstaclesType.size();i++)
@@ -61,6 +67,7 @@ public class MainPageController {
             for(Integer g:currentGame.switchers)
             {
                 ColorSwitcher jj=new ColorSwitcher();
+                switches.add(jj);
                 jj.switchu().setTranslateY(g);
                 switchers.add(jj.switchu());
             }
@@ -81,6 +88,7 @@ public class MainPageController {
         if(!resumeGame) {
             switchers = new ArrayList<>();
             obstacles = new ArrayList<>();
+            switches = new ArrayList<>();
 
 
             System.out.println("playing");
@@ -90,6 +98,7 @@ public class MainPageController {
 
 //        circle op=new circle();
             j = new ColorSwitcher();
+            switches.add(j);
             j.switchu().setTranslateY(200);
             switchers.add(j.root);
             b = new balljump();
@@ -111,11 +120,13 @@ public class MainPageController {
 
 
                 for(Pane i:obstacles){
-                    try {
-                        newCollide(i,ball);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+
+                    newCollide(i,ball);
+
+                }
+                for(ColorSwitcher i:switches){
+                    changeColor(i,ball);
+
                 }
                 b.root.toFront();
 //               System.out.println(obstacles.get(0).getTranslateY());
@@ -135,6 +146,7 @@ public class MainPageController {
 //                       gg.circu().toBack();
                        obstacles.add(gg);
                        switchers.add(jj.switchu());
+                       switches.add(jj);
 //                       obstacles.get(obstacles.size()-1)
 //                       System.out.println("dfgfhggfd");
                        pane.getChildren().addAll(gg,jj.switchu());
@@ -245,105 +257,89 @@ public class MainPageController {
         System.out.println("Made by Utkarsh");
 
     }
-    public void checkCollision(Pane obstacle,balljump ball ){
-        Pane obstacleRoot= obstacle;
-        StackPane ballRoot= ball.root;
-        List<Node> groups=obstacleRoot.getChildren();
-        Group outerCircle=(Group)groups.get(0);
-        Group innerCircle=(Group)groups.get(1);
-
-        Bounds outerbound=outerCircle.localToScene(outerCircle.getBoundsInLocal());
-        Bounds ballbound = ballRoot.localToScene(ballRoot.getBoundsInLocal());
-//        System.out.println( ballbound.getCenterY());
-        Circle a=new Circle();
-
-//        Shape.intersect(ballRoot,outerCircle);
-        if(obstacle.intersects(ballbound)){
-            System.out.println("ye kya hai");
-        }
-        if(ballRoot.intersects(outerCircle.getBoundsInLocal())){
-            System.out.println("outerhit");
-        }
-        if(innerCircle.intersects(ballbound)){
-            System.out.println("innerhit");
-        }
-        double ballx=ballRoot.getTranslateX();
-        double bally= ball.getBallPos();
-
-        double obstaclex=obstacleRoot.getTranslateX();
-        double obstacley=obstacleRoot.getTranslateY();
-
-        double distx=obstaclex-ballx;
-        double disty=obstacley-bally;
-
-        double dist=Math.sqrt(distx*distx+disty*disty);
-
-        double ballradii=15;
-        double outcircleradii=130;
-        double innercircleradii=100;
-
-//        if(dist<Math.abs(ballradii-outcircleradii)){
-//            System.out.println("ball in inside bruh");
-//        }
-//        else if(dist<=ballradii+outcircleradii ){
-//            System.out.println("Outer circle hit");
-//
-//        }
-//        if(dist<Math.abs(ballradii-innercircleradii)){
-//            System.out.println("ball in inside bruh");
-//        }
-//        else if(dist<=ballradii+innercircleradii){
-//            System.out.println("inner circle hit");
-//
-//        }
 
 
-
-    }
-
-
-    public void newCollide(Pane root, Shape ball) throws IOException {
+    public void newCollide(Pane root, Shape ball) {
 
 
-        List<Node> firstChildren=root.getChildren();
-        if(firstChildren.get(0) instanceof Pane){
-            for(Node i:firstChildren){
-                if(i instanceof Pane) {
-                    for (Node j : ((Pane) i).getChildren()) {
-                        if( j instanceof Shape) {
+        List<Node> firstChildren = root.getChildren();
+        if (firstChildren.get(0) instanceof Pane || firstChildren.get(0) instanceof Group) {
+            for (Node i : firstChildren) {
+                if (i instanceof Pane || i instanceof Group) {
+                    List<Node> sendLoop;
+                    if(i instanceof Pane){
+                        sendLoop=((Pane) i).getChildren();
+
+                    }
+                    else{
+                        sendLoop=((Group) i).getChildren();
+                    }
+                    for (Node j:sendLoop) {
+                        if (j instanceof Shape) {
                             Shape checkShape = (Shape) j;
                             if (!Shape.intersect(checkShape, ball).getBoundsInLocal().isEmpty()) {
                                 Paint color = checkShape.getStroke();
 
                                 if (!color.toString().equals(ball.getFill().toString())) {
-                                    System.out.println("diff colour");
-                                    gameOver bye=new gameOver();
-                                    Main.root1.getChildren().setAll(bye.root);
-//                                    System.exit(0);
+//                                    System.out.println("diff colour");
+//                                    gameOver bye = new gameOver();
+//                                    Main.root1.getChildren().setAll(bye.root);
+                                    System.exit(0);
 
                                 }
+                            }
+                        }
+                        else if(j instanceof Group){
+                            for(Node k:((Group)j).getChildren()){
+                                Shape checkShape = (Shape) k;
+                                if (!Shape.intersect(checkShape, ball).getBoundsInLocal().isEmpty()) {
+                                    Paint color = checkShape.getStroke();
+
+                                    if (!color.toString().equals(ball.getFill().toString())) {
+//                                    System.out.println("diff colour");
+//                                    gameOver bye = new gameOver();
+//                                    Main.root1.getChildren().setAll(bye.root);
+                                        System.exit(0);
+
+                                    }
+                                }
+
                             }
                         }
 
 
                     }
                 }
+                if( i instanceof ImageView){
 
+
+                }
+                if(i instanceof SVGPath){
+                    if(!Shape.intersect((Shape)i, ball).getBoundsInLocal().isEmpty()){
+                        if(!((SVGPath) i).getFill().equals(Color.TRANSPARENT)){
+                            ((SVGPath) i).setFill(Color.TRANSPARENT);
+                            this.e.setScore(this.e.getScore()+1);
+                            this.e.updateScore();
+                        }
+                    }
+                }
             }
-        }
-        else{
-            for(Node j:((Pane) firstChildren).getChildren()){
-                if(j instanceof Shape) {
+        } else {
+            System.out.println("bruh");
+            Pane top=(Pane)firstChildren.get(0);
+            List<Node> shapes=top.getChildren();
+            for (Node j : shapes) {
+                if (j instanceof Shape) {
                     Shape checkShape = (Shape) j;
                     if (!Shape.intersect(checkShape, ball).getBoundsInLocal().isEmpty()) {
                         Paint color = checkShape.getStroke();
 
                         if (!color.toString().equals(ball.getFill().toString())) {
-                            System.out.println("diff colour");
-                            System.out.println("diff colour");
-                            gameOver bye=new gameOver();
-                            Main.root1.getChildren().setAll(bye.root);
-//                            System.exit(0);
+//                            System.out.println("diff colour");
+//                            System.out.println("diff colour");
+//                            gameOver bye = new gameOver();
+//                            Main.root1.getChildren().setAll(bye.root);
+                            System.exit(0);
 
                         }
                     }
@@ -353,104 +349,72 @@ public class MainPageController {
 
         }
 
+    }
+
+        public void changeColor(ColorSwitcher switcher,Shape ball){
+
+            if(switcher.isUsed()){
+                return;
+            }
+            List<Node> smallswitch=switcher.root.getChildren();
+            Shape one=(Shape)smallswitch.get(0);
+            if (!Shape.intersect(one, ball).getBoundsInLocal().isEmpty()) {
+                switcher.useIt();
+                Random rand = new Random();
+                int color=rand.nextInt(4);
+                String[] colors={"#fae100","#ff0181","#32dbf0","#900dff"};
+                ball.setFill(Color.web(colors[color]));
+                ball.setStroke(Color.web(colors[color]));
+                ((Shape) smallswitch.get(0)).setFill(Color.TRANSPARENT);
+                ((Shape) smallswitch.get(1)).setFill(Color.TRANSPARENT);
+                ((Shape) smallswitch.get(2)).setFill(Color.TRANSPARENT);
+                ((Shape) smallswitch.get(3)).setFill(Color.TRANSPARENT);
+                ((Shape) smallswitch.get(0)).setStroke(Color.TRANSPARENT);
+                ((Shape) smallswitch.get(1)).setStroke(Color.TRANSPARENT);
+                ((Shape) smallswitch.get(2)).setStroke(Color.TRANSPARENT);
+                ((Shape) smallswitch.get(3)).setStroke(Color.TRANSPARENT);
 
 
 
+            }
 
 
 
-
-
-
-
-
-
-//
-//
-
-    Pane randObstacle() throws IOException {
-        Random rand = new Random();
-        Pane randObsPane;
-        int obstacleNum=rand.nextInt(4);
-//        obstacleNum=0;
-        switch(obstacleNum)
-        {
-            case 0:
-                ConCircle a=new ConCircle();
-                randObsPane=a.circu();
-                a.playCon();
-                break;
-            case 1:
-                Cross aa=new Cross();
-                randObsPane=aa.root;
-                aa.playCross();
-                break;
-            case 2:
-                circle ab=new circle();
-                randObsPane=ab.root;
-                ab.initiateTransition();
-                break;
-            case 3:
-                dottedCircle abc=new dottedCircle();
-                randObsPane=abc.root;
-                abc.playdotted();
-                break;
-
-            default:
-                throw new IllegalStateException("Unexpected value: " + obstacleNum);
         }
 
-        return randObsPane;
-    }
-    public void newCollide(Pane root, Shape ball){
+        Pane randObstacle() throws IOException {
+            Random rand = new Random();
+            Pane randObsPane;
+            int obstacleNum=rand.nextInt(4);
+//        obstacleNum=0;
+            switch(obstacleNum)
+            {
+                case 0:
+                    ConCircle a=new ConCircle();
+                    randObsPane=a.circu();
+                    a.playCon();
+                    break;
+                case 1:
+                    Cross aa=new Cross();
+                    randObsPane=aa.root;
+                    aa.playCross();
+                    break;
+                case 2:
+                    circle ab=new circle();
+                    randObsPane=ab.root;
+                    ab.initiateTransition();
+                    break;
+                case 3:
+                    dottedCircle abc=new dottedCircle();
+                    randObsPane=abc.root;
+                    abc.playdotted();
+                    break;
 
-//        List<Node> children = root.getChildren();
-//        GridPane inbetween = (GridPane) children.get(0);
-//        List<Node> allacrs = inbetween.getChildren();
-//        Arc arc1 = (Arc) allacrs.get(0);
-//        Arc arc2 = (Arc) allacrs.get(1);
-//        Arc arc3 = (Arc) allacrs.get(2);
-//        Arc arc4 = (Arc) allacrs.get(3);
+                default:
+                    throw new IllegalStateException("Unexpected value: " + obstacleNum);
+            }
 
-//        if(!Shape.intersect(arc1, ball).getBoundsInLocal().isEmpty()){
-//            Paint color=arc1.getStroke();
-//
-//            if(!color.toString().equals(ball.getFill().toString())){
-//                System.out.println("diff colour");
-//                System.exit(0);
-//
-//            }
-//        }
-//        if(!Shape.intersect(arc2, ball).getBoundsInLocal().isEmpty()){
-//            Paint color=arc2.getStroke();
-//
-//            if(!color.toString().equals(ball.getFill().toString())){
-//                System.out.println("diff colour");
-//                System.exit(0);
-//
-//            }
-//        }
-//        if(!Shape.intersect(arc3, ball).getBoundsInLocal().isEmpty()){
-//            Paint color=arc3.getStroke();
-//
-//            if(!color.toString().equals(ball.getFill().toString())){
-//                System.out.println("diff colour");
-//                System.exit(0);
-//
-//            }
-//        }
-//        if(!Shape.intersect(arc4, ball).getBoundsInLocal().isEmpty()){
-//            Paint color=arc4.getStroke();
-//
-//            if(!color.toString().equals(ball.getFill().toString())){
-//                System.out.println("diff colour");
-//                System.exit(0);
-//
-//            }
-//        }
-//        System.out.println(Shape.intersect(arc1,ball).getBoundsInLocal().isEmpty()+" "+Shape.intersect(arc2,ball).getBoundsInLocal().isEmpty()+" "+Shape.intersect(arc3,ball).getBoundsInLocal().isEmpty()+" "+Shape.intersect(arc4,ball).getBoundsInLocal().isEmpty());
-
-
-    }
+            return randObsPane;
+        }
 
 }

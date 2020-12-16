@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Group?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.SVGPath?>
 
-<AnchorPane prefHeight="177.0" prefWidth="205.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Circles">
+<AnchorPane prefHeight="203.0" prefWidth="161.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Circles">
    <children>
       <Group layoutX="100.0" layoutY="138.0">
          <children>
@@ -16,10 +15,6 @@
             <Arc fill="#272727" layoutX="100.0" length="90.0" radiusX="100.0" radiusY="100.0" stroke="#ff0181" strokeType="INSIDE" strokeWidth="10.0" translateX="-97.0" translateY="-36.0" />
          </children>
       </Group>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="75.0" layoutY="70.0">
-         <image>
-            <Image url="@Star.png" />
-         </image>
-      </ImageView>
+      <SVGPath content="M 192.000 212.000L 212.000 226.641L 209.321 202.000L 232.000 192.000L 209.321 182.000L 212.000 157.359L 192.000 172.000L 172.000 157.359L 174.679 182.000L 152.000 192.000L 174.679 202.000L 172.000 226.641zM 192.000 212.000L 212.000 226.641L 209.321 202.000L 232.000 192.000L 209.321 182.000L 212.000 157.359L 192.000 172.000L 172.000 157.359L 174.679 182.000L 152.000 192.000L 174.679 202.000L 172.000 226.641z" fill="#f7e6e6" layoutX="-308.0" layoutY="-358.0" scaleX="0.6" scaleY="0.6" translateX="219.0" translateY="271.0" />
    </children>
 </AnchorPane>

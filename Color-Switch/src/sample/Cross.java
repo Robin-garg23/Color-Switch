@@ -18,7 +18,7 @@ public class Cross {
     AnchorPane root;
     Cross() throws IOException {
         root = FXMLLoader.load(getClass().getResource("/sample/Cross2.fxml"));
-        root.setTranslateX(100);
+        root.setTranslateX(150);
     }
     protected void playCross() {
         List<Node> parentChildren =root.getChildren();

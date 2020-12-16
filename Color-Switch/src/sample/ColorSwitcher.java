@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 public class ColorSwitcher implements Serializable {
     AnchorPane root;
-    boolean used;
+    private boolean used;
     ColorSwitcher() throws IOException {
 
         root = FXMLLoader.load(getClass().getResource("colorswitcher.fxml"));
@@ -19,5 +19,8 @@ public class ColorSwitcher implements Serializable {
     AnchorPane switchu(){ return root;}
     public boolean isUsed(){
         return this.used;
+    }
+    public void useIt(){
+        used=true;
     }
 }
