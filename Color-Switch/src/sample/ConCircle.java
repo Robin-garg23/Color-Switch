@@ -44,8 +44,8 @@ public class ConCircle extends Obstacles implements Serializable {
         rotateTransition.setAutoReverse(false);
         rotateTransition.play();
         RotateTransition rotateTransition1=new RotateTransition(Duration.millis(8000),parentChildren.get(1));
-        rotateTransition1.setFromAngle(360);
-        rotateTransition1.setToAngle(0);
+        rotateTransition1.setFromAngle(0);
+        rotateTransition1.setToAngle(360);
         rotateTransition1.setInterpolator(Interpolator.LINEAR);
         rotateTransition1.setAxis(Rotate.Z_AXIS);
         rotateTransition1.setCycleCount(Timeline.INDEFINITE);

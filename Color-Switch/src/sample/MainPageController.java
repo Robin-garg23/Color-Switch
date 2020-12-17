@@ -123,7 +123,11 @@ public class MainPageController {
 
 
                 for(Obstacles i:obstacles){
-                    newCollide(i.returnPane(),ball);
+                    try {
+                        newCollide(i.returnPane(),ball);
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
 
                 }
                 for(ColorSwitcher i:switches){
