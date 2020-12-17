@@ -38,7 +38,7 @@ public class balljump {
 
     public void jump(StackPane pane) throws IOException {
 
-            gameOver bye=new gameOver();
+//            gameOver bye=new gameOver();
             TranslateTransition translateTransition = new TranslateTransition();
             translateTransition.setDuration(Duration.millis(400000));
             translateTransition.setNode(root);
@@ -62,13 +62,13 @@ public class balljump {
             System.out.println(root.getTranslateY()+aa.get(0).getTranslateY());
 
             gg=root.getTranslateY()+aa.get(0).getTranslateY();
-            if(gg>600)
-            {
-                StackPane pane1=new StackPane();
-
-                pane1.getChildren().add(bye.root);
-                Main.root1.getChildren().setAll(pane1);
-            }
+//            if(gg>600)
+//            {
+//                StackPane pane1=new StackPane();
+//
+////                pane1.getChildren().add(bye.root);
+////                Main.root1.getChildren().setAll(pane1);
+//            }
             System.out.println();
 
                 translateTransition1.setByY(-100);

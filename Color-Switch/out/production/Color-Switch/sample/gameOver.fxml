@@ -23,9 +23,9 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="168.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" translateY="-10.0">
+      <Text fill="WHITE" layoutX="168.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" translateY="-3.0">
          <font>
-            <Font name="Corbel" size="46.0" />
+            <Font size="46.0" />
          </font>
       </Text>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb521" height="32.0" layoutY="184.0" stroke="BLACK" strokeType="INSIDE" width="370.0" />
@@ -34,7 +34,7 @@
             <Font size="21.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="153.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20" translateY="-4.0">
+      <Text fill="WHITE" layoutX="168.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" translateY="-4.0">
          <font>
             <Font size="46.0" />
          </font>
