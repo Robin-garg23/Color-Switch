@@ -120,13 +120,10 @@ public class MainPageController {
 
 
                 for(Pane i:obstacles){
-
                     newCollide(i,ball);
-
                 }
                 for(ColorSwitcher i:switches){
                     changeColor(i,ball);
-
                 }
                 b.root.toFront();
 //               System.out.println(obstacles.get(0).getTranslateY());
@@ -391,7 +388,7 @@ public class MainPageController {
         Pane randObstacle() throws IOException {
             Random rand = new Random();
             Pane randObsPane;
-            int obstacleNum=rand.nextInt(5);
+            int obstacleNum=rand.nextInt(6);
 //        obstacleNum=0;
             switch(obstacleNum)
             {
@@ -419,6 +416,12 @@ public class MainPageController {
                     ninjaStar abcd=new ninjaStar();
                     randObsPane=abcd.root;
                     abcd.initiateTransition();
+                    break;
+
+                case 5:
+                    doubleCross doublecross=new doubleCross();
+                    randObsPane= doublecross.root;
+                    doublecross.playTransition();
                     break;
                 default:
                     throw new IllegalStateException("Unexpected value: " + obstacleNum);

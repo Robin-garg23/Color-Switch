@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane prefHeight="249.0" prefWidth="136.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Group translateX="96.0" translateY="-27.0">
+         <children>
+            <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#900dff" height="115.0" layoutX="165.0" layoutY="28.0" stroke="#900dff" strokeLineJoin="ROUND" strokeType="INSIDE" width="33.0" />
+            <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#ff0181" height="115.0" layoutX="115.0" layoutY="90.0" rotate="90.0" stroke="#ff0181" strokeLineJoin="ROUND" strokeType="INSIDE" width="33.0" />
+            <Rectangle arcHeight="30.0" arcWidth="100.0" blendMode="SRC_ATOP" fill="#32dbf0" height="115.0" layoutX="165.0" layoutY="134.0" stroke="#32dbf0" strokeLineJoin="ROUND" strokeType="INSIDE" width="33.0" />
+            <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#fae100" height="115.0" layoutX="215.0" layoutY="89.0" rotate="90.0" stroke="#fae100" strokeLineJoin="ROUND" strokeType="INSIDE" width="33.0" />
+         </children>
+      </Group>
+      <Group layoutX="-64.0" layoutY="-17.0" translateX="-10.0" translateY="-9.0">
+         <children>
+            <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#900dff" height="115.0" layoutX="165.0" layoutY="28.0" stroke="#900dff" strokeLineJoin="ROUND" strokeType="INSIDE" width="33.0" />
+            <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#fae100" height="115.0" layoutX="115.0" layoutY="90.0" rotate="90.0" stroke="#fae100" strokeLineJoin="ROUND" strokeType="INSIDE" width="33.0" />
+            <Rectangle arcHeight="30.0" arcWidth="100.0" blendMode="SRC_ATOP" fill="#32dbf0" height="115.0" layoutX="165.0" layoutY="134.0" stroke="#32dbf0" strokeLineJoin="ROUND" strokeType="INSIDE" width="33.0" />
+            <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#ff0181" height="115.0" layoutX="215.0" layoutY="89.0" rotate="90.0" stroke="#ff0181" strokeLineJoin="ROUND" strokeType="INSIDE" width="33.0" />
+         </children>
+      </Group>
+   </children>
+</AnchorPane>
