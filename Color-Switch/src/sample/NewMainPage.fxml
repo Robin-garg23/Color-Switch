@@ -106,7 +106,7 @@
       <Label layoutX="268.0" layoutY="422.0" text="Label" />
       <ImageView fitHeight="44.0" fitWidth="200.0" layoutX="182.0" layoutY="427.0" onMouseClicked="#savedGames">
          <image>
-            <Image url="@loadGame.jpg" />
+            <Image url="@loadGame.png" />
          </image>
       </ImageView>
       <Group layoutX="267.0" layoutY="330.0" scaleX="2.25" scaleY="2.25" translateX="15.0" translateY="-10.0">

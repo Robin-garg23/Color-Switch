@@ -59,13 +59,13 @@ public class gameOverController {
         ff.deserializeArrayList();
         Main.database.deserializeArrayList();
         if(ff.highStar.get(1)>10) {
-            System.out.println("continuing using stars");
+//            System.out.println("continuing using stars");
             ff.highStar.set(1,ff.highStar.get(1)-10);
             MainPageController newController = new MainPageController();
             Main.database.namesList.get(Main.database.namesList.size() - 1).ballY += 50;
             newController.currentGame = Main.database.namesList.get(Main.database.namesList.size() - 1);
             for (GameData s : Main.database.namesList)
-                System.out.println(s.ballY);
+//                System.out.println(s.ballY);
             newController.resumeGame = true;
             newController.play(null);
 
