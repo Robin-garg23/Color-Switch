@@ -21,9 +21,7 @@ public class savedGames {
 
     savedGames() throws IOException {
         root = FXMLLoader.load(getClass().getResource("savedgames.fxml"));
-        ArrayList<GameData> allGames=new ArrayList<>();
-        GameSaver games=new GameSaver(allGames);
-        games.deserializeArrayList();
+        Main.database.deserializeArrayList();
         List<Node> children=root.getChildren();
         ScrollPane a=(ScrollPane)children.get(1);
         a.setPannable(true);
@@ -33,7 +31,7 @@ public class savedGames {
 //        VBox table=(VBox)b.getChildren().get(0);
 
         int num=1;
-        for(GameData i:games.namesList){
+        for(GameData i:Main.database.namesList){
             Text newgame= new Text();
             newgame.setStrokeType(StrokeType.valueOf("OUTSIDE"));
             newgame.setStrokeWidth(0.0);
@@ -42,13 +40,13 @@ public class savedGames {
             newgame.setAccessibleRole(AccessibleRole.valueOf("BUTTON"));
 //            newgame.getparen
             newgame.setOnMouseClicked((MouseEvent event) -> {
-                MainPageController bsdk=new MainPageController();
-                bsdk.currentGame=i;
+                MainPageController newController=new MainPageController();
+                newController.currentGame=i;
 //                for(GameData s:dodo.namesList)
 //                    System.out.println(s.ballY);
-                bsdk.resumeGame=true;
+                newController.resumeGame=true;
                 try {
-                    bsdk.play(event);
+                    newController.play(event);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
