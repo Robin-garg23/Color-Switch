@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
@@ -14,11 +16,12 @@ import java.io.IOException;
 import java.util.List;
 
 
-public class Cross {
+public class Cross extends Obstacles{
     AnchorPane root;
     Cross() throws IOException {
         root = FXMLLoader.load(getClass().getResource("/sample/Cross2.fxml"));
         root.setTranslateX(150);
+        root.setId("1");
     }
     protected void playCross() {
         List<Node> parentChildren =root.getChildren();
@@ -31,5 +34,10 @@ public class Cross {
         rotateTransition.setAutoReverse(false);
         rotateTransition.play();
 
+    }
+    @Override
+    Pane returnPane()
+    {
+        return root;
     }
 }

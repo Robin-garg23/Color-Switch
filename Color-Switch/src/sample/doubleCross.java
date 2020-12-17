@@ -6,6 +6,7 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
@@ -13,12 +14,13 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.util.List;
 
-public class doubleCross {
+public class doubleCross extends Obstacles{
 
     public AnchorPane root;
     doubleCross() throws IOException {
         root = FXMLLoader.load(getClass().getResource("/sample/doublecross.fxml"));
         root.setTranslateX(30);
+        root.setId("5");
     }
     protected void playTransition() {
 
@@ -39,5 +41,10 @@ public class doubleCross {
         rotateTransition1.setCycleCount(Timeline.INDEFINITE);
         rotateTransition1.setAutoReverse(false);
         rotateTransition1.play();
+    }
+    @Override
+    Pane returnPane()
+    {
+        return root;
     }
 }

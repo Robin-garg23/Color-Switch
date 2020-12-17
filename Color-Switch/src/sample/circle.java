@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -22,13 +23,14 @@ import java.io.IOException;
 import java.util.List;
 
 
-public class circle {
+public class circle extends Obstacles{
 
     public AnchorPane root;
 
     circle() throws IOException {
         root = FXMLLoader.load(getClass().getResource("Circle.fxml"));
         root.setTranslateX(100);
+        root.setId("2");
     }
     public void initiateTransition(){
 
@@ -43,7 +45,11 @@ public class circle {
         rotateTransition.play();
 
     }
-
+    @Override
+    Pane returnPane()
+    {
+        return root;
+    }
 
 
 }

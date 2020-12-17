@@ -5,9 +5,18 @@ import java.util.ArrayList;
 
 public class GameSaver {
         ArrayList<GameData> namesList;
+        int HighScore;
+        int Stars;
         GameSaver(ArrayList<GameData> namesList)
         {
             this.namesList=namesList;
+
+        }
+        GameSaver(int HighScore,int Stars)
+        {
+            this.HighScore=HighScore;
+            this.Stars=Stars;
+
         }
          void serializeArrayList()
         {
@@ -55,6 +64,7 @@ public class GameSaver {
 
             // Method for deserialization of object
             namesList = (ArrayList<GameData>) in.readObject();
+
 
             in.close();
             file.close();

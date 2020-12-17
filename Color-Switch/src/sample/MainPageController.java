@@ -27,14 +27,15 @@ import javafx.scene.shape.Shape;
 import java.io.IOException;
 import java.util.*;
 
+
 public class MainPageController {
     ArrayList<GameData> games=new ArrayList<>();
     GameData currentGame;
-    ArrayList<Pane> obstacles;
-    ArrayList<Pane> switchers;
+    ArrayList<Obstacles> obstacles;
+//    ArrayList<Pane> switchers;
     ArrayList<ColorSwitcher> switches;
 //    ConCircle a;
-    Pane firstObs;
+    Obstacles firstObs;
     ColorSwitcher j;
     balljump b;
     AnimationTimer ddd;
@@ -50,26 +51,25 @@ public class MainPageController {
         pane = new StackPane();
         if(resumeGame)
         {
-            switchers=new ArrayList<>();//currentGame.switchers;
+//            switchers=new ArrayList<>();//currentGame.switchers;
             obstacles=new ArrayList<>();//currentGame.obstacles;
             switches=new ArrayList<>();//currentGame.switchers;
 
 //          switchers = new ArrayList<>();
 //            obstacles = new ArrayList<>();
-            for(int i=0;i<currentGame.obstaclesType.size();i++)
+            for(int i=0;i<currentGame.obstacles.size();i++)
             {
+                Obstacles oops=randObstacle(currentGame.obstacles.get(i).obstaclesType);
 
-                ConCircle a=new ConCircle();
-                a.circu().setTranslateY(currentGame.obstaclesY.get(i));
-                obstacles.add(a.circu());
+                oops.returnPane().setTranslateY(currentGame.obstacles.get(i).obstaclesY);
+                obstacles.add(oops);
 
             }
-            for(Integer g:currentGame.switchers)
+            for(Double g:currentGame.switchers)
             {
                 ColorSwitcher jj=new ColorSwitcher();
+                jj.returnPane().setTranslateY(g);
                 switches.add(jj);
-                jj.switchu().setTranslateY(g);
-                switchers.add(jj.switchu());
             }
 
             System.out.println("playing");
@@ -79,28 +79,28 @@ public class MainPageController {
 //            j.switchu().setTranslateY(200);
 //            switchers.add(j.root);
             b = new balljump();
-            b.root.setTranslateY(currentGame.ballY);
+            b.root.setTranslateY(currentGame.ballY+50);
 
             e = new Score();
             e.setScore(currentGame.score);
 //            obstacles.add(a.circu());
         }
         if(!resumeGame) {
-            switchers = new ArrayList<>();
+//            switchers = new ArrayList<>();
             obstacles = new ArrayList<>();
             switches = new ArrayList<>();
 
 
             System.out.println("playing");
             ConCircle a = new ConCircle();
-            firstObs=a.circu();
+            firstObs=a;
             a.playCon();
 
 //        circle op=new circle();
             j = new ColorSwitcher();
             switches.add(j);
-            j.switchu().setTranslateY(200);
-            switchers.add(j.root);
+            j.returnPane().setTranslateY(200);
+//            switches.add(j);
             b = new balljump();
             e = new Score();
             obstacles.add(firstObs);
@@ -119,8 +119,8 @@ public class MainPageController {
             public void handle(long now) {
 
 
-                for(Pane i:obstacles){
-                    newCollide(i,ball);
+                for(Obstacles i:obstacles){
+                    newCollide(i.returnPane(),ball);
                 }
                 for(ColorSwitcher i:switches){
                     changeColor(i,ball);
@@ -129,39 +129,45 @@ public class MainPageController {
 //               System.out.println(obstacles.get(0).getTranslateY());
 //                System.out.println(obstacles.size());
 //                System.out.println(obstacles.get(obstacles.size()-1).getTranslateY());
-               if(obstacles.get(obstacles.size()-1).getTranslateY()>100)
+               if(obstacles.get(obstacles.size()-1).returnPane().getTranslateY()>100)
                {
                    try {
 //                       ConCircle gg=new ConCircle();
-                       Pane gg=randObstacle();
+                       Obstacles gg=randObstacle();
                        ColorSwitcher jj=new ColorSwitcher();
-                       double hola=obstacles.get(obstacles.size()-1).getTranslateY()-400;
+                       double hola=obstacles.get(obstacles.size()-1).returnPane().getTranslateY()-400;
                        System.out.println(hola);
-                       gg.setTranslateY(hola);
-                       jj.switchu().setTranslateY(switchers.get(switchers.size()-1).getTranslateY()-400);
+                       gg.returnPane().setTranslateY(hola);
+                       jj.returnPane().setTranslateY(switches.get(switches.size()-1).returnPane().getTranslateY()-400);
 //                       gg.playCon();
 //                       gg.circu().toBack();
                        obstacles.add(gg);
-                       switchers.add(jj.switchu());
+//                       switchers.add(jj.returnPane());
                        switches.add(jj);
 //                       obstacles.get(obstacles.size()-1)
 //                       System.out.println("dfgfhggfd");
-                       pane.getChildren().addAll(gg,jj.switchu());
+                       pane.getChildren().addAll(gg.returnPane(),jj.returnPane());
                    } catch (IOException e) {
 //                       e.printStackTrace();
                    }
 
                }
                if(b.getBallPos()<350) {
-                   for(Pane fo:obstacles)
+                   for(Obstacles fo:obstacles)
                    {
-                       fo.toBack();
-                       fo.setTranslateY(fo.getTranslateY() + 1);
-                   }
-                   for(Pane fo:switchers)
-                   {
+                       fo.returnPane().toBack();
+//                       System.out.println(fo.getId());
+                       fo.returnPane().setTranslateY(fo.returnPane().getTranslateY() + 1);
+                       if(b.getBallPos()<200)
+                           fo.returnPane().setTranslateY(fo.returnPane().getTranslateY() + 1);
 
-                       fo.setTranslateY(fo.getTranslateY() + 1);
+                   }
+                   for(ColorSwitcher fo:switches)
+                   {
+                        
+                       fo.returnPane().setTranslateY(fo.returnPane().getTranslateY() + 1);
+                       if(b.getBallPos()<200)
+                           fo.returnPane().setTranslateY(fo.returnPane().getTranslateY() + 1);
                    }
 //                   obstacles.get(0).setTranslateY(obstacles.get(0).getTranslateY() + 1);
 ////                   System.out.println(obstacles.get(0).getTranslateY());
@@ -169,6 +175,12 @@ public class MainPageController {
                }
                if(obstacles.size()>4)
                    obstacles.remove(0);
+               if(switches.size()>4) {
+//                   switchers.remove(0);
+                   switches.remove(0);
+               }
+
+
 
 //                System.out.println(b.getBallPos());
 
@@ -187,15 +199,17 @@ public class MainPageController {
                 try {
                     ddd.stop();
 //                    ArrayList<Pane> obstacles,ArrayList<Pane> switchers,ConCircle a,ColorSwitcher j,balljump b,Score e
-                    ArrayList<Integer> obsy=new ArrayList<>();
-                    ArrayList<Integer> swi=new ArrayList<>();
-                    for(Pane i:obstacles){
-                        obsy.add((int) i.getTranslateY());
+                    ArrayList<obstacleData> obs=new ArrayList<>();
+                    ArrayList<Double> swi=new ArrayList<>();
+                    ArrayList<String>  obsID=new ArrayList<>();
+                    for(Obstacles i:obstacles){
+                        obs.add( new obstacleData(1,i.returnPane().getTranslateY(),i.returnPane().getId()));
+//                        obsID.add(i.getId());
                     }
-                    for(Pane i:switchers){
-                        swi.add((int) i.getTranslateY());
+                    for(ColorSwitcher i:switches){
+                        swi.add(i.returnPane().getTranslateY());
                     }
-                    currentGame=new GameData(obsy,obsy,swi, (int) b.getBallPos(),e.getScore());
+                    currentGame=new GameData(obs,swi, (int) b.getBallPos(),e.getScore(),"sdfgfh");
                     GameSaver dodo=new GameSaver(games);
                     dodo.deserializeArrayList();
                     dodo.namesList.add(currentGame);
@@ -222,13 +236,13 @@ public class MainPageController {
         b.root.setTranslateX(50);
 
 //        c.pause();
-        for(Pane i:obstacles)
+        for(Obstacles i:obstacles)
         {
-            pane.getChildren().add(i);
+            pane.getChildren().add(i.returnPane());
         }
-        for(Pane i:switchers)
+        for(ColorSwitcher i:switches)
         {
-            pane.getChildren().add(i);
+            pane.getChildren().add(i.root);
         }
         pane.getChildren().addAll(b.root,c.root,e.a);
 
@@ -287,7 +301,8 @@ public class MainPageController {
 //                                    System.out.println("diff colour");
 //                                    gameOver bye = new gameOver();
 //                                    Main.root1.getChildren().setAll(bye.root);
-                                    System.exit(0);
+
+//                                    System.exit(0);
 
                                 }
                             }
@@ -302,7 +317,7 @@ public class MainPageController {
 //                                    System.out.println("diff colour");
 //                                    gameOver bye = new gameOver();
 //                                    Main.root1.getChildren().setAll(bye.root);
-                                        System.exit(0);
+//                                        System.exit(0);
 
                                     }
                                 }
@@ -390,49 +405,95 @@ public class MainPageController {
 
         }
 
-        Pane randObstacle() throws IOException {
+        Obstacles randObstacle() throws IOException {
             Random rand = new Random();
-            Pane randObsPane;
+            Obstacles randObstacle;
             int obstacleNum=rand.nextInt(6);
 //        obstacleNum=0;
             switch(obstacleNum)
             {
                 case 0:
                     ConCircle a=new ConCircle();
-                    randObsPane=a.circu();
+                    randObstacle=a;
                     a.playCon();
                     break;
                 case 1:
                     Cross aa=new Cross();
-                    randObsPane=aa.root;
+                    randObstacle=aa;
                     aa.playCross();
                     break;
                 case 2:
                     circle ab=new circle();
-                    randObsPane=ab.root;
+                    randObstacle=ab;
                     ab.initiateTransition();
                     break;
                 case 3:
                     dottedCircle abc=new dottedCircle();
-                    randObsPane=abc.root;
+                    randObstacle=abc;
                     abc.playdotted();
                     break;
                 case 4:
                     ninjaStar abcd=new ninjaStar();
-                    randObsPane=abcd.root;
+                    randObstacle=abcd;
                     abcd.initiateTransition();
                     break;
 
                 case 5:
                     doubleCross doublecross=new doubleCross();
-                    randObsPane= doublecross.root;
+                    randObstacle= doublecross;
                     doublecross.playTransition();
                     break;
                 default:
                     throw new IllegalStateException("Unexpected value: " + obstacleNum);
             }
 
-            return randObsPane;
+
+            return randObstacle;
         }
+    Obstacles randObstacle(String a) throws IOException {
+        Random rand = new Random();
+        Obstacles randObstacle;
+        int obstacleNum=Integer.parseInt(a);
+//        obstacleNum=0;
+        switch(obstacleNum)
+        {
+            case 0:
+                ConCircle ao=new ConCircle();
+                randObstacle=ao;
+                ao.playCon();
+                break;
+            case 1:
+                Cross aa=new Cross();
+                randObstacle=aa;
+                aa.playCross();
+                break;
+            case 2:
+                circle ab=new circle();
+                randObstacle=ab;
+                ab.initiateTransition();
+                break;
+            case 3:
+                dottedCircle abc=new dottedCircle();
+                randObstacle=abc;
+                abc.playdotted();
+                break;
+            case 4:
+                ninjaStar abcd=new ninjaStar();
+                randObstacle=abcd;
+                abcd.initiateTransition();
+                break;
+
+            case 5:
+                doubleCross doublecross=new doubleCross();
+                randObstacle= doublecross;
+                doublecross.playTransition();
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + obstacleNum);
+        }
+
+
+        return randObstacle;
+    }
 
 }

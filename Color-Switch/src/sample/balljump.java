@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.animation.Animation;
+import javafx.animation.AnimationTimer;
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
 import javafx.application.Application;
@@ -32,6 +33,7 @@ public class balljump {
 
     public balljump() throws IOException {
         root = FXMLLoader.load(getClass().getResource("ball.fxml"));
+        root.setTranslateY(400);
 
 
     }
@@ -45,12 +47,18 @@ public class balljump {
             translateTransition.setRate(6);
 
             translateTransition.setFromX(50);
-            translateTransition.setFromY(400);
+//            translateTransition.setFromY(400);
             translateTransition.setToY(10001);
             translateTransition.setInterpolator(Interpolator.LINEAR);
             translateTransition.setAutoReverse(false);
             List<Node> aa=root.getChildren();
             List<Node> bb=pane.getChildren();
+        new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                ballPos=root.getTranslateY()+aa.get(0).getTranslateY();
+            }
+        }.start();
         pane.setOnMouseClicked(event -> {
 //            things((AnchorPane)bb.get(0));
             translateTransition.play();
@@ -58,7 +66,7 @@ public class balljump {
                 translateTransition1.setDuration(Duration.millis(300));
                 translateTransition1.setNode(aa.get(0));
 //                translateTransition.setRate(translateTransition.getRate()+0.5);
-            ballPos=root.getTranslateY()+aa.get(0).getTranslateY();
+
             System.out.println(root.getTranslateY()+aa.get(0).getTranslateY());
 
             gg=root.getTranslateY()+aa.get(0).getTranslateY();

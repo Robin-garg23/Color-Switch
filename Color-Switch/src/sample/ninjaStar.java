@@ -6,19 +6,27 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.List;
 
-public class ninjaStar {
+public class ninjaStar extends Obstacles{
     public AnchorPane root;
 
     ninjaStar() throws IOException {
         root = FXMLLoader.load(getClass().getResource("ninjastar.fxml"));
         root.setTranslateX(100);
+        root.setId("4");
     }
+
+    @Override
+    Pane returnPane() {
+        return root;
+    }
+
     public void initiateTransition(){
 
         List<Node> parentChildren =root.getChildren();
@@ -32,5 +40,6 @@ public class ninjaStar {
         rotateTransition.play();
 
     }
+
 
 }
