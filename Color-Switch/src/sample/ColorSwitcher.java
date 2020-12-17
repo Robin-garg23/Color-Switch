@@ -2,6 +2,7 @@ package sample;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
@@ -16,7 +17,7 @@ public class ColorSwitcher implements Serializable {
         root.setTranslateX(50);
         used=false;
     }
-    AnchorPane switchu(){ return root;}
+    Pane returnPane(){ return root;}
     public boolean isUsed(){
         return this.used;
     }

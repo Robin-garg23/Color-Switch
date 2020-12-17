@@ -11,6 +11,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
@@ -20,7 +21,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
-public class ConCircle implements Serializable {
+public class ConCircle extends Obstacles implements Serializable {
 
     public StackPane concircl;
 
@@ -28,7 +29,9 @@ public class ConCircle implements Serializable {
     ConCircle() throws IOException {
         concircl = FXMLLoader.load(getClass().getResource("/sample/concircle.fxml"));
         concircl.setTranslateX(50);
+        concircl.setId("0");
     }
+
      protected void playCon() {
 
         List<Node> parentChildren = concircl.getChildren();
@@ -41,15 +44,16 @@ public class ConCircle implements Serializable {
         rotateTransition.setAutoReverse(false);
         rotateTransition.play();
         RotateTransition rotateTransition1=new RotateTransition(Duration.millis(8000),parentChildren.get(1));
-        rotateTransition1.setFromAngle(0);
-        rotateTransition1.setToAngle(360);
+        rotateTransition1.setFromAngle(360);
+        rotateTransition1.setToAngle(0);
         rotateTransition1.setInterpolator(Interpolator.LINEAR);
         rotateTransition1.setAxis(Rotate.Z_AXIS);
         rotateTransition1.setCycleCount(Timeline.INDEFINITE);
         rotateTransition1.setAutoReverse(false);
         rotateTransition1.play();
     }
-    StackPane circu()
+    @Override
+    Pane returnPane()
     {
         return concircl;
     }

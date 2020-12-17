@@ -7,17 +7,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.List;
 
-public class dottedCircle {
+public class dottedCircle extends Obstacles{
     Pane root;
     dottedCircle() throws IOException {
         root = FXMLLoader.load(getClass().getResource("/sample/dottedCircle.fxml"));
         root.setTranslateX(60);
+        root.setId("3");
     }
     protected void playdotted() {
         List<Node> parentChildren =root.getChildren();
@@ -30,5 +32,10 @@ public class dottedCircle {
         rotateTransition.setAutoReverse(false);
         rotateTransition.play();
 
+    }
+    @Override
+    Pane returnPane()
+    {
+        return root;
     }
 }
