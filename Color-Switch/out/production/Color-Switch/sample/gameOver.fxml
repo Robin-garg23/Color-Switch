@@ -9,11 +9,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="650.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gameOverController">
+<AnchorPane prefHeight="650.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gameOverController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#272727" height="55.0" layoutX="201.0" layoutY="501.0" onMouseClicked="#restart" stroke="#272727" strokeType="INSIDE" width="57.0" />
       <SVGPath content="M12.083,1.887c-0.795-0.794-1.73-1.359-2.727-1.697v2.135c0.48,0.239,0.935,0.55,1.334,0.95c1.993,1.994,1.993,5.236,0,7.229c-1.993,1.99-5.233,1.99-7.229,0c-1.991-1.995-1.991-5.235,0-7.229C3.466,3.269,3.482,3.259,3.489,3.25h0.002l1.181,1.179L4.665,0.685L0.923,0.68l1.176,1.176C2.092,1.868,2.081,1.88,2.072,1.887c-2.763,2.762-2.763,7.243,0,10.005c2.767,2.765,7.245,2.765,10.011,0C14.844,9.13,14.847,4.649,12.083,1.887z" fill="WHITE" layoutX="147.0" layoutY="256.0" scaleX="4.0" scaleY="4.0" translateX="77.0" translateY="266.0" />
-      <Text fx:id="more" fill="WHITE" layoutX="67.0" layoutY="488.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" translateX="6.0">
+      <Text fill="WHITE" layoutX="67.0" layoutY="488.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" translateX="6.0">
          <font>
             <Font size="24.0" />
          </font>
@@ -47,16 +47,6 @@
             <Image url="@ColorSwitch_Full-Color-Logo+(1).png" />
          </image>
       </ImageView>
-      <Text fill="#eaee0b" layoutX="17.0" layoutY="545.0" onMouseClicked="#moreStars" strokeType="OUTSIDE" strokeWidth="0.0" text="Get More Stars">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="27.0" layoutY="518.0" onMouseClicked="#Continue" strokeType="OUTSIDE" strokeWidth="0.0" text="Continue ?" wrappingWidth="105.1025390625">
-         <font>
-            <Font name="Franklin Gothic Demi Cond" size="25.0" />
-         </font>
-      </Text>
       <Group layoutX="15.0" layoutY="409.0">
          <children>
             <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="44.91188669204712">

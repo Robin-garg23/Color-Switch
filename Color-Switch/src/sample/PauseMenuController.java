@@ -1,7 +1,6 @@
 package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
@@ -12,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class PauseMenuController {
-    boolean gameSaved=false;
+    ArrayList<GameData> sdsd;
     @FXML
     public void resume(MouseEvent event) throws IOException {
         Media media=new Media(new File("@../../assets/sounds/buttonClick.wav").toURI().toString());
@@ -22,20 +21,19 @@ public class PauseMenuController {
 //        mainPage a=new mainPage();
 //        a.initiateTransitions();
 //        Main.root1.getChildren().setAll(a.root);
-//        GameSaver Main.database=new GameSaver(sdsd);
-        Main.database.deserializeArrayList();
-//        Main.database.namesList.get(Main.database);
-        MainPageController newController=new MainPageController();
-        newController.currentGame=Main.database.namesList.get(Main.database.namesList.size()-1);
-        for(GameData s:Main.database.namesList)
+        GameSaver dodo=new GameSaver(sdsd);
+        dodo.deserializeArrayList();
+//        dodo.namesList.get(dodo);
+        MainPageController bsdk=new MainPageController();
+        bsdk.currentGame=dodo.namesList.get(dodo.namesList.size()-1);
+        for(GameData s:dodo.namesList)
         System.out.println(s.ballY);
-        newController.resumeGame=true;
-        newController.play(null);
-        if(!gameSaved) {
-            Main.database.namesList.remove(Main.database.namesList.size() - 1);
-            Main.database.serializeArrayList();
-        }
-        gameSaved=false;
+        bsdk.resumeGame=true;
+        bsdk.play(null);
+
+
+
+
     }
 
     @FXML
@@ -43,17 +41,7 @@ public class PauseMenuController {
         Media media=new Media(new File("@../../assets/sounds/buttonClick.wav").toURI().toString());
         MediaPlayer mediaPlayer=new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
-// <<<<<<< HEAD
-// //        System.out.println("saving game");
-// =======
-//         System.out.println("saving game");
-        Alert errorAlert = new Alert(Alert.AlertType.INFORMATION);
-        errorAlert.setHeaderText("Game Saved!!");
-
-//            errorAlert.showAndWait(5000);
-        errorAlert.showAndWait();
-        gameSaved=true;
-
+//        System.out.println("saving game");
 
 
     }
@@ -63,18 +51,7 @@ public class PauseMenuController {
         Media media=new Media(new File("@../../assets/sounds/buttonClick.wav").toURI().toString());
         MediaPlayer mediaPlayer=new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
-// <<<<<<< HEAD
-// //        System.out.println("going to home");
-// =======
-//         System.out.println("going to home");
-        if(!gameSaved) {
-            Main.database.deserializeArrayList();
-            Main.database.namesList.remove(Main.database.namesList.size() - 1);
-            Main.database.serializeArrayList();
-
-        }
-        gameSaved=false;
-
+//        System.out.println("going to home");
         mainPage a=new mainPage();
         a.initiateTransitions();
         Main.root1.getChildren().setAll(a.root);

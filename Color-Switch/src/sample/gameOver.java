@@ -1,5 +1,4 @@
 package sample;
-import javafx.animation.AnimationTimer;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.animation.Timeline;
@@ -31,11 +30,9 @@ public class gameOver {
 
         root = FXMLLoader.load(getClass().getResource("gameOver.fxml"));
         HighStarSaver op=new HighStarSaver(highScore,starCount);
-
-            op.deserializeArrayList();
-            highScore=op.highStar.get(0);
-            starCount=op.highStar.get(1);
-
+        op.deserializeArrayList();
+        highScore=op.highStar.get(0);
+        starCount=op.highStar.get(1);
 
         highScore=Math.max(highScore,score);
         starCount+=score;

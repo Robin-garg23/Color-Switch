@@ -20,7 +20,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -28,7 +27,6 @@ import javafx.util.Duration;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.Random;
 
 public class balljump {
 
@@ -37,14 +35,8 @@ public class balljump {
     double gg=0;
 
     public balljump() throws IOException {
-        Random rand=new Random();
         root = FXMLLoader.load(getClass().getResource("ball.fxml"));
         root.setTranslateY(400);
-        String[] colors={"0xfae100ff","0xff0181ff","0x32dbf0ff","0x900dffff"};
-        Shape ball=(Shape)root.getChildren().get(0);
-        int color=rand.nextInt(4);
-        ball.setFill(Color.web(colors[color]));
-        ball.setStroke(Color.web(colors[color]));
 
 
     }
