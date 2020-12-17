@@ -10,8 +10,8 @@ class obstacleData implements Serializable
 {
     Double obstaclesY;
     String obstaclesType;
-    int star;
-    obstacleData(int star,Double obstaclesY,String obstaclesType)
+    boolean star;
+    obstacleData(boolean star,Double obstaclesY,String obstaclesType)
     {
         this.obstaclesType=obstaclesType;
         this.obstaclesY=obstaclesY;
@@ -24,15 +24,17 @@ public class GameData implements Serializable {
     ArrayList<obstacleData> obstacles;
 //    ArrayList<String> obstaclesType;
     ArrayList<Double> switchers;
+    ArrayList<Boolean> switcherused;
 //    ConCircle a;
 //    ColorSwitcher j;
     int ballY;
     String ballColor;
     int score;
-    GameData(ArrayList<obstacleData> obstacles,ArrayList<Double> switchers,int ballY,int score,String ballColor)
+    GameData(ArrayList<obstacleData> obstacles,ArrayList<Boolean> switcherused,ArrayList<Double> switchers,int ballY,int score,String ballColor)
     {
         this.obstacles=obstacles;
 //        this.obstaclesType=obstaclesType;
+        this.switcherused=switcherused;
         this.switchers=switchers;
         this.ballY=ballY;
 //        this.obstacles=obstacles;

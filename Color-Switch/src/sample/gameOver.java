@@ -29,6 +29,16 @@ public class gameOver {
     gameOver(int score) throws IOException {
 
         root = FXMLLoader.load(getClass().getResource("gameOver.fxml"));
+        HighStarSaver op=new HighStarSaver(highScore,starCount);
+        op.deserializeArrayList();
+        highScore=op.highStar.get(0);
+        starCount=op.highStar.get(1);
+
+        highScore=Math.max(highScore,score);
+        starCount+=score;
+        op.highStar.set(0,highScore);
+        op.highStar.set(1,starCount);
+        op.serializeArrayList();
         List<Node> children=root.getChildren();
         Text scoreText=(Text)children.get(5);
         scoreText.setText(""+score);
