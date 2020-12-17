@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="32.0" prefWidth="17.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pauseSymbolController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#272727" height="24.0" layoutY="1.0" onMouseClicked="#pause" stroke="#272727" strokeType="INSIDE" width="16.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#272727" height="31.0" layoutX="-5.0" layoutY="-6.0" onMouseClicked="#pause" stroke="#272727" strokeType="INSIDE" width="28.0" />
       <SVGPath content="M10 24h-6v-24h6v24zm10 0h-6v-24h6v24zm-11-23h-4v22h4v-22zm10 0h-4v22h4v-22z" fill="WHITE" layoutX="46.0" layoutY="17.0" translateX="-49.0" translateY="-16.0" />
    </children>
 </AnchorPane>

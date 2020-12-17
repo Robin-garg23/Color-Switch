@@ -17,6 +17,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Arc;
@@ -24,6 +26,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.SVGPath;
 import javafx.scene.shape.Shape;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
@@ -48,6 +51,9 @@ public class MainPageController {
     StackPane pane;
     @FXML
     public void play(MouseEvent event) throws IOException {
+        Media media=new Media(new File("@../../assets/sounds/buttonClick.wav").toURI().toString());
+        MediaPlayer mediaPlayer=new MediaPlayer(media);
+        mediaPlayer.setAutoPlay(true);
         pane = new StackPane();
         if(resumeGame)
         {
@@ -201,6 +207,8 @@ public class MainPageController {
 //        StackPane pane= FXMLLoader.load(getClass().getResource("/sample/concircle.fxml"));
 
         EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
+
+
             @Override
             public void handle(MouseEvent ee) {
 //                System.out.println("Hello World\nfgfdg\ngdfgfdg");
@@ -264,16 +272,25 @@ public class MainPageController {
     @FXML
     public void savedGames(MouseEvent event){
         System.out.println("saved games");
+        Media media=new Media(new File("@../../assets/sounds/buttonClick.wav").toURI().toString());
+        MediaPlayer mediaPlayer=new MediaPlayer(media);
+        mediaPlayer.setAutoPlay(true);
     }
 
     @FXML
     public void exit(MouseEvent event){
         System.out.println("exiting");
+        Media media=new Media(new File("@../../assets/sounds/buttonClick.wav").toURI().toString());
+        MediaPlayer mediaPlayer=new MediaPlayer(media);
+        mediaPlayer.setAutoPlay(true);
         System.exit(0);
     }
     @FXML
     public void help(MouseEvent event){
         System.out.println("Made by Utkarsh");
+        Media media=new Media(new File("@../../assets/sounds/buttonClick.wav").toURI().toString());
+        MediaPlayer mediaPlayer=new MediaPlayer(media);
+        mediaPlayer.setAutoPlay(true);
 
     }
 
@@ -306,6 +323,9 @@ public class MainPageController {
                                 }
 
                                 if (!color.toString().equals(ball.getFill().toString())) {
+                                    Media media=new Media(new File("@../../assets/sounds/gameOver.wav").toURI().toString());
+                                    MediaPlayer mediaPlayer=new MediaPlayer(media);
+                                    mediaPlayer.setAutoPlay(true);
 
                                     System.out.println("diff colour");
                                     gameOver bye = new gameOver(this.e.getScore());
@@ -325,12 +345,14 @@ public class MainPageController {
                                     Paint color = checkShape.getStroke();
 
                                     if (!color.toString().equals(ball.getFill().toString())) {
-
+                                    Media media=new Media(new File("@../../assets/sounds/gameOver.wav").toURI().toString());
+                                    MediaPlayer mediaPlayer=new MediaPlayer(media);
+                                    mediaPlayer.setAutoPlay(true);
                                     System.out.println("diff colour");
                                     gameOver bye = new gameOver(this.e.getScore());
                                     Main.root1.getChildren().setAll(bye.root);
                                     ddd.stop();
-                                        System.exit(0);
+
 
 
                                     }
@@ -346,6 +368,9 @@ public class MainPageController {
                 if(i instanceof SVGPath){
                     if(!Shape.intersect((Shape)i, ball).getBoundsInLocal().isEmpty()){
                         if(!((SVGPath) i).getFill().equals(Color.TRANSPARENT)){
+                            Media media=new Media(new File("@../../assets/sounds/star.wav").toURI().toString());
+                            MediaPlayer mediaPlayer=new MediaPlayer(media);
+                            mediaPlayer.setAutoPlay(true);
                             ((SVGPath) i).setFill(Color.TRANSPARENT);
                             this.e.setScore(this.e.getScore()+1);
                             this.e.updateScore();
@@ -388,6 +413,9 @@ public class MainPageController {
             List<Node> smallswitch=switcher.root.getChildren();
             Shape one=(Shape)smallswitch.get(0);
             if (!Shape.intersect(one, ball).getBoundsInLocal().isEmpty()) {
+                Media media=new Media(new File("@../../assets/sounds/colorswitch.wav").toURI().toString());
+                MediaPlayer mediaPlayer=new MediaPlayer(media);
+                mediaPlayer.setAutoPlay(true);
                 switcher.useIt();
                 Random rand = new Random();
 

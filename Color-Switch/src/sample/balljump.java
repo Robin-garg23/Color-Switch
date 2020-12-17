@@ -14,6 +14,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Arc;
@@ -21,7 +23,8 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.awt.event.MouseEvent;
+
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -60,6 +63,9 @@ public class balljump {
             }
         }.start();
         pane.setOnMouseClicked(event -> {
+            Media media=new Media(new File("@../../assets/sounds/balljump.wav").toURI().toString());
+            MediaPlayer mediaPlayer=new MediaPlayer(media);
+            mediaPlayer.setAutoPlay(true);
 //            things((AnchorPane)bb.get(0));
             translateTransition.play();
             TranslateTransition translateTransition1 = new TranslateTransition();

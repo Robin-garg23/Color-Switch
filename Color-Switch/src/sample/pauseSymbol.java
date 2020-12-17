@@ -28,6 +28,7 @@ public class pauseSymbol {
     }
     public void pause() throws IOException {
 //        root.setOnMouseClicked(event -> {
+
             pauseMenu pause = null;
             try {
                 pause = new pauseMenu();
