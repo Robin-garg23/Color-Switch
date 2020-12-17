@@ -127,7 +127,7 @@ public class MainPageController {
 
 
 
-
+//
                 for(Obstacles i:obstacles){
                     try {
                         newCollide(i.returnPane(),ball);
@@ -206,6 +206,7 @@ public class MainPageController {
 
 //        StackPane pane= FXMLLoader.load(getClass().getResource("/sample/concircle.fxml"));
 
+
         EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
 
 
@@ -270,11 +271,14 @@ public class MainPageController {
 
 
     @FXML
-    public void savedGames(MouseEvent event){
+    public void savedGames(MouseEvent event) throws IOException {
         System.out.println("saved games");
         Media media=new Media(new File("@../../assets/sounds/buttonClick.wav").toURI().toString());
         MediaPlayer mediaPlayer=new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
+
+        savedGames ok=new savedGames();
+        Main.root1.getChildren().setAll(ok.root);
     }
 
     @FXML

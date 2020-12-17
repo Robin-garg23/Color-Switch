@@ -3,6 +3,7 @@
 <?import javafx.scene.Group?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
 
 <AnchorPane prefHeight="249.0" prefWidth="136.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -22,5 +23,6 @@
             <Rectangle arcHeight="30.0" arcWidth="100.0" fill="#ff0181" height="115.0" layoutX="215.0" layoutY="89.0" rotate="90.0" stroke="#ff0181" strokeLineJoin="ROUND" strokeType="INSIDE" width="33.0" />
          </children>
       </Group>
+      <SVGPath content="M 192.000 212.000L 212.000 226.641L 209.321 202.000L 232.000 192.000L 209.321 182.000L 212.000 157.359L 192.000 172.000L 172.000 157.359L 174.679 182.000L 152.000 192.000L 174.679 202.000L 172.000 226.641zM 192.000 212.000L 212.000 226.641L 209.321 202.000L 232.000 192.000L 209.321 182.000L 212.000 157.359L 192.000 172.000L 172.000 157.359L 174.679 182.000L 152.000 192.000L 174.679 202.000L 172.000 226.641z" fill="WHITE" layoutX="10.0" layoutY="10.0" scaleX="0.7" scaleY="0.7" translateX="-25.0" translateY="-202.0" />
    </children>
 </AnchorPane>

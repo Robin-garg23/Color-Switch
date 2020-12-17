@@ -27,6 +27,7 @@ public class gameOver {
 
 
     gameOver(int score) throws IOException {
+
         root = FXMLLoader.load(getClass().getResource("gameOver.fxml"));
         List<Node> children=root.getChildren();
         Text scoreText=(Text)children.get(5);
