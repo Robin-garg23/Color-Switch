@@ -23,7 +23,7 @@ public class PauseMenuController {
         for(GameData s:dodo.namesList)
         System.out.println(s.ballY);
         bsdk.resumeGame=true;
-        bsdk.play(event);
+        bsdk.play(null);
 
 
 

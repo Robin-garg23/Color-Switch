@@ -5,48 +5,31 @@ import java.util.ArrayList;
 
 public class HighStarSaver {
     ArrayList<Integer> highStar;
-    int HighScore;
-    int Stars;
-
-    HighStarSaver(int HighScore,int Stars)
+    HighStarSaver(int Highscore,int star)
     {
         highStar=new ArrayList<>();
-        highStar.add(HighScore);
-        highStar.add(Stars);
+        highStar.add(Highscore);
+        highStar.add(star);
     }
+
+
     void serializeArrayList()
     {
 
 
         try {
-            // an OutputStream file
-            // "namesListData" is
-            // created
-
             FileOutputStream fos
                     = new FileOutputStream("starData");
-
-            // an ObjectOutputStream object is
-            // created on the FileOutputStream
-            // object
             ObjectOutputStream oos
                     = new ObjectOutputStream(fos);
-
-            // calling the writeObject()
-            // method of the
-            // ObjectOutputStream on the
-            // OutputStream file "namesList"
             oos.writeObject(highStar);
-
-            // close the ObjectOutputStream
             oos.close();
-
-            // close the OutputStream file
             fos.close();
 
             System.out.println("namesList serialized");
         }
         catch (IOException ioe) {
+            highStar=new ArrayList<>();
             ioe.printStackTrace();
         }
     }
@@ -54,11 +37,9 @@ public class HighStarSaver {
     {
         try
         {
-            // Reading the object from a file
-            FileInputStream file = new FileInputStream("namesListData");
-            ObjectInputStream in = new ObjectInputStream(file);
 
-            // Method for deserialization of object
+            FileInputStream file = new FileInputStream("starData");
+            ObjectInputStream in = new ObjectInputStream(file);
             highStar = (ArrayList<Integer>) in.readObject();
 
 
@@ -66,12 +47,6 @@ public class HighStarSaver {
             file.close();
 
             System.out.println("Object has been deserialized ");
-//            System.out.println("a = " + object1);
-            //System.out.println("b = " + object1.b);
-            //Parent root=object1.pane;
-            //primaryStage.setTitle("Color Switch");
-            //primaryStage.setScene(new Scene(root, 400, 600));
-            //primaryStage.show();
         }
 
         catch(IOException ex)

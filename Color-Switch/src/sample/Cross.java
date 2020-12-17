@@ -9,6 +9,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.SVGPath;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
@@ -34,6 +36,11 @@ public class Cross extends Obstacles{
         rotateTransition.setAutoReverse(false);
         rotateTransition.play();
 
+    }
+    void transparentStar()
+    {
+        List<Node> firstChildren = root.getChildren();
+        ((SVGPath)firstChildren.get(firstChildren.size()-1)).setFill(Color.TRANSPARENT);
     }
     @Override
     Pane returnPane()

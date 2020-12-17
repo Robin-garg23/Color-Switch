@@ -2,7 +2,9 @@ package sample;
 
 import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +25,7 @@ import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.SVGPath;
 import javafx.scene.shape.Shape;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.*;
@@ -41,6 +44,7 @@ public class MainPageController {
     AnimationTimer ddd;
     pauseSymbol c;
     Score e;
+    Shape ball;
     boolean resumeGame=false;
 
     Queue<Integer> pQueue
@@ -62,13 +66,22 @@ public class MainPageController {
                 Obstacles oops=randObstacle(currentGame.obstacles.get(i).obstaclesType);
 
                 oops.returnPane().setTranslateY(currentGame.obstacles.get(i).obstaclesY);
+                if(currentGame.obstacles.get(i).star) {
+                    oops.transparentStar();
+                    oops.starUsed=true;
+                }
                 obstacles.add(oops);
 
             }
-            for(Double g:currentGame.switchers)
+            for(int i=0;i<currentGame.switchers.size();i++)
             {
                 ColorSwitcher jj=new ColorSwitcher();
-                jj.returnPane().setTranslateY(g);
+                jj.returnPane().setTranslateY(currentGame.switchers.get(i));
+                if(currentGame.switcherused.get(i))
+                {
+                    jj.useIt();
+                    jj.transparentSwitcher();
+                }
                 switches.add(jj);
             }
 
@@ -79,13 +92,15 @@ public class MainPageController {
 //            j.switchu().setTranslateY(200);
 //            switchers.add(j.root);
             b = new balljump();
-            b.root.setTranslateY(currentGame.ballY+50);
+            b.root.setTranslateY(currentGame.ballY);
 
             e = new Score();
             e.setScore(currentGame.score);
+            ball=(Circle)b.root.getChildren().get(0);
+            ball.setFill(Color.web(currentGame.ballColor));
 //            obstacles.add(a.circu());
         }
-        if(!resumeGame) {
+        if(!resumeGame){
 //            switchers = new ArrayList<>();
             obstacles = new ArrayList<>();
             switches = new ArrayList<>();
@@ -104,6 +119,7 @@ public class MainPageController {
             b = new balljump();
             e = new Score();
             obstacles.add(firstObs);
+            ball=(Circle)b.root.getChildren().get(0);
 //            a.playCon();
             b.root.setTranslateY(400);
         }
@@ -111,7 +127,7 @@ public class MainPageController {
 //        Star d=new Star();
 //        d.spawnstar();
 
-        Shape ball=(Circle)b.root.getChildren().get(0);
+
 //        obstacles.add(new Pane(d.circu()));
 
         ddd=new AnimationTimer() {
@@ -124,7 +140,7 @@ public class MainPageController {
 
                 for(Obstacles i:obstacles){
                     try {
-                        newCollide(i.returnPane(),ball);
+                        newCollide(i,ball);
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
                     }
@@ -195,7 +211,26 @@ public class MainPageController {
             }
 
         };
+        if(!resumeGame)
         ddd.start();
+        EventHandler<MouseEvent> eventHandler2 = new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent ee) {
+//                System.out.println("Hello World\nfgfdg\ngdfgfdg");
+                ddd.start();
+
+
+                //                circle.setFill(Color.DARKSLATEBLUE);
+            }
+        };
+        if(resumeGame)
+        pane.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler2);
+//        if(resumeGame) {
+//            ddd.stop();
+//            pane.setOnMouseClicked(event2 -> {
+//            });
+//            }
+//        }
 
 
 //        StackPane pane= FXMLLoader.load(getClass().getResource("/sample/concircle.fxml"));
@@ -210,14 +245,16 @@ public class MainPageController {
                     ArrayList<obstacleData> obs=new ArrayList<>();
                     ArrayList<Double> swi=new ArrayList<>();
                     ArrayList<String>  obsID=new ArrayList<>();
+                    ArrayList<Boolean> swiused=new ArrayList<>();
                     for(Obstacles i:obstacles){
-                        obs.add( new obstacleData(1,i.returnPane().getTranslateY(),i.returnPane().getId()));
+                        obs.add( new obstacleData(i.starUsed,i.returnPane().getTranslateY(),i.returnPane().getId()));
 //                        obsID.add(i.getId());
                     }
                     for(ColorSwitcher i:switches){
                         swi.add(i.returnPane().getTranslateY());
+                        swiused.add(i.isUsed());
                     }
-                    currentGame=new GameData(obs,swi, (int) b.getBallPos(),e.getScore(),"sdfgfh");
+                    currentGame=new GameData(obs,swiused,swi, (int) b.getBallPos(),e.getScore(),ball.getFill().toString());
                     GameSaver dodo=new GameSaver(games);
                     dodo.deserializeArrayList();
                     dodo.namesList.add(currentGame);
@@ -226,7 +263,6 @@ public class MainPageController {
                     resumeGame=true;
                     c.pause();
                     System.out.println("sfghggfdsgdhgfdhgfdhddfg");
-
 
 
                 } catch (IOException ex) {
@@ -257,6 +293,7 @@ public class MainPageController {
 
         b.jump(pane);
         Main.root1.getChildren().setAll(pane);
+//        resumeGame=false;
 
     }
 
@@ -278,10 +315,10 @@ public class MainPageController {
     }
 
 
-    public void newCollide(Pane root, Shape ball) throws IOException {
+    public void newCollide(Obstacles root, Shape ball) throws IOException {
 
 
-        List<Node> firstChildren = root.getChildren();
+        List<Node> firstChildren = root.returnPane().getChildren();
         if (firstChildren.get(0) instanceof Pane || firstChildren.get(0) instanceof Group) {
             for (Node i : firstChildren) {
                 if (i instanceof Pane || i instanceof Group) {
@@ -308,12 +345,48 @@ public class MainPageController {
                                 if (!color.toString().equals(ball.getFill().toString())) {
 
                                     System.out.println("diff colour");
-                                    gameOver bye = new gameOver(this.e.getScore());
-                                    Main.root1.getChildren().setAll(bye.root);
+//                                    Continue fit=new Continue();
+//                                    Main.root1.
                                     ddd.stop();
-//                                    System.exit(0);
+//                    ArrayList<Pane> obstacles,ArrayList<Pane> switchers,ConCircle a,ColorSwitcher j,balljump b,Score e
+                                    ArrayList<obstacleData> obs=new ArrayList<>();
+                                    ArrayList<Double> swi=new ArrayList<>();
+                                    ArrayList<String>  obsID=new ArrayList<>();
+                                    ArrayList<Boolean> swiused=new ArrayList<>();
+                                    for(Obstacles ij:obstacles){
+                                        obs.add( new obstacleData(ij.starUsed,ij.returnPane().getTranslateY(),ij.returnPane().getId()));
+                                    }
+                                    for(ColorSwitcher ij:switches){
+                                        swi.add(ij.returnPane().getTranslateY());
+                                        swiused.add(ij.isUsed());
+                                    }
+                                    currentGame=new GameData(obs,swiused,swi, (int) b.getBallPos(),e.getScore(),ball.getFill().toString());
+                                    GameSaver dodo=new GameSaver(games);
+                                    dodo.deserializeArrayList();
+                                    dodo.namesList.add(currentGame);
+                                    dodo.serializeArrayList();
 
-//                                    System.exit(0);
+//                                    resumeGame=true;
+//                                            c.pause();
+                                    System.out.println("sfghggfdsgdhgfdhgfdhddfg");
+
+
+                                    Continues asd=new Continues();
+                                    Main.root1.getChildren().setAll(asd.root);
+                                    PauseTransition wait = new PauseTransition(Duration.seconds(3));
+                                    wait.setOnFinished((e) -> {
+                                        System.out.println("hello sfkdsfnkdf");
+                                        if(!resumeGame) {
+                                            gameOver bye = null;
+                                            try {
+                                                bye = new gameOver(this.e.getScore());
+                                            } catch (IOException ex) {
+                                                ex.printStackTrace();
+                                            }
+                                            Main.root1.getChildren().setAll(bye.root);
+                                        }
+                                    });
+                                    wait.play();
 
                                 }
                             }
@@ -327,10 +400,47 @@ public class MainPageController {
                                     if (!color.toString().equals(ball.getFill().toString())) {
 
                                     System.out.println("diff colour");
-                                    gameOver bye = new gameOver(this.e.getScore());
-                                    Main.root1.getChildren().setAll(bye.root);
-                                    ddd.stop();
-                                        System.exit(0);
+                                        ddd.stop();
+//                    ArrayList<Pane> obstacles,ArrayList<Pane> switchers,ConCircle a,ColorSwitcher j,balljump b,Score e
+                                        ArrayList<obstacleData> obs=new ArrayList<>();
+                                        ArrayList<Double> swi=new ArrayList<>();
+                                        ArrayList<String>  obsID=new ArrayList<>();
+                                        ArrayList<Boolean> swiused=new ArrayList<>();
+                                        for(Obstacles ij:obstacles){
+                                            obs.add( new obstacleData(ij.starUsed,ij.returnPane().getTranslateY(),ij.returnPane().getId()));
+                                        }
+                                        for(ColorSwitcher ij:switches){
+                                            swi.add(ij.returnPane().getTranslateY());
+                                            swiused.add(ij.isUsed());
+                                        }
+                                        currentGame=new GameData(obs,swiused,swi, (int) b.getBallPos(),e.getScore(),ball.getFill().toString());
+                                        GameSaver dodo=new GameSaver(games);
+                                        dodo.deserializeArrayList();
+                                        dodo.namesList.add(currentGame);
+                                        dodo.serializeArrayList();
+
+//                                        resumeGame=true;
+//                                            c.pause();
+                                        System.out.println("sfghggfdsgdhgfdhgfdhddfg");
+
+
+                                        Continues asd=new Continues();
+                                        Main.root1.getChildren().setAll(asd.root);
+                                        PauseTransition wait = new PauseTransition(Duration.seconds(5));
+                                        wait.setOnFinished((e) -> {
+                                            System.out.println("hello sfkdsfnkdf");
+                                            if(!resumeGame) {
+                                                gameOver bye = null;
+                                                try {
+                                                    bye = new gameOver(this.e.getScore());
+                                                } catch (IOException ex) {
+                                                    ex.printStackTrace();
+                                                }
+                                                Main.root1.getChildren().setAll(bye.root);
+                                            }
+                                        });
+                                        wait.play();
+//                                        System.exit(0);
 
 
                                     }
@@ -347,6 +457,7 @@ public class MainPageController {
                     if(!Shape.intersect((Shape)i, ball).getBoundsInLocal().isEmpty()){
                         if(!((SVGPath) i).getFill().equals(Color.TRANSPARENT)){
                             ((SVGPath) i).setFill(Color.TRANSPARENT);
+                            root.starUsed=true;
                             this.e.setScore(this.e.getScore()+1);
                             this.e.updateScore();
                         }
@@ -406,6 +517,7 @@ public class MainPageController {
                 ((Shape) smallswitch.get(1)).setStroke(Color.TRANSPARENT);
                 ((Shape) smallswitch.get(2)).setStroke(Color.TRANSPARENT);
                 ((Shape) smallswitch.get(3)).setStroke(Color.TRANSPARENT);
+
 
 
 

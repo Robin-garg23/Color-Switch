@@ -15,6 +15,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Arc;
+import javafx.scene.shape.SVGPath;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -44,6 +45,11 @@ public class circle extends Obstacles{
         rotateTransition.setAutoReverse(false);
         rotateTransition.play();
 
+    }
+    void transparentStar()
+    {
+        List<Node> firstChildren = root.getChildren();
+        ((SVGPath)firstChildren.get(firstChildren.size()-1)).setFill(Color.TRANSPARENT);
     }
     @Override
     Pane returnPane()
