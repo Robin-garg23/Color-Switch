@@ -11,9 +11,10 @@ import java.io.IOException;
 
 public class gameOverController {
 
+
     @FXML
     public void restart(MouseEvent event) throws IOException {
-        System.out.println("Restarting");
+//        System.out.println("Restarting");
         Media media=new Media(new File("@../../assets/sounds/buttonClick.wav").toURI().toString());
         MediaPlayer mediaPlayer=new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
@@ -25,7 +26,7 @@ public class gameOverController {
 
     @FXML
     public void home( MouseEvent event) throws IOException {
-        System.out.println("going to home");
+//        System.out.println("going to home");
         Media media=new Media(new File("@../../assets/sounds/buttonClick.wav").toURI().toString());
         MediaPlayer mediaPlayer=new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
@@ -37,7 +38,7 @@ public class gameOverController {
     @FXML
     public void Continue( MouseEvent event){
 
-        System.out.println("continuing using stars");
+//        System.out.println("continuing using stars");
     }
 
 

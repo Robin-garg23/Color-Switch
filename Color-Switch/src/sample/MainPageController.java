@@ -91,7 +91,7 @@ public class MainPageController {
                 switches.add(jj);
             }
 
-            System.out.println("playing");
+//            System.out.println("playing");
 //            a = new ConCircle();
 //        circle op=new circle();
 //            j = new ColorSwitcher();
@@ -112,7 +112,7 @@ public class MainPageController {
             switches = new ArrayList<>();
 
 
-            System.out.println("playing");
+//            System.out.println("playing");
             ConCircle a = new ConCircle();
             firstObs=a;
             a.playCon();
@@ -166,7 +166,7 @@ public class MainPageController {
                        Obstacles gg=randObstacle();
                        ColorSwitcher jj=new ColorSwitcher();
                        double hola=obstacles.get(obstacles.size()-1).returnPane().getTranslateY()-400;
-                       System.out.println(hola);
+//                       System.out.println(hola);
                        gg.returnPane().setTranslateY(hola);
                        jj.returnPane().setTranslateY(switches.get(switches.size()-1).returnPane().getTranslateY()-400);
 //                       gg.playCon();
@@ -238,7 +238,6 @@ public class MainPageController {
 //            }
 //        }
 
-
 //        StackPane pane= FXMLLoader.load(getClass().getResource("/sample/concircle.fxml"));
 
 
@@ -271,7 +270,7 @@ public class MainPageController {
 
                     resumeGame=true;
                     c.pause();
-                    System.out.println("sfghggfdsgdhgfdhgfdhddfg");
+//                    System.out.println("sfghggfdsgdhgfdhgfdhddfg");
 
 
                 } catch (IOException ex) {
@@ -309,7 +308,7 @@ public class MainPageController {
 
     @FXML
     public void savedGames(MouseEvent event) throws IOException {
-        System.out.println("saved games");
+//        System.out.println("saved games");
         Media media=new Media(new File("@../../assets/sounds/buttonClick.wav").toURI().toString());
         MediaPlayer mediaPlayer=new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
@@ -320,7 +319,7 @@ public class MainPageController {
 
     @FXML
     public void exit(MouseEvent event){
-        System.out.println("exiting");
+//        System.out.println("exiting");
         Media media=new Media(new File("@../../assets/sounds/buttonClick.wav").toURI().toString());
         MediaPlayer mediaPlayer=new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
@@ -328,7 +327,7 @@ public class MainPageController {
     }
     @FXML
     public void help(MouseEvent event){
-        System.out.println("Made by Utkarsh");
+//        System.out.println("Made by Utkarsh");
         Media media=new Media(new File("@../../assets/sounds/buttonClick.wav").toURI().toString());
         MediaPlayer mediaPlayer=new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
@@ -368,7 +367,7 @@ public class MainPageController {
                                     MediaPlayer mediaPlayer=new MediaPlayer(media);
                                     mediaPlayer.setAutoPlay(true);
 
-                                    System.out.println("diff colour");
+//                                    System.out.println("diff colour");
 //                                    Continue fit=new Continue();
 //                                    Main.root1.
                                     ddd.stop();
@@ -392,14 +391,14 @@ public class MainPageController {
 
 //                                    resumeGame=true;
 //                                            c.pause();
-                                    System.out.println("sfghggfdsgdhgfdhgfdhddfg");
+//                                    System.out.println("sfghggfdsgdhgfdhgfdhddfg");
 
 
                                     Continues asd=new Continues();
                                     Main.root1.getChildren().setAll(asd.root);
                                     PauseTransition wait = new PauseTransition(Duration.seconds(3));
                                     wait.setOnFinished((e) -> {
-                                        System.out.println("hello sfkdsfnkdf");
+//                                        System.out.println("hello sfkdsfnkdf");
                                         if(!resumeGame) {
                                             gameOver bye = null;
                                             try {
@@ -425,7 +424,7 @@ public class MainPageController {
                                     Media media=new Media(new File("@../../assets/sounds/gameOver.wav").toURI().toString());
                                     MediaPlayer mediaPlayer=new MediaPlayer(media);
                                     mediaPlayer.setAutoPlay(true);
-                                    System.out.println("diff colour");
+//                                    System.out.println("diff colour");
 
                                         ddd.stop();
 //                    ArrayList<Pane> obstacles,ArrayList<Pane> switchers,ConCircle a,ColorSwitcher j,balljump b,Score e
@@ -448,14 +447,14 @@ public class MainPageController {
 
 //                                        resumeGame=true;
 //                                            c.pause();
-                                        System.out.println("sfghggfdsgdhgfdhgfdhddfg");
+//                                        System.out.println("sfghggfdsgdhgfdhgfdhddfg");
 
 
                                         Continues asd=new Continues();
                                         Main.root1.getChildren().setAll(asd.root);
                                         PauseTransition wait = new PauseTransition(Duration.seconds(5));
                                         wait.setOnFinished((e) -> {
-                                            System.out.println("hello sfkdsfnkdf");
+//                                            System.out.println("hello sfkdsfnkdf");
                                             if(!resumeGame) {
                                                 gameOver bye = null;
                                                 try {
@@ -496,7 +495,7 @@ public class MainPageController {
                 }
             }
         } else {
-            System.out.println("bruh");
+//            System.out.println("bruh");
             Pane top=(Pane)firstChildren.get(0);
             List<Node> shapes=top.getChildren();
             for (Node j : shapes) {

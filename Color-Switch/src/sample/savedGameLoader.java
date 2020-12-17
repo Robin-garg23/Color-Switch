@@ -10,7 +10,7 @@ public class savedGameLoader {
 
     public void home(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
 
-        System.out.println("going to home");
+//        System.out.println("going to home");
         Media media=new Media(new File("@../../assets/sounds/buttonClick.wav").toURI().toString());
         MediaPlayer mediaPlayer=new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);

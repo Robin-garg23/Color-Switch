@@ -17,7 +17,7 @@ public class continueController {
         dodo.namesList.get(dodo.namesList.size()-1).ballY+=30;
         bsdk.currentGame=dodo.namesList.get(dodo.namesList.size()-1);
         for(GameData s:dodo.namesList)
-            System.out.println(s.ballY);
+//            System.out.println(s.ballY);
         bsdk.resumeGame=true;
         bsdk.play(null);
 

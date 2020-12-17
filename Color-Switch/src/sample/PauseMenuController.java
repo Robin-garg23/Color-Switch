@@ -17,7 +17,7 @@ public class PauseMenuController {
         Media media=new Media(new File("@../../assets/sounds/buttonClick.wav").toURI().toString());
         MediaPlayer mediaPlayer=new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
-        System.out.println("resuming");
+//        System.out.println("resuming");
 //        mainPage a=new mainPage();
 //        a.initiateTransitions();
 //        Main.root1.getChildren().setAll(a.root);
@@ -41,7 +41,7 @@ public class PauseMenuController {
         Media media=new Media(new File("@../../assets/sounds/buttonClick.wav").toURI().toString());
         MediaPlayer mediaPlayer=new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
-        System.out.println("saving game");
+//        System.out.println("saving game");
 
 
     }
@@ -51,7 +51,7 @@ public class PauseMenuController {
         Media media=new Media(new File("@../../assets/sounds/buttonClick.wav").toURI().toString());
         MediaPlayer mediaPlayer=new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
-        System.out.println("going to home");
+//        System.out.println("going to home");
         mainPage a=new mainPage();
         a.initiateTransitions();
         Main.root1.getChildren().setAll(a.root);

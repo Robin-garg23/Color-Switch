@@ -26,7 +26,7 @@ public class HighStarSaver {
             oos.close();
             fos.close();
 
-            System.out.println("namesList serialized");
+//            System.out.println("namesList serialized");
         }
         catch (IOException ioe) {
             highStar=new ArrayList<>();
@@ -46,7 +46,7 @@ public class HighStarSaver {
             in.close();
             file.close();
 
-            System.out.println("Object has been deserialized ");
+//            System.out.println("Object has been deserialized ");
         }
 
         catch(IOException ex)

@@ -23,7 +23,7 @@ public class GameSaver {
                 oos.close();
                 fos.close();
 
-                System.out.println("namesList serialized");
+//                System.out.println("namesList serialized");
             }
             catch (IOException ioe) {
                 ioe.printStackTrace();
@@ -42,7 +42,7 @@ public class GameSaver {
             in.close();
             file.close();
 
-            System.out.println("Object has been deserialized ");
+//            System.out.println("Object has been deserialized ");
 
         }
 

@@ -73,7 +73,7 @@ public class balljump {
                 translateTransition1.setNode(aa.get(0));
 //                translateTransition.setRate(translateTransition.getRate()+0.5);
 
-            System.out.println(root.getTranslateY()+aa.get(0).getTranslateY());
+//            System.out.println(root.getTranslateY()+aa.get(0).getTranslateY());
 
             gg=root.getTranslateY()+aa.get(0).getTranslateY();
 //            if(gg>600)
@@ -83,14 +83,14 @@ public class balljump {
 ////                pane1.getChildren().add(bye.root);
 ////                Main.root1.getChildren().setAll(pane1);
 //            }
-            System.out.println();
+//            System.out.println();
 
                 translateTransition1.setByY(-100);
                 translateTransition1.setCycleCount(1);
                 translateTransition1.setAutoReverse(false);
                 translateTransition1.play();
-            System.out.println(root.getTranslateY()+aa.get(0).getTranslateY());
-                System.out.println("mouse click detected! " );
+//            System.out.println(root.getTranslateY()+aa.get(0).getTranslateY());
+//                System.out.println("mouse click detected! " );
         });
 
 
@@ -122,26 +122,26 @@ public class balljump {
         List<Node> ballchild = this.root.getChildren();
         Circle ball = (Circle) ballchild.get(0);
         Paint ballColor = ball.getFill();
-        System.out.println(ballColor.toString());
+//        System.out.println(ballColor.toString());
 
         double angle = root.getRotate();
         if (0 <= angle && angle < 90) {
-            System.out.println("Purple");
+//            System.out.println("Purple");
             if (ballColor.toString().equals("0x900dffff") && this.root.getTranslateY() + ballchild.get(0).getTranslateY() >= 95 && this.root.getTranslateY() + ballchild.get(0).getTranslateY() <= 105) {
-                System.out.println("Nice pass");
+//                System.out.println("Nice pass");
             }
 
 
         } else if (90 <= angle && angle < 180) {
-            System.out.println("pink");
+//            System.out.println("pink");
         } else if (180 <= angle && angle < 270) {
-            System.out.println("yellow");
+//            System.out.println("yellow");
         } else {
-            System.out.println("light blue");
+//            System.out.println("light blue");
         }
-        System.out.println(root.getTranslateY());
-        System.out.println(root.getRotate());
-        System.out.println(x1 + " " + x2 + " " + x3 + " " + x4 + " " + y1 + " " + y2 + " " + y3 + " " + y4);
+//        System.out.println(root.getTranslateY());
+//        System.out.println(root.getRotate());
+//        System.out.println(x1 + " " + x2 + " " + x3 + " " + x4 + " " + y1 + " " + y2 + " " + y3 + " " + y4);
 
     }
     public double getBallPos()
