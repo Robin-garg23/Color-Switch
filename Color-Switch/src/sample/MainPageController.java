@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -104,6 +105,7 @@ public class MainPageController {
             e.setScore(currentGame.score);
             ball=(Circle)b.root.getChildren().get(0);
             ball.setFill(Color.web(currentGame.ballColor));
+            ball.setStroke(Color.web(currentGame.ballColor));
 //            obstacles.add(a.circu());
         }
         if(!resumeGame){
@@ -264,10 +266,9 @@ public class MainPageController {
                         swiused.add(i.isUsed());
                     }
                     currentGame=new GameData(obs,swiused,swi, (int) b.getBallPos(),e.getScore(),ball.getFill().toString());
-                    GameSaver dodo=new GameSaver(games);
-                    dodo.deserializeArrayList();
-                    dodo.namesList.add(currentGame);
-                    dodo.serializeArrayList();
+                    Main.database.deserializeArrayList();
+                    Main.database.namesList.add(currentGame);
+                    Main.database.serializeArrayList();
 
                     resumeGame=true;
                     c.pause();
@@ -332,6 +333,12 @@ public class MainPageController {
         Media media=new Media(new File("@../../assets/sounds/buttonClick.wav").toURI().toString());
         MediaPlayer mediaPlayer=new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
+        Alert errorAlert = new Alert(Alert.AlertType.INFORMATION);
+        errorAlert.setHeaderText("Help");
+        errorAlert.setContentText("");
+
+//            errorAlert.showAndWait(5000);
+        errorAlert.showAndWait();
 
     }
 
@@ -385,22 +392,17 @@ public class MainPageController {
                                         swiused.add(ij.isUsed());
                                     }
                                     currentGame=new GameData(obs,swiused,swi, (int) b.getBallPos(),e.getScore(),ball.getFill().toString());
-                                    GameSaver dodo=new GameSaver(games);
-                                    dodo.deserializeArrayList();
-                                    dodo.namesList.add(currentGame);
-                                    dodo.serializeArrayList();
+                                    Main.database.deserializeArrayList();
+                                    Main.database.namesList.add(currentGame);
+                                    Main.database.serializeArrayList();
 
 //                                    resumeGame=true;
 //                                            c.pause();
                                     System.out.println("sfghggfdsgdhgfdhgfdhddfg");
 
 
-                                    Continues asd=new Continues();
-                                    Main.root1.getChildren().setAll(asd.root);
-                                    PauseTransition wait = new PauseTransition(Duration.seconds(3));
-                                    wait.setOnFinished((e) -> {
-                                        System.out.println("hello sfkdsfnkdf");
-                                        if(!resumeGame) {
+//                                    Continues asd=new Continues();
+//                                    Main.root1.getChildren().setAll(asd.root);
                                             gameOver bye = null;
                                             try {
                                                 bye = new gameOver(this.e.getScore());
@@ -408,9 +410,7 @@ public class MainPageController {
                                                 ex.printStackTrace();
                                             }
                                             Main.root1.getChildren().setAll(bye.root);
-                                        }
-                                    });
-                                    wait.play();
+
 
                                 }
                             }
@@ -441,22 +441,15 @@ public class MainPageController {
                                             swiused.add(ij.isUsed());
                                         }
                                         currentGame=new GameData(obs,swiused,swi, (int) b.getBallPos(),e.getScore(),ball.getFill().toString());
-                                        GameSaver dodo=new GameSaver(games);
-                                        dodo.deserializeArrayList();
-                                        dodo.namesList.add(currentGame);
-                                        dodo.serializeArrayList();
+
+                                        Main.database.deserializeArrayList();
+                                        Main.database.namesList.add(currentGame);
+                                        Main.database.serializeArrayList();
 
 //                                        resumeGame=true;
 //                                            c.pause();
                                         System.out.println("sfghggfdsgdhgfdhgfdhddfg");
-
-
-                                        Continues asd=new Continues();
-                                        Main.root1.getChildren().setAll(asd.root);
-                                        PauseTransition wait = new PauseTransition(Duration.seconds(5));
-                                        wait.setOnFinished((e) -> {
-                                            System.out.println("hello sfkdsfnkdf");
-                                            if(!resumeGame) {
+//                                            System.out.println("hello sfkdsfnkdf");
                                                 gameOver bye = null;
                                                 try {
                                                     bye = new gameOver(this.e.getScore());
@@ -464,9 +457,8 @@ public class MainPageController {
                                                     ex.printStackTrace();
                                                 }
                                                 Main.root1.getChildren().setAll(bye.root);
-                                            }
-                                        });
-                                        wait.play();
+                                            
+//                                        wait.play();
 //                                        System.exit(0);
 
 
