@@ -364,8 +364,13 @@ public class MainPageController {
             if (!Shape.intersect(one, ball).getBoundsInLocal().isEmpty()) {
                 switcher.useIt();
                 Random rand = new Random();
+
+                String[] colors={"0xfae100ff","0xff0181ff","0x32dbf0ff","0x900dffff"};
+                System.out.println(ball.getFill().toString());
                 int color=rand.nextInt(4);
-                String[] colors={"#fae100","#ff0181","#32dbf0","#900dff"};
+                while(ball.getFill().toString().equals(colors[color])){
+                    color=rand.nextInt(4);
+                }
                 ball.setFill(Color.web(colors[color]));
                 ball.setStroke(Color.web(colors[color]));
                 ((Shape) smallswitch.get(0)).setFill(Color.TRANSPARENT);
