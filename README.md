@@ -1,3 +1,3 @@
 # Color-Switch
 
-<b> Deadline 1 done</b>
+<b> Project done</b>
